@@ -26,21 +26,15 @@ author:
   name             : "Yuval Shmilovitz"
   pronouns         : # example: "she/her"  
   bio              : "I am an Earth Scientist interested in understanding how landscapes evolve over a range of spatial and temporal scales" 
-  location         : "Earth"
-  employer         : "Red Brick University"
+  location         : "Boulder, Colorado"
+  employer         : "University of Colorado Boulder, CIRES"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "yuval.shmilovitz@colorado.edu" 
 
   # Academic websites
-  academia         : # URL
-  arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
-  impactstory      : # URL
-  orcid            : "http://orcid.org/yourorcidurl"
-  semantic         : # URL
-  # pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  researchgate     : # URL
-  scopus           : # URL
+  googlescholar    : "https://scholar.google.com/citations?user=SgWAjSMAAAAJ&hl=en"
+  orcid            : "https://orcid.org/0000-0003-1608-6104"
+  researchgate     : "https://www.researchgate.net/profile/Yuval-Shmilovitz?ev=hdr_xprf"
 
   # Repositories and software development
   bitbucket        : # Username - Update with your username on the site
