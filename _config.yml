@@ -22,10 +22,10 @@ repository               : "academicpages/academicpages.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "ProfilePic.jpg"
   name             : "Yuval Shmilovitz"
   pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
+  bio              : "I am an Earth Scientist interested in understanding how landscapes evolve on a range of spatial and temporal scales". 
   location         : "Earth"
   employer         : "Red Brick University"
   uri              : # URL
