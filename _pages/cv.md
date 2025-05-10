@@ -10,4 +10,4 @@ redirect_from:
 {% include base_path %}
 
 ======
-My updated CV can be found here <a href="{% link '/files/CV_YuvalShmilovitz.pdf' %}">Download My Document</a>
+My updated CV can be found here
