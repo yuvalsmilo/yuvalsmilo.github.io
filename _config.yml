@@ -22,8 +22,8 @@ repository               : "academicpages/academicpages.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile2.png"
-  name             : "Yuval Shmilovitz"
+  avatar           : "images\profile.png"
+  name             : "Yuval Shmilovitz1"
   pronouns         : # example: "she/her"  
   bio              : "Earth Scientist interested in understanding how landscapes evolve over a range of spatial and temporal scales" 
   location         : "Boulder, Colorado"
