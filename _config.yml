@@ -23,7 +23,7 @@ repository               : "academicpages/academicpages.github.io"
 author:
   # Biographic information
   avatar           : "https://yuvalsmilo.github.io//images/profile.png" 
-  name             : "Yuval Shmilovitz1"
+  name             : "Yuval Shmilovitz"
   pronouns         : # example: "she/her"  
   bio              : "Earth Scientist interested in understanding how landscapes evolve over a range of spatial and temporal scales" 
   location         : "Boulder, Colorado"
