@@ -1,14 +1,8 @@
 ---
-title: "Paper Title Number 3"
+title: "Impacts of rainstorm intensity and temporal pattern on caprock cliff persistence and hillslope morphology in drylands"
 collection: publications
 category: manuscripts
-permalink: /publication/2015-10-01-paper-title-number-3
-excerpt: 'This paper is about the number 3. The number 4 is left for future work.'
-date: 2015-10-01
-venue: 'Journal 1'
-slidesurl: 'http://academicpages.github.io/files/slides3.pdf'
-paperurl: 'http://academicpages.github.io/files/paper3.pdf'
-citation: 'Your Name, You. (2015). &quot;Paper Title Number 3.&quot; <i>Journal 1</i>. 1(3).'
+date: 2024-02-04
+venue: 'Journal of Geophysical Research: Earth Surface'
+citation: 'Shmilovitz, Y., Tucker, G. E., Rossi, M. W., Morin, E., Armon, M., Pederson, J., ... & Enzel, Y. (2024). Impacts of rainstorm intensity and temporal pattern on caprock cliff persistence and hillslope morphology in drylands. Journal of Geophysical Research: Earth Surface, 129(2), e2023JF007478.'
 ---
-
-The contents above will be part of a list of publications, if the user clicks the link for the publication than the contents of section will be rendered as a full page, allowing you to provide more information about the paper for the reader. When publications are displayed as a single page, the contents of the above "citation" field will automatically be included below this section in a smaller font.
