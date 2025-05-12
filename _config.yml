@@ -15,7 +15,7 @@ name                     : &name "Yuval Shmilovitz"
 description              : &description "personal description"
 url                      : https://yuvalsmilo.github.io
 baseurl                  : ""
-repository               : "yuvalsmilo/yuvalsmilo.github.io"
+repository               : "academicpages/academicpages.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
