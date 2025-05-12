@@ -9,10 +9,10 @@
 
 main:
   - title: "Publications"
-    url: /_pages/publications.html  
-    
+    url: /publications/
+
   - title: "CV"
-    url: /_pages/cv.md
+    url: /cv/
     
   # - title: "CV"
   #   url: /cv-json/

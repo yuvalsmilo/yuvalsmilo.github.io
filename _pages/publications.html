@@ -8,15 +8,43 @@
   <meta name="CocoaVersion" content="2575.5">
   <style type="text/css">
     p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #6d6d6d; -webkit-text-stroke: #6d6d6d; min-height: 14.0px}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000; min-height: 14.0px}
     span.s1 {font-kerning: none}
   </style>
 </head>
 <body>
-<p class="p1"><span class="s1">--- layout: archive title: "Publications" permalink: /publications/ author_profile: true --- {% if site.author.googlescholar %}</span></p>
-<p class="p1"><span class="s1">{% endif %} {% include base_path %} {% if site.publication_category %} {% for category in site.publication_category %} {% assign title_shown = false %} {% for post in site.publications reversed %} {% if post.category != category[0] %} {% continue %} {% endif %} {% unless title_shown %}</span></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>{{ category[1].title }}</b></span></h2>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">{% assign title_shown = true %} {% endunless %} {% include archive-single.html %} {% endfor %} {% endfor %} {% else %} {% for post in site.publications reversed %} {% include archive-single.html %} {% endfor %} {% endif %}</span></p>
+<p class="p1"><span class="s1">---</span></p>
+<p class="p1"><span class="s1">layout: archive</span></p>
+<p class="p1"><span class="s1">title: "Publications"</span></p>
+<p class="p1"><span class="s1">permalink: /publications/</span></p>
+<p class="p1"><span class="s1">author_profile: true</span></p>
+<p class="p1"><span class="s1">---</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">{% if site.author.googlescholar %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="wordwrap"&gt;You can also find my articles on &lt;a href="{{site.author.googlescholar}}"&gt;my Google Scholar profile&lt;/a&gt;.&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">{% endif %}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">{% include base_path %}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;!-- New style rendering if publication categories are defined --&gt;</span></p>
+<p class="p1"><span class="s1">{% if site.publication_category %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>{% for category in site.publication_category<span class="Apple-converted-space">  </span>%}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{% assign title_shown = false %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{% for post in site.publications reversed %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{% if post.category != category[0] %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>{% continue %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{% endif %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{% unless title_shown %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h2&gt;{{ category[1].title }}&lt;/h2&gt;&lt;hr /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>{% assign title_shown = true %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{% endunless %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{% include archive-single.html %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{% endfor %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>{% endfor %}</span></p>
+<p class="p1"><span class="s1">{% else %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>{% for post in site.publications reversed %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{% include archive-single.html %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>{% endfor %}</span></p>
+<p class="p1"><span class="s1">{% endif %}</span></p>
 </body>
 </html>
