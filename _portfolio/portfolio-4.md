@@ -1,6 +1,6 @@
 ---
 title: "Cliff and hillslope surface processes under climatic variability"
-excerpt: "Landscape evolution of arid cliff-related systems
+excerpt: "Sediment production and transport under climatic variability and landscape evolution of arid cliff-related systems
 <br/><img src='/images/EastRamon.png'>"
 collection: portfolio
 ---
