@@ -9,7 +9,7 @@
 
 main:
 
-  - title: "Home"
+  - title: "Overview"
     url: /
       
   - title: "Active projects"
