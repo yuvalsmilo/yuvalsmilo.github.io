@@ -13,7 +13,7 @@ title                    : ""
 title_separator          : "-"
 name                     : &name "Yuval Shmilovitz"
 description              : &description "personal description"
-url                      : "https://yuvalsmilo.github.io"
+url                      : https://yuvalsmilo.github.io
 baseurl                  : ""
 repository               : "yuvalsmilo/yuvalsmilo.github.io"
 
