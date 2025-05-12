@@ -189,7 +189,7 @@ collections:
     permalink: /:collection/:path/
   publications:
     output: true
-    permalink: /:collection/:path/
+    permalink: https://github.com/yuvalsmilo/yuvalsmilo.github.io/_publications/
   portfolio:
     output: false
     permalink: /:collection/:path/
