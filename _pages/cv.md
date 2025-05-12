@@ -7,7 +7,5 @@ redirect_from:
   - /resume
 ---
 
-{% include base_path %}
-
 ======
 My updated CV can be found here
