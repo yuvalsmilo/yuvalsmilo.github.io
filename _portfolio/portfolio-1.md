@@ -2,7 +2,7 @@
 title: "Landscape evolution of ephemeral catchments"
 excerpt: "Quantifying soil erosion and landscape changes driven by weather variability 
 <br/><img src='/images/GulliesWeibullShape.png'>
-<br/><img src='/images/discharge_final.gif'>"
+<br/><img src='/images/discharge_final.gif' width='350' height='32'>"
 collection: portfolio
 ---
 
