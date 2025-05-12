@@ -1,13 +1,8 @@
 ---
-title: "Paper Title Number 4"
+title: "The impact of extreme rainstorms on escarpment morphology in arid areas: Insights from the central Negev Desert"
 collection: publications
-category: conferences
-permalink: /publication/2024-02-17-paper-title-number-4
-excerpt: 'This paper is about fixing template issue #693.'
-date: 2024-02-17
-venue: 'GitHub Journal of Bugs'
-paperurl: 'http://academicpages.github.io/files/paper3.pdf'
-citation: 'Your Name, You. (2024). &quot;Paper Title Number 3.&quot; <i>GitHub Journal of Bugs</i>. 1(3).'
+category: manuscripts
+date: 2023-09-22
+venue: 'Journal of Geophysical Research: Earth Surface'
+citation: 'Shmilovitz, Y., Marra, F., Enzel, Y., Morin, E., Armon, M., Matmon, A., ... & Haviv, I. (2023). The impact of extreme rainstorms on escarpment morphology in arid areas: Insights from the central Negev Desert. Journal of Geophysical Research: Earth Surface, 128(10), e2023JF007093.'
 ---
-
-The contents above will be part of a list of publications, if the user clicks the link for the publication than the contents of section will be rendered as a full page, allowing you to provide more information about the paper for the reader. When publications are displayed as a single page, the contents of the above "citation" field will automatically be included below this section in a smaller font.
