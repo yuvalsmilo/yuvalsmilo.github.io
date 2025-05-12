@@ -9,4 +9,4 @@ redirect_from:
 
 {% include base_path %}
 
-A link to my CV can be found here:
+A link to my CV can be found [here]({{ site.url }}/files/CV_YuvalShmilovitz.pdf)
