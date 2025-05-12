@@ -9,6 +9,9 @@
 
 main:
 
+  - title: "Home"
+    url: /
+      
   - title: "Active projects"
     url: /portfolio/
         
