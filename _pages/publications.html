@@ -1,50 +1,36 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.5">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-  </style>
-</head>
-<body>
-<p class="p1"><span class="s1"><b>---</b></span></p>
-<p class="p1"><span class="s1"><b>layout: archive</b></span></p>
-<p class="p1"><span class="s1"><b>title: "Publications"</b></span></p>
-<p class="p1"><span class="s1"><b>permalink: /publications/</b></span></p>
-<p class="p1"><span class="s1"><b>author_profile: true</b></span></p>
-<p class="p1"><span class="s1"><b>---</b></span></p>
-<p class="p2"><span class="s1"><b></b></span><br></p>
-<p class="p1"><span class="s1"><b>{% if site.author.googlescholar %}</b></span></p>
-<p class="p1"><span class="s1"><b><span class="Apple-converted-space">  </span>&lt;div class="wordwrap"&gt;You can also find my articles on &lt;a href="{{site.author.googlescholar}}"&gt;my Google Scholar profile&lt;/a&gt;.&lt;/div&gt;</b></span></p>
-<p class="p1"><span class="s1"><b>{% endif %}</b></span></p>
-<p class="p2"><span class="s1"><b></b></span><br></p>
-<p class="p1"><span class="s1"><b>{% include base_path %}</b></span></p>
-<p class="p2"><span class="s1"><b></b></span><br></p>
-<p class="p1"><span class="s1"><b>&lt;!-- New style rendering if publication categories are defined --&gt;</b></span></p>
-<p class="p1"><span class="s1"><b>{% if site.publication_category %}</b></span></p>
-<p class="p1"><span class="s1"><b><span class="Apple-converted-space">  </span>{% for category in site.publication_category<span class="Apple-converted-space">  </span>%}</b></span></p>
-<p class="p1"><span class="s1"><b><span class="Apple-converted-space">    </span>{% assign title_shown = false %}</b></span></p>
-<p class="p1"><span class="s1"><b><span class="Apple-converted-space">    </span>{% for post in site.publications reversed %}</b></span></p>
-<p class="p1"><span class="s1"><b><span class="Apple-converted-space">      </span>{% if post.category != category[0] %}</b></span></p>
-<p class="p1"><span class="s1"><b><span class="Apple-converted-space">        </span>{% continue %}</b></span></p>
-<p class="p1"><span class="s1"><b><span class="Apple-converted-space">      </span>{% endif %}</b></span></p>
-<p class="p1"><span class="s1"><b><span class="Apple-converted-space">      </span>{% unless title_shown %}</b></span></p>
-<p class="p1"><span class="s1"><b><span class="Apple-converted-space">        </span>&lt;h2&gt;{{ category[1].title }}&lt;/h2&gt;&lt;hr /&gt;</b></span></p>
-<p class="p1"><span class="s1"><b><span class="Apple-converted-space">        </span>{% assign title_shown = true %}</b></span></p>
-<p class="p1"><span class="s1"><b><span class="Apple-converted-space">      </span>{% endunless %}</b></span></p>
-<p class="p1"><span class="s1"><b><span class="Apple-converted-space">      </span>{% include archive-single.html %}</b></span></p>
-<p class="p1"><span class="s1"><b><span class="Apple-converted-space">    </span>{% endfor %}</b></span></p>
-<p class="p1"><span class="s1"><b><span class="Apple-converted-space">  </span>{% endfor %}</b></span></p>
-<p class="p1"><span class="s1"><b>{% else %}</b></span></p>
-<p class="p1"><span class="s1"><b><span class="Apple-converted-space">  </span>{% for post in site.publications reversed %}</b></span></p>
-<p class="p1"><span class="s1"><b><span class="Apple-converted-space">    </span>{% include archive-single.html %}</b></span></p>
-<p class="p1"><span class="s1"><b><span class="Apple-converted-space">  </span>{% endfor %}</b></span></p>
-<p class="p1"><span class="s1"><b>{% endif %}</b></span></p>
-</body>
-</html>
+---
+layout: archive
+title: "Publications"
+permalink: /publications/
+author_profile: true
+---
+
+{% if site.author.googlescholar %}
+  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+{% endif %}
+
+{% include base_path %}
+
+<!-- New style rendering if publication categories are defined -->
+{% if site.publication_category %}
+  {% for category in site.publication_category  %}
+    {% assign title_shown = false %}
+    {% for post in site.publications reversed %}
+      {% if post.category != category[0] %}
+        {% continue %}
+      {% endif %}
+      {% unless title_shown %}
+        <h2>{{ category[1].title }}</h2><hr />
+        {% assign title_shown = true %}
+      {% endunless %}
+      {% include archive-single.html %}
+    {% endfor %}
+  {% endfor %}
+{% else %}
+  {% for post in site.publications reversed %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endif %}
+
+
+
