@@ -1,6 +1,6 @@
 ---
 title: "Flash flood risks and hydrometeorological extremes"
-excerpt: ""
+excerpt: "<br/><img src='/images/StormDaniel_sims.png'>"
 collection: portfolio
 ---
 
