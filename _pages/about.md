@@ -1,6 +1,8 @@
 ---
 permalink: /
 title: "<img src='/images/ColoradoRainfall.jpg'>
+ 
+ 
 Overview"
 author_profile: true
 redirect_from: 
