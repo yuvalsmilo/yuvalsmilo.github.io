@@ -1,7 +1,7 @@
 ---
 title: "Micro-climate impacts on arid hillslope surface processes"
 excerpt: "Aspect-dependent weathering and cliff retreat
-<br/><img src='/images/TamrurAspect.tif'>"
+<br/><img src='/images/TamrurAspect.jpg'>"
 collection: portfolio
 ---
 
