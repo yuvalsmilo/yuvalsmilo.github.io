@@ -52,7 +52,10 @@ redirect_from:
     background: transparent !important;
     border-bottom: none !important;
     box-shadow: none !important;
-    margin-left: 300px !important; /* avoid overlapping the sidebar */
+    width: 100% !important;
+    margin-left: 0 !important;
+    position: relative !important;
+    z-index: 30 !important; /* above the sidebar (z-index 20) */
   }
 
   .masthead__inner-wrap,
@@ -60,6 +63,8 @@ redirect_from:
     background: transparent !important;
     display: flex !important;
     justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   .greedy-nav ul {
@@ -68,10 +73,10 @@ redirect_from:
 
   /* 5. Position the main content: left-aligned with space from sidebar, wider, higher up */
   .page__inner-wrap {
-    max-width: 1100px !important;     /* wider text box */
-    margin-left: 340px !important;    /* sidebar (300px) + 40px breathing space */
-    margin-right: 40px !important;    /* no longer centered */
-    margin-top: -40px !important;     /* shift upward */
+    max-width: 1300px !important;
+    margin-left: 320px !important;   /* sidebar (300px) + small 20px gap */
+    margin-right: 20px !important;
+    margin-top: -40px !important;
     background: transparent !important;
     box-shadow: none !important;
   }
@@ -92,6 +97,11 @@ redirect_from:
   #theme-toggle,
   .dark-mode-toggle,
   button[aria-label="Toggle dark mode"] {
+    display: none !important;
+  }
+  /* Remove the footer panel */
+  .page__footer,
+  footer {
     display: none !important;
   }
 </style>
