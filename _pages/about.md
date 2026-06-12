@@ -32,26 +32,38 @@ redirect_from:
   }
 
   /* 3. Force the Profile Sidebar to the absolute left edge and make it semi-transparent */
+  /* 3. Profile sidebar pinned to the top-left, semi-transparent */
   .sidebar {
-    background: rgba(255, 255, 255, 0.5) !important; /* semi-transparent white */
+    background: rgba(255, 255, 255, 0.5) !important;
     padding: 20px !important;
-    border-radius: 0 8px 8px 0 !important; /* Rounds only the right side corners */
+    border-radius: 0 0 8px 0 !important; /* round bottom-right corner now */
     box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05) !important;
-    position: fixed !important; /* stays pinned to left edge even when scrolling */
+    position: fixed !important;
     left: 0 !important;
-    top: 100px !important; /* Adjust this if it overlaps your header */
-    width: 300px !important; /* wider so text doesn't get cut off */
-    max-height: calc(100vh - 100px) !important;
-    overflow-y: auto !important; /* scroll within sidebar if content is tall */
-    z-index: 10 !important;
+    top: 0 !important; /* moved to very top */
+    width: 300px !important;
+    max-height: 100vh !important;
+    overflow-y: auto !important;
+    z-index: 20 !important;
   }
 
-  /* 4. Center the top navigation masthead and strip its background */
+  /* 4. Top navigation: transparent background, centered next to the sidebar */
   .masthead {
     background: transparent !important;
     border-bottom: none !important;
-    max-width: 800px !important;
-    margin: 0 auto !important; /* Centers it perfectly */
+    box-shadow: none !important;
+    margin-left: 300px !important; /* avoid overlapping the sidebar */
+  }
+
+  .masthead__inner-wrap,
+  .greedy-nav {
+    background: transparent !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .greedy-nav ul {
+    justify-content: center !important;
   }
 
   /* 5. Center the Overview content, accounting for the fixed sidebar */
