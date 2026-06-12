@@ -61,8 +61,8 @@ redirect_from:
   .page__inner-wrap {
     width: calc(100% - 320px) !important;
     max-width: none !important;
-    margin-left: 310px !important;
-    margin-right: 10px !important;
+    margin-left: 50px !important;
+    margin-right: 50px !important;
     margin-top: 0 !important;
     background: transparent !important;
     box-shadow: none !important;
