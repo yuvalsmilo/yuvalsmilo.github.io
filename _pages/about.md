@@ -57,7 +57,7 @@ redirect_from:
 
   /* 5. Main content: closer to sidebar, wider */
   .page__inner-wrap {
-    width: calc(100% - 200px) !important;
+    width: calc(100% - 100px) !important;
     max-width: none !important;
     margin-left: 100px !important;
     margin-right: 0px !important;
