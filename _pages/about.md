@@ -8,15 +8,18 @@ redirect_from:
 ---
 <style>
   /* 1. Background image */
-  body {
+/* 1. Background image - apply to html as well to cover the very top edge */
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100% !important;
     background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), url('/images/ColoradoRainfall.jpg') !important;
     background-size: cover !important;
-    background-position: center center !important;
+    background-position: center top !important;
     background-repeat: no-repeat !important;
     background-attachment: fixed !important;
     background-color: transparent !important;
     overflow-x: hidden !important;
-    padding-top: 0 !important;
   }
 
   /* 2. Strip standard theme backgrounds and parent layout padding */
