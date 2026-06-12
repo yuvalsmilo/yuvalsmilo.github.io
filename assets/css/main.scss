@@ -41,38 +41,47 @@
     "vendor/font-awesome/brands",
     "vendor/magnific-popup/magnific-popup"
 ;
+
+
 /* Keep everything that was already in your file above this line */
 
 /* ==========================================================================
-   Custom Fullscreen Background Overrides
+   Custom Fullscreen Background Overrides (Fixed Fallback)
    ========================================================================== */
 
-/* Targets the main <body> tag on the overview page */
-body.fullscreen-bg-page {
+/* 1. This matches the <div> tag you placed on your overview page */
+.fullscreen-bg-page-fallback {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Pushes the image behind everything */
   background-image: linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.82)), url('/images/ColoradoRainfall.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  min-height: 100vh;
 }
 
-/* Removes the theme's default background wrapper color on this page only */
-.fullscreen-bg-page #wrapper {
+/* 2. Strips the theme's default backgrounds ONLY when the fallback div exists */
+html:has(.fullscreen-bg-page-fallback),
+html:has(.fullscreen-bg-page-fallback) body,
+html:has(.fullscreen-bg-page-fallback) #wrapper,
+html:has(.fullscreen-bg-page-fallback) .main {
   background: transparent !important;
 }
 
-/* Style the content container and the sidebar to float beautifully over the image */
-.fullscreen-bg-page .page,
-.fullscreen-bg-page .sidebar {
-  background: rgba(255, 255, 255, 0.94) !important; 
+/* 3. Styles your content container and sidebar to float beautifully over the image */
+html:has(.fullscreen-bg-page-fallback) .page,
+html:has(.fullscreen-bg-page-fallback) .sidebar {
+  background: rgba(255, 255, 255, 0.95) !important; 
   padding: 25px !important;
-  border-radius: 6px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
 }
 
-/* Ensures layout spacing looks clean with the new padding */
-.fullscreen-bg-page .page {
+/* Ensures layout spacing looks clean */
+html:has(.fullscreen-bg-page-fallback) .page {
   margin-top: 20px;
 }
