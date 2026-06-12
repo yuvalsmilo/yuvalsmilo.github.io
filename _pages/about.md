@@ -33,14 +33,17 @@ redirect_from:
 
   /* 3. Force the Profile Sidebar to the absolute left edge and make it semi-transparent */
   .sidebar {
-    background: rgba(255, 255, 255, 0.88) !important; /* Slightly transparent white */
+    background: rgba(255, 255, 255, 0.5) !important; /* semi-transparent white */
     padding: 20px !important;
     border-radius: 0 8px 8px 0 !important; /* Rounds only the right side corners */
     box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05) !important;
-    position: absolute !important;
+    position: fixed !important; /* stays pinned to left edge even when scrolling */
     left: 0 !important;
     top: 100px !important; /* Adjust this if it overlaps your header */
-    width: 260px !important; /* Keeps your profile column a consistent width */
+    width: 300px !important; /* wider so text doesn't get cut off */
+    max-height: calc(100vh - 100px) !important;
+    overflow-y: auto !important; /* scroll within sidebar if content is tall */
+    z-index: 10 !important;
   }
 
   /* 4. Center the top navigation masthead and strip its background */
@@ -51,24 +54,25 @@ redirect_from:
     margin: 0 auto !important; /* Centers it perfectly */
   }
 
-  /* 5. Center the Overview Title and text content, removing all card backgrounds */
+  /* 5. Center the Overview content, accounting for the fixed sidebar */
   .page__inner-wrap {
     max-width: 750px !important;
-    margin-left: auto !important;
-    margin-right: auto !important; /* Centers the content block horizontally */
+    margin-left: 320px !important; /* sidebar width (300px) + breathing room */
+    margin-right: auto !important;
     background: transparent !important;
     box-shadow: none !important;
   }
 
-  /* Remove backgrounds from the overview title and bio text boxes entirely */
+  /* Give the overview title and bio text boxes a semi-transparent card background */
   .overview-content-card,
   .page__content, 
   article,
   .page__title {
-    background: transparent !important; 
+    background: rgba(255, 255, 255, 0.5) !important; /* semi-transparent white card */
+    border-radius: 8px !important;
     box-shadow: none !important;
-    padding: 10px 0 !important;
-    color: #111 !important; /* Ensures crisp text contrast directly against the image */
+    padding: 20px !important;
+    color: #111 !important; /* keeps text crisp and readable */
   }
 </style>
 
