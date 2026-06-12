@@ -47,54 +47,18 @@ redirect_from:
     z-index: 20 !important;
   }
 
-  /* 4. Top navigation: all links in one row, centered, no background, no collapse */
+  /* 4. Remove the top navigation menu entirely */
   .masthead {
-    background: transparent !important;
-    border-bottom: none !important;
-    box-shadow: none !important;
-    width: 100% !important;
-    margin-left: 0 !important;
-    position: relative !important;
-    z-index: 30 !important;
-  }
-
-  .masthead__inner-wrap {
-    background: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-    display: flex !important;
-    justify-content: center !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .greedy-nav {
-    background: transparent !important;
-    display: flex !important;
-    justify-content: center !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .greedy-nav .visible-links {
-    display: flex !important;
-    justify-content: center !important;
-    flex-wrap: nowrap !important;
-    width: auto !important;
-  }
-
-  .greedy-nav button.greedy-nav__toggle,
-  .greedy-nav .hidden-links {
     display: none !important;
   }
 
-  /* 5. Main content: left-aligned near sidebar, fits within viewport, shifted up */
+  /* 5. Main content: left-aligned near sidebar, fits within viewport */
   .page__inner-wrap {
     width: calc(100% - 360px) !important;
     max-width: none !important;
     margin-left: 320px !important;
     margin-right: 40px !important;
-    margin-top: -40px !important;
+    margin-top: 20px !important;
     background: transparent !important;
     box-shadow: none !important;
     box-sizing: border-box !important;
@@ -124,8 +88,31 @@ redirect_from:
   footer {
     display: none !important;
   }
+
+  /* 9. Simple bottom navigation links */
+  .bottom-nav {
+    margin-top: 30px !important;
+    padding-top: 15px !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+    text-align: center !important;
+    font-size: 1.1em !important;
+  }
+
+  .bottom-nav a {
+    color: #111 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+  }
+
+  .bottom-nav a:hover {
+    text-decoration: underline !important;
+  }
 </style>
 
 My research fields lie at the intersection of computational geomorphology, ecohydrology, hydrometeorology and natural hazards. I integrate numerical modeling of sediment dynamics and landscape evolution, field observations/measurements and quantitative analysis of topography. I'm especially interested in implementing high resolution hydroclimate realisms and detailed description of surface properties into landscape evolution modeling to solve scientific questions across time scales.
 
 Currently, I am a postdoctoral researcher at INSTAAR and part of [CLaSH](https://www.geoclash.org/), focusing on post-fire sediment transport and hazard cascades. My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers and sediment transport in the context of lithological heterogeneity and across mountain ranges.
+
+<div class="bottom-nav" markdown="1">
+[Overview](/) &nbsp;·&nbsp; [Active projects](/portfolio/) &nbsp;·&nbsp; [Publications](/publications/) &nbsp;·&nbsp; [CV](/cv/)
+</div>
