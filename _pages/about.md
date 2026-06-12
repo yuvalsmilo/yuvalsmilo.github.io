@@ -9,7 +9,6 @@ redirect_from:
 <style>
   /* 1. Make the background image significantly richer and less transparent */
   body {
-    /* Lowering 0.85 to 0.35 reduces the white overlay, making the picture much more visible */
     background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), url('/images/ColoradoRainfall.jpg') !important;
     background-size: cover !important;
     background-position: center center !important;
@@ -18,7 +17,7 @@ redirect_from:
     background-color: transparent !important;
   }
 
-  /* 2. Clear structural backgrounds */
+  /* 2. Strip standard theme backgrounds and parent layout padding */
   #wrapper, 
   #main, 
   .main, 
@@ -27,31 +26,49 @@ redirect_from:
   .page__inner,
   .inner {
     background: transparent !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    max-width: 100% !important;
   }
 
-  /* 3. Shift the entire website panel layout layout to the left */
-  #main, .main, .masthead, .footer {
-    max-width: 1200px !important; /* Limits maximum width so it doesn't stretch infinitely */
-    margin-left: 5% !important;   /* Pulls the layout wrapper tightly toward the left edge */
-    margin-right: auto !important;
-  }
-
-  /* 4. Refine the floating bio text card */
-  .page__content, 
-  article {
-    background: rgba(255, 255, 255, 0.96) !important; 
-    padding: 30px !important;
-    border-radius: 8px !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
-    box-sizing: border-box !important;
-  }
-
-  /* 5. Refine the profile sidebar layout */
+  /* 3. Force the Profile Sidebar to the absolute left edge and make it semi-transparent */
   .sidebar {
-    background: rgba(255, 255, 255, 0.96) !important;
+    background: rgba(255, 255, 255, 0.88) !important; /* Slightly transparent white */
     padding: 20px !important;
-    border-radius: 8px !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+    border-radius: 0 8px 8px 0 !important; /* Rounds only the right side corners */
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05) !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 100px !important; /* Adjust this if it overlaps your header */
+    width: 260px !important; /* Keeps your profile column a consistent width */
+  }
+
+  /* 4. Center the top navigation masthead and strip its background */
+  .masthead {
+    background: transparent !important;
+    border-bottom: none !important;
+    max-width: 800px !important;
+    margin: 0 auto !important; /* Centers it perfectly */
+  }
+
+  /* 5. Center the Overview Title and text content, removing all card backgrounds */
+  .page__inner-wrap {
+    max-width: 750px !important;
+    margin-left: auto !important;
+    margin-right: auto !important; /* Centers the content block horizontally */
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* Remove backgrounds from the overview title and bio text boxes entirely */
+  .overview-content-card,
+  .page__content, 
+  article,
+  .page__title {
+    background: transparent !important; 
+    box-shadow: none !important;
+    padding: 10px 0 !important;
+    color: #111 !important; /* Ensures crisp text contrast directly against the image */
   }
 </style>
 
