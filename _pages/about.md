@@ -90,6 +90,9 @@ redirect_from:
     margin-bottom: 20px !important;
   }
 
+  .content-card:nth-of-type(2) {
+    margin-top: 20px !important;}
+
   /* 7. Remove the dark/light mode toggle */
   #theme-toggle,
   .dark-mode-toggle,
