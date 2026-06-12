@@ -66,11 +66,12 @@ redirect_from:
     justify-content: center !important;
   }
 
-  /* 5. Center the Overview content, accounting for the fixed sidebar */
+  /* 5. Position the main content: left-aligned with space from sidebar, wider, higher up */
   .page__inner-wrap {
-    max-width: 750px !important;
-    margin-left: 320px !important; /* sidebar width (300px) + breathing room */
-    margin-right: auto !important;
+    max-width: 1100px !important;     /* wider text box */
+    margin-left: 340px !important;    /* sidebar (300px) + 40px breathing space */
+    margin-right: 40px !important;    /* no longer centered */
+    margin-top: -40px !important;     /* shift upward */
     background: transparent !important;
     box-shadow: none !important;
   }
@@ -85,6 +86,13 @@ redirect_from:
     box-shadow: none !important;
     padding: 20px !important;
     color: #111 !important; /* keeps text crisp and readable */
+  }
+
+  /* Remove the dark/light mode toggle */
+  #theme-toggle,
+  .dark-mode-toggle,
+  button[aria-label="Toggle dark mode"] {
+    display: none !important;
   }
 </style>
 
