@@ -7,8 +7,7 @@ redirect_from:
   - /about.html
 ---
 <style>
-  /* 1. Background image */
-/* 1. Background image - apply to html as well to cover the very top edge */
+  /* 1. Background image - apply to html as well to cover the very top edge */
   html, body {
     margin: 0 !important;
     padding: 0 !important;
@@ -56,29 +55,39 @@ redirect_from:
     display: none !important;
   }
 
-  /* 5. Main content: left-aligned near sidebar, fits within viewport */
-	/* 5. Main content: closer to sidebar, wider */
+  /* 5. Main content: closer to sidebar, wider */
   .page__inner-wrap {
-    width: calc(100% - 300px) !important;
+    width: calc(100% - 340px) !important;
     max-width: none !important;
-    margin-left: 50px !important;
-    margin-right: 50px !important;
+    margin-left: 320px !important;
+    margin-right: 20px !important;
     margin-top: 0 !important;
     background: transparent !important;
     box-shadow: none !important;
     box-sizing: border-box !important;
   }
 
-  /* 6. Semi-transparent card background for title and body text */
-  .overview-content-card,
-  .page__content, 
-  article,
+  /* 6. Semi-transparent card backgrounds */
   .page__title {
     background: rgba(255, 255, 255, 0.5) !important;
     border-radius: 8px !important;
     box-shadow: none !important;
     padding: 20px !important;
     color: #111 !important;
+  }
+
+  article,
+  .page__content {
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #111 !important;
+  }
+
+  .content-card {
+    background: rgba(255, 255, 255, 0.5) !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+    margin-bottom: 20px !important;
   }
 
   /* 7. Remove the dark/light mode toggle */
@@ -114,9 +123,13 @@ redirect_from:
   }
 </style>
 
+<div class="content-card" markdown="1">
 My research fields lie at the intersection of computational geomorphology, ecohydrology, hydrometeorology and natural hazards. I integrate numerical modeling of sediment dynamics and landscape evolution, field observations/measurements and quantitative analysis of topography. I'm especially interested in implementing high resolution hydroclimate realisms and detailed description of surface properties into landscape evolution modeling to solve scientific questions across time scales.
+</div>
 
+<div class="content-card" markdown="1">
 Currently, I am a postdoctoral researcher at INSTAAR and part of [CLaSH](https://www.geoclash.org/), focusing on post-fire sediment transport and hazard cascades. My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers and sediment transport in the context of lithological heterogeneity and across mountain ranges.
+</div>
 
 <div class="bottom-nav" markdown="1">
 [Overview](/) &nbsp;·&nbsp; [Active projects](/portfolio/) &nbsp;·&nbsp; [Publications](/publications/) &nbsp;·&nbsp; [CV](/cv/)
