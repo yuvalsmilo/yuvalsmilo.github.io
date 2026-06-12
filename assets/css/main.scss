@@ -41,3 +41,38 @@
     "vendor/font-awesome/brands",
     "vendor/magnific-popup/magnific-popup"
 ;
+/* Keep everything that was already in your file above this line */
+
+/* ==========================================================================
+   Custom Fullscreen Background Overrides
+   ========================================================================== */
+
+/* Targets the main <body> tag on the overview page */
+body.fullscreen-bg-page {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.82)), url('/images/ColoradoRainfall.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Removes the theme's default background wrapper color on this page only */
+.fullscreen-bg-page #wrapper {
+  background: transparent !important;
+}
+
+/* Style the content container and the sidebar to float beautifully over the image */
+.fullscreen-bg-page .page,
+.fullscreen-bg-page .sidebar {
+  background: rgba(255, 255, 255, 0.94) !important; 
+  padding: 25px !important;
+  border-radius: 6px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+/* Ensures layout spacing looks clean with the new padding */
+.fullscreen-bg-page .page {
+  margin-top: 20px;
+}
