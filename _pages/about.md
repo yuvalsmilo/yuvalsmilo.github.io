@@ -6,11 +6,11 @@ redirect_from:
   - /about/
   - /about.html
 ---
-
 <style>
-  /* 1. Force the background image onto the root body of this page only */
+  /* 1. Make the background image significantly richer and less transparent */
   body {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('/images/ColoradoRainfall.jpg') !important;
+    /* Lowering 0.85 to 0.35 reduces the white overlay, making the picture much more visible */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), url('/images/ColoradoRainfall.jpg') !important;
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
@@ -18,7 +18,7 @@ redirect_from:
     background-color: transparent !important;
   }
 
-  /* 2. Strip standard backgrounds on structural containers so the body image shows through */
+  /* 2. Clear structural backgrounds */
   #wrapper, 
   #main, 
   .main, 
@@ -29,22 +29,29 @@ redirect_from:
     background: transparent !important;
   }
 
-  /* 3. Give your bio text column a crisp, floating white card layout */
+  /* 3. Shift the entire website panel layout layout to the left */
+  #main, .main, .masthead, .footer {
+    max-width: 1200px !important; /* Limits maximum width so it doesn't stretch infinitely */
+    margin-left: 5% !important;   /* Pulls the layout wrapper tightly toward the left edge */
+    margin-right: auto !important;
+  }
+
+  /* 4. Refine the floating bio text card */
   .page__content, 
   article {
     background: rgba(255, 255, 255, 0.96) !important; 
     padding: 30px !important;
     border-radius: 8px !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
     box-sizing: border-box !important;
   }
 
-  /* 4. Ensure your profile sidebar pops cleanly and stays readable */
+  /* 5. Refine the profile sidebar layout */
   .sidebar {
     background: rgba(255, 255, 255, 0.96) !important;
     padding: 20px !important;
     border-radius: 8px !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
   }
 </style>
 
