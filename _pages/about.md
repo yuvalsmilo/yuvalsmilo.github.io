@@ -16,6 +16,7 @@ redirect_from:
     background-attachment: fixed !important;
     background-color: transparent !important;
     overflow-x: hidden !important;
+    padding-top: 0 !important;
   }
 
   /* 2. Strip standard theme backgrounds and parent layout padding */
@@ -58,7 +59,7 @@ redirect_from:
     max-width: none !important;
     margin-left: 320px !important;
     margin-right: 40px !important;
-    margin-top: 20px !important;
+    margin-top: 0 !important;
     background: transparent !important;
     box-shadow: none !important;
     box-sizing: border-box !important;
