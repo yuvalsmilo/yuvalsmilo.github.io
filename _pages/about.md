@@ -124,9 +124,10 @@ redirect_from:
     background: transparent !important;
     box-shadow: none !important;
     border: none !important;
-    padding-left: 0 !important; /* Removes padding box offset so it aligns flush left with Box 1 */
-    color: #000000 !important;  /* Pure black color for maximum contrast directly over the photo */
-    font-weight: 500 !important; 
+    padding-left: 0 !important;
+    color: #000000 !important;
+    font-weight: 500 !important;
+    max-width: 1275px !important;
   }
 
   /* Emphasized "Currently" lead-in word */
