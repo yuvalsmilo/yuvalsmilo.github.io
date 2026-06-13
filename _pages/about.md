@@ -91,7 +91,7 @@ redirect_from:
   }
 
   .content-card:nth-of-type(2) {
-    margin-top: 20px !important;}
+    margin-top: 100px !important;}
 
   /* 7. Remove the dark/light mode toggle */
   #theme-toggle,
@@ -123,6 +123,25 @@ redirect_from:
 
   .bottom-nav a:hover {
     text-decoration: underline !important;
+  }
+
+/* 10. Mobile layout fixes */
+  @media (max-width: 768px) {
+    .sidebar {
+      position: relative !important;
+      width: 100% !important;
+      max-height: none !important;
+      border-radius: 0 0 8px 8px !important;
+      box-shadow: none !important;
+    }
+
+    .page__inner-wrap {
+      width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+    }
   }
 </style>
 
