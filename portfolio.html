@@ -21,16 +21,25 @@
 <p class="p1"><span class="s1">---</span></p>
 <p class="p2"><span class="s1"></span><br></p>
 <p class="p1"><span class="s1">&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* Hides the default grey theme footer and copyright bar completely */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.page__footer,<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>footer {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* Target all possible theme footer wrappers, containers, and social follow bars */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.page__footer,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.site-footer,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>footer,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.author__urls-wrapper + footer,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>div[class*="footer"] {</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>display: none !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>visibility: hidden !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>height: 0 !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding: 0 !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin: 0 !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border: none !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background: transparent !important;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
 <p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* Optional: Adds a bit of bottom padding to the main content area<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">     </span>so nothing feels cramped at the edge of the screen */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* Adjust the main content box layout to make sure no extra footer padding remains */</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.page__inner-wrap {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding-bottom: 60px !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding-bottom: 40px !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>box-shadow: none !important;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
 <p class="p1"><span class="s1">&lt;/style&gt;</span></p>
 <p class="p2"><span class="s1"></span><br></p>
@@ -39,7 +48,6 @@
 <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;hr&gt;</span></p>
 <p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;p&gt;Project descriptions and research updates coming soon...&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
 <p class="p1"><span class="s1">&lt;/div&gt;</span></p>
 </body>
 </html>
