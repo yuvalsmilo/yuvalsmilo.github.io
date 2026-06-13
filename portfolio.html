@@ -18,25 +18,18 @@
 <p class="p1"><span class="s1">title: "Active Projects"</span></p>
 <p class="p1"><span class="s1">permalink: /portfolio/</span></p>
 <p class="p1"><span class="s1">author_profile: true</span></p>
-<p class="p1"><span class="s1">widgets:</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>- type: custom</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>text: "&lt;style&gt;html body .page__footer, html body footer, .site-footer, #site-footer { display: none !important; visibility: hidden !important; height: 0 !important; padding: 0 !important; }&lt;/style&gt;"</span></p>
 <p class="p1"><span class="s1">---</span></p>
 <p class="p2"><span class="s1"></span><br></p>
 <p class="p1"><span class="s1">&lt;style type="text/css"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* Ultimate catch-all specificity chain */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>html body footer,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* Keep our CSS fallbacks in place */</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>html body .page__footer,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>html body .site-footer,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>div[class*="footer"],</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>footer[class*="footer"] {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>html body footer,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.site-footer {</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>display: none !important;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>visibility: hidden !important;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>opacity: 0 !important;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>height: 0 !important;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding: 0 !important;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin: 0 !important;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border: none !important;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.page__inner-wrap {</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>box-shadow: none !important;</span></p>
@@ -50,5 +43,23 @@
 <p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;p&gt;Project descriptions and research updates coming soon...&lt;/p&gt;</span></p>
 <p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;script type="text/javascript"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>function removeThemeFooter() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Find all potential footer elements matching the layout structure</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>var footerElements = document.querySelectorAll('.page__footer, .site-footer, footer');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>footerElements.forEach(function(element) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (element) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Completely ejects the element from the webpage layout</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>element.remove();<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// Execute immediately when the window finish loading everything</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>window.addEventListener('DOMContentLoaded', removeThemeFooter);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>window.addEventListener('load', removeThemeFooter);</span></p>
+<p class="p1"><span class="s1">&lt;/script&gt;</span></p>
 </body>
 </html>
