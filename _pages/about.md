@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 <style>
-  /* 1. Global Reset - Canvas transparent & scroll-snap enabled */
+  /* 1. Global Reset - Force layout to adapt to fullscreen scroll-snapping */
   html, body {
     margin: 0 !important;
     padding: 0 !important;
@@ -17,7 +17,7 @@ redirect_from:
     scroll-snap-type: y mandatory !important;
   }
 
-  /* 2. Strip standard theme backgrounds and layout constraints */
+  /* 2. Strip standard Minimal Mistakes structural constraints entirely */
   #wrapper, 
   #main, 
   .main, 
@@ -31,9 +31,9 @@ redirect_from:
     max-width: 100% !important;
   }
 
-  /* 3. Profile sidebar fixed to the top-left */
+  /* 3. Re-adjust Fixed Profile Sidebar layout safely */
   .sidebar {
-    background: rgba(255, 255, 255, 0.85) !important; 
+    background: rgba(255, 255, 255, 0.95) !important; 
     padding: 25px 20px !important;
     border-radius: 0 0 12px 0 !important;
     box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08) !important;
@@ -46,7 +46,7 @@ redirect_from:
     z-index: 20 !important;
   }
 
-  /* 4. Hide unnecessary theme elements */
+  /* 4. Completely eliminate native header, footer and toggle wrappers */
   .masthead,
   .page__title,
   #theme-toggle,
@@ -57,7 +57,7 @@ redirect_from:
     display: none !important;
   }
 
-  /* 5. Main content wrapper layout */
+  /* 5. Main Content structural box adjustments */
   .page__inner-wrap {
     width: 100% !important;
     max-width: 100% !important;
@@ -73,17 +73,18 @@ redirect_from:
     box-shadow: none !important;
   }
 
-  /* 6. Base Fullscreen Scroll-Snap Cards */
+  /* 6. Base Fullscreen Scroll-Snap Cards Layout */
   .content-card {
     min-height: 100vh !important;
     width: 100vw !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-start !important;
-    align-items: flex-start !important; /* Changed from center to flex-start to allow left alignment control */
+    justify-content: flex-start !important; /* Locks text blocks toward the UPPER part */
+    align-items: flex-start !important;     /* Locks text blocks cleanly to the LEFT side */
     scroll-snap-align: start !important;
     box-sizing: border-box !important;
-    padding: 40px 60px 40px 100px !important; /* Reduced left padding to shift everything left */
+    /* 340px left padding perfectly clears the 300px sidebar + adds a clean 40px gutter */
+    padding: 60px 60px 40px 340px !important; 
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
@@ -95,31 +96,41 @@ redirect_from:
   }
 
   .card-nasa {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), url('/images/NASA_3.jpeg') !important;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('/images/NASA_3.jpeg') !important;
   }
 
-  /* 7. Inner Text floating panel wrapper */
+  /* 7. Text Floating Panel Layout (Card 1 Content Box) */
   .text-wrapper {
     background: rgba(255, 255, 255, 0.88) !important; 
     border-radius: 12px !important;
     padding: 40px !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
-    max-width: 850px !important; /* Slightly wider block helps utilize the left screen space better */
+    max-width: 850px !important; 
     width: 100% !important;
     color: #111 !important;
     font-size: 1.15em !important;
     line-height: 1.65 !important;
     box-sizing: border-box !important;
-    margin-left: 20px !important; /* Controlled left push away from the sidebar boundary */
+    margin-top: 20px !important;
   }
 
-  /* 8. FIXED Bottom Navigation (Hovering on the top layer) */
+  /* NEW: Removes the background container entirely from Card 2 */
+  .text-wrapper-nasa {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding-left: 0 !important; /* Removes padding box offset so it aligns flush left with Box 1 */
+    color: #000000 !important;  /* Pure black color for maximum contrast directly over the photo */
+    font-weight: 500 !important; 
+  }
+
+  /* 8. Fixed Footer Menu Bar System */
   .bottom-nav {
     position: fixed !important;
     bottom: 0 !important;
     left: 300px !important; 
     right: 0 !important;
-    background: rgba(255, 255, 255, 0.92) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
     padding: 15px 0 !important;
     border-top: 1px solid rgba(0, 0, 0, 0.06) !important;
     text-align: center !important;
@@ -141,18 +152,18 @@ redirect_from:
     text-decoration: underline !important;
   }
 
-  /* 9. Typing Effect Cursor */
+  /* 9. Text Cursor Typography Elements */
   #typing-cursor {
     animation: blink 0.8s step-end infinite;
     font-weight: bold;
-    color: #111;
+    color: #000000;
   }
 
   @keyframes blink {
     50% { opacity: 0; }
   }
 
-  /* 10. Responsive Design for Mobile Devices */
+  /* 10. Responsive Breakpoints for Mobile Navigation */
   @media (max-width: 992px) {
     .sidebar {
       position: relative !important;
@@ -164,11 +175,12 @@ redirect_from:
     .content-card {
       padding: 40px 20px 80px 20px !important; 
       align-items: center !important;
+      justify-content: center !important;
       background-attachment: scroll !important;
     }
 
     .text-wrapper {
-      margin-left: 0 !important;
+      margin-top: 0 !important;
       max-width: 100% !important;
     }
 
@@ -185,7 +197,7 @@ redirect_from:
 </div>
 
 <div class="content-card card-nasa" id="typing-card">
-  <div class="text-wrapper">
+  <div class="text-wrapper text-wrapper-nasa">
     <span id="typing-text"></span><span id="typing-cursor">|</span>
   </div>
 </div>
