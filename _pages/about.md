@@ -127,7 +127,7 @@ redirect_from:
     padding-left: 0 !important;
     color: #000000 !important;
     font-weight: 500 !important;
-    max-width: 1275px !important;
+    max-width: 1175px !important;
   }
 
   /* Emphasized "Currently" lead-in word */
