@@ -91,6 +91,11 @@ redirect_from:
     background-attachment: fixed !important; 
   }
 
+  /* Pin the second card's text box to the bottom */
+  #typing-card {
+    justify-content: flex-end !important;
+  }
+
   .card-colorado {
     background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), url('/images/ColoradoRainfall.jpg') !important;
   }
@@ -186,6 +191,10 @@ redirect_from:
       background-attachment: scroll !important;
     }
 
+    #typing-card {
+      justify-content: center !important;
+    }
+
     .text-wrapper {
       margin-top: 0 !important;
       max-width: 100% !important;
@@ -230,7 +239,7 @@ window.onload = function () {
 
   var segIndex = 0;
   var charIndex = 0;
-  var speed = 36;
+  var speed = 72;
 
   function typeNext() {
     if (segIndex >= segments.length) {
