@@ -165,9 +165,8 @@ My research fields lie at the intersection of computational geomorphology, ecohy
 <div class="bottom-nav" markdown="1">
 [Overview](/) &nbsp;·&nbsp; [Active projects](/portfolio/) &nbsp;·&nbsp; [Publications](/publications/) &nbsp;·&nbsp; [CV](/cv/)
 </div>
-
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  (function () {
     var segments = [
       { text: "Currently, I am a postdoctoral researcher at INSTAAR and part of " },
       { html: '<a href="https://www.geoclash.org/">CLaSH</a>' },
@@ -205,5 +204,5 @@ My research fields lie at the intersection of computational geomorphology, ecohy
     }
 
     typeNext();
-  });
+  })();
 </script>
