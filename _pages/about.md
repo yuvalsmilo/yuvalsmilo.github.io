@@ -91,9 +91,10 @@ redirect_from:
     background-attachment: fixed !important; 
   }
 
-  /* Pin the second card's text box to the bottom */
+  /* Pin the second card's text box to the bottom, shift further left */
   #typing-card {
     justify-content: flex-end !important;
+    padding-left: 40px !important;
   }
 
   .card-colorado {
@@ -119,15 +120,20 @@ redirect_from:
     margin-top: 20px !important;
   }
 
-  /* NEW: Removes the background container entirely from Card 2 */
+  /* Card 2 text box: transparent, white text, wider, moved left via #typing-card padding */
   .text-wrapper-nasa {
     background: transparent !important;
     box-shadow: none !important;
     border: none !important;
     padding-left: 0 !important;
-    color: #000000 !important;
+    color: #ffffff !important;
     font-weight: 500 !important;
-    max-width: 1175px !important;
+    max-width: 1275px !important;
+  }
+
+  .text-wrapper-nasa a {
+    color: #ffffff !important;
+    text-decoration: underline !important;
   }
 
   /* Emphasized "Currently" lead-in word */
@@ -169,7 +175,7 @@ redirect_from:
   #typing-cursor {
     animation: blink 0.8s step-end infinite;
     font-weight: bold;
-    color: #000000;
+    color: #ffffff !important;
   }
 
   @keyframes blink {
@@ -194,6 +200,7 @@ redirect_from:
 
     #typing-card {
       justify-content: center !important;
+      padding-left: 20px !important;
     }
 
     .text-wrapper {
