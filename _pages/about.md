@@ -158,51 +158,57 @@ redirect_from:
 My research fields lie at the intersection of computational geomorphology, ecohydrology, hydrometeorology and natural hazards. I integrate numerical modeling of sediment dynamics and landscape evolution, field observations/measurements and quantitative analysis of topography. I'm especially interested in implementing high resolution hydroclimate realisms and detailed description of surface properties into landscape evolution modeling to solve scientific questions across time scales.
 </div>
 
-<div class="content-card" id="typing-card">
-  <p id="typing-text"></p><span id="typing-cursor">|</span>
+<div class="content-card" id="typing-card" markdown="0">
+
+<span id="typing-text"></span><span id="typing-cursor">|</span>
+
 </div>
 
 <div class="bottom-nav" markdown="1">
 [Overview](/) &nbsp;·&nbsp; [Active projects](/portfolio/) &nbsp;·&nbsp; [Publications](/publications/) &nbsp;·&nbsp; [CV](/cv/)
 </div>
+
 <script>
-  (function () {
-    var segments = [
-      { text: "Currently, I am a postdoctoral researcher at INSTAAR and part of " },
-      { html: '<a href="https://www.geoclash.org/">CLaSH</a>' },
-      { text: ", focusing on post-fire sediment transport and hazard cascades. My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers and sediment transport in the context of lithological heterogeneity and across mountain ranges." }
-    ];
+window.onload = function () {
+  var segments = [
+    { text: "Currently, I am a postdoctoral researcher at INSTAAR and part of " },
+    { html: '<a href="https://www.geoclash.org/">CLaSH</a>' },
+    { text: ", focusing on post-fire sediment transport and hazard cascades. My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers and sediment transport in the context of lithological heterogeneity and across mountain ranges." }
+  ];
 
-    var el = document.getElementById("typing-text");
-    var segIndex = 0;
-    var charIndex = 0;
-    var speed = 18; // ms per character
+  var el = document.getElementById("typing-text");
+  if (!el) { return; }
 
-    function typeNext() {
-      if (segIndex >= segments.length) {
-        document.getElementById("typing-cursor").style.display = "none";
-        return;
-      }
-      var seg = segments[segIndex];
+  var segIndex = 0;
+  var charIndex = 0;
+  var speed = 18;
 
-      if (seg.html) {
-        el.innerHTML += seg.html;
-        segIndex++;
-        setTimeout(typeNext, speed);
-        return;
-      }
+  function typeNext() {
+    if (segIndex >= segments.length) {
+      var cursor = document.getElementById("typing-cursor");
+      if (cursor) { cursor.style.display = "none"; }
+      return;
+    }
+    var seg = segments[segIndex];
 
-      el.innerHTML += seg.text.charAt(charIndex);
-      charIndex++;
-
-      if (charIndex >= seg.text.length) {
-        segIndex++;
-        charIndex = 0;
-      }
-
+    if (seg.html) {
+      el.innerHTML += seg.html;
+      segIndex++;
       setTimeout(typeNext, speed);
+      return;
     }
 
-    typeNext();
-  })();
+    el.innerHTML += seg.text.charAt(charIndex);
+    charIndex++;
+
+    if (charIndex >= seg.text.length) {
+      segIndex++;
+      charIndex = 0;
+    }
+
+    setTimeout(typeNext, speed);
+  }
+
+  typeNext();
+};
 </script>
