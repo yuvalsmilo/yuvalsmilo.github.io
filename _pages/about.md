@@ -124,6 +124,13 @@ redirect_from:
     font-weight: 500 !important; 
   }
 
+  /* Emphasized "Currently" lead-in word */
+  .lead-word {
+    font-size: 1.6em !important;
+    font-weight: 800 !important;
+    display: inline-block !important;
+  }
+
   /* 8. Fixed Footer Menu Bar System */
   .bottom-nav {
     position: fixed !important;
@@ -212,7 +219,8 @@ redirect_from:
 <script>
 window.onload = function () {
   var segments = [
-    { text: "Currently, I am a postdoctoral researcher at INSTAAR and part of " },
+    { html: '<span class="lead-word">Currently</span>' },
+    { text: ", I am a postdoctoral researcher at INSTAAR and part of " },
     { html: '<a href="https://www.geoclash.org/" target="_blank">CLaSH</a>' },
     { text: ", focusing on post-fire sediment transport and hazard cascades. My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers and sediment transport in the context of lithological heterogeneity and across mountain ranges." }
   ];
@@ -222,7 +230,7 @@ window.onload = function () {
 
   var segIndex = 0;
   var charIndex = 0;
-  var speed = 18;
+  var speed = 36;
 
   function typeNext() {
     if (segIndex >= segments.length) {
