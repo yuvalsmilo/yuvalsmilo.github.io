@@ -7,21 +7,17 @@ redirect_from:
   - /about.html
 ---
 <style>
-  /* 1. Background image - apply to html as well to cover the very top edge */
+  /* 1. Global Reset - Keep the page canvas transparent and scroll-snap enabled */
   html, body {
     margin: 0 !important;
     padding: 0 !important;
     height: 100% !important;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), url('/images/ColoradoRainfall.jpg') !important;
-    background-size: cover !important;
-    background-position: center top !important;
-    background-repeat: no-repeat !important;
-    background-attachment: fixed !important;
-    background-color: transparent !important;
+    background-color: #111 !important; /* Elegant fallback color between section transitions */
     overflow-x: hidden !important;
+    scroll-snap-type: y mandatory !important;
   }
 
-  /* 2. Strip standard theme backgrounds and parent layout padding */
+  /* 2. Strip standard theme backgrounds and parent layout constraints */
   #wrapper, 
   #main, 
   .main, 
@@ -30,17 +26,17 @@ redirect_from:
   .page__inner,
   .inner {
     background: transparent !important;
-    padding-left: 0 !important;
-    margin-left: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
     max-width: 100% !important;
   }
 
-  /* 3. Profile sidebar pinned to the top-left, semi-transparent */
+  /* 3. Profile sidebar pinned to the top-left with soft transparency */
   .sidebar {
-    background: rgba(255, 255, 255, 0.5) !important;
-    padding: 20px !important;
-    border-radius: 0 0 8px 0 !important;
-    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05) !important;
+    background: rgba(255, 255, 255, 0.85) !important; /* Slightly more opaque for better link readability */
+    padding: 25px 20px !important;
+    border-radius: 0 0 12px 0 !important;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08) !important;
     position: fixed !important;
     left: 0 !important;
     top: 0 !important;
@@ -50,70 +46,86 @@ redirect_from:
     z-index: 20 !important;
   }
 
-  /* 4. Remove the top navigation menu entirely */
-  .masthead {
+  /* 4. Hide theme elements we don't need */
+  .masthead,
+  .page__title,
+  #theme-toggle,
+  .dark-mode-toggle,
+  button[aria-label="Toggle dark mode"],
+  .page__footer,
+  footer {
     display: none !important;
   }
 
-  /* 5. Main content: closer to sidebar, wider */
+  /* 5. Main content: Pushed right to clear the fixed sidebar cleanly */
   .page__inner-wrap {
-    width: calc(100% - 50px) !important;
-    max-width: none !important;
-    margin-left: 100px !important;
-    margin-right: 0px !important;
-    margin-top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
     background: transparent !important;
     box-shadow: none !important;
     box-sizing: border-box !important;
-  }
-
-  /* 6. Semi-transparent card backgrounds */
-  .page__title {
-    background: rgba(255, 255, 255, 0.5) !important;
-    border-radius: 8px !important;
-    box-shadow: none !important;
-    padding: 20px !important;
-    color: #111 !important;
   }
 
   article,
   .page__content {
     background: transparent !important;
     box-shadow: none !important;
-    color: #111 !important;
   }
 
+  /* 6. Base Styling for Fullscreen Scroll-Snap Cards */
   .content-card {
-    background: rgba(255, 255, 255, 0.5) !important;
-    border-radius: 8px !important;
-    padding: 20px !important;
-    margin-bottom: 20px !important;
+    min-height: 100vh !important;
+    width: 100vw !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    scroll-snap-align: start !important;
+    box-sizing: border-box !important;
+    padding: 40px 60px 40px 360px !important; /* 360px left padding keeps text perfectly framed next to your sidebar */
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important; /* Keeps background static while text scrolls over it */
   }
 
-  /* 7. Remove the dark/light mode toggle */
-  #theme-toggle,
-  .dark-mode-toggle,
-  button[aria-label="Toggle dark mode"] {
-    display: none !important;
+  /* --- CARD 1: Colorado Background Setup --- */
+  .card-colorado {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), url('/images/ColoradoRainfall.jpg') !important;
   }
 
-  /* 8. Remove the footer panel */
-  .page__footer,
-  footer {
-    display: none !important;
+  /* --- CARD 2: NASA Wildfire Background Setup --- */
+  .card-nasa {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), url('/images/NASA_3.jpeg') !important;
   }
 
-  /* 9. Simple bottom navigation links */
+  /* 7. Inner Text Box Content Styling (Semi-transparent floating text cards) */
+  .text-wrapper {
+    background: rgba(255, 255, 255, 0.88) !important; /* Adjusted white opacity so image blends beautifully beneath it */
+    border-radius: 12px !important;
+    padding: 40px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+    max-width: 800px !important;
+    width: 100% !important;
+    color: #111 !important;
+    font-size: 1.15em !important;
+    line-height: 1.65 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 8. Simple, clean bottom navigation links pinned inside the wrapper */
   .bottom-nav {
     margin-top: 30px !important;
-    padding-top: 15px !important;
+    padding-top: 20px !important;
     border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
     text-align: center !important;
-    font-size: 1.1em !important;
+    font-size: 0.95em !important;
+    width: 100%;
   }
 
   .bottom-nav a {
-    color: #111 !important;
+    color: #000 !important;
     text-decoration: none !important;
     font-weight: 600 !important;
   }
@@ -122,68 +134,55 @@ redirect_from:
     text-decoration: underline !important;
   }
 
-/* 10. Mobile layout fixes */
-  @media (max-width: 768px) {
-    .sidebar {
-      position: relative !important;
-      width: 100% !important;
-      max-height: none !important;
-      border-radius: 0 0 8px 8px !important;
-      box-shadow: none !important;
-    }
-
-    .page__inner-wrap {
-      width: 100% !important;
-      margin-left: 0 !important;
-      margin-right: 0 !important;
-      padding-left: 10px !important;
-      padding-right: 10px !important;
-    }
-  }
-
-  /* 11. Typing effect cursor */
+  /* 9. Typing effect cursor blink */
   #typing-cursor {
     animation: blink 0.8s step-end infinite;
+    font-weight: bold;
+    color: #111;
   }
 
   @keyframes blink {
     50% { opacity: 0; }
   }
 
-  /* 12. Scroll-snap sections: each card is its own "page" */
-  html {
-    scroll-snap-type: y mandatory !important;
-  }
+  /* 10. Mobile Responsive Overrides */
+  @media (max-width: 992px) {
+    .sidebar {
+      position: relative !important;
+      width: 100% !important;
+      max-height: none !important;
+      border-radius: 0 0 12px 12px !important;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+    }
 
-  .content-card {
-    min-height: 100vh !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    scroll-snap-align: start !important;
-    box-sizing: border-box !important;
+    .content-card {
+      padding: 40px 20px !important;
+      background-attachment: scroll !important; /* Better performance on mobile devices */
+    }
   }
 </style>
 
-<div class="content-card" markdown="1">
-My research fields lie at the intersection of computational geomorphology, ecohydrology, hydrometeorology and natural hazards. I integrate numerical modeling of sediment dynamics and landscape evolution, field observations/measurements and quantitative analysis of topography. I'm especially interested in implementing high resolution hydroclimate realisms and detailed description of surface properties into landscape evolution modeling to solve scientific questions across time scales.
+<div class="content-card card-colorado">
+  <div class="text-wrapper">
+    My research fields lie at the intersection of computational geomorphology, ecohydrology, hydrometeorology and natural hazards. I integrate numerical modeling of sediment dynamics and landscape evolution, field observations/measurements and quantitative analysis of topography. I'm especially interested in implementing high resolution hydroclimate realisms and detailed description of surface properties into landscape evolution modeling to solve scientific questions across time scales.
+  </div>
 </div>
 
-<div class="content-card" id="typing-card" markdown="0">
-
-<span id="typing-text"></span><span id="typing-cursor">|</span>
-
-</div>
-
-<div class="bottom-nav" markdown="1">
-[Overview](/) &nbsp;·&nbsp; [Active projects](/portfolio/) &nbsp;·&nbsp; [Publications](/publications/) &nbsp;·&nbsp; [CV](/cv/)
+<div class="content-card card-nasa" id="typing-card">
+  <div class="text-wrapper">
+    <span id="typing-text"></span><span id="typing-cursor">|</span>
+    
+    <div class="bottom-nav">
+      [Overview](/) &nbsp;·&nbsp; [Active projects](/portfolio/) &nbsp;·&nbsp; [Publications](/publications/) &nbsp;·&nbsp; [CV](/cv/)
+    </div>
+  </div>
 </div>
 
 <script>
 window.onload = function () {
   var segments = [
     { text: "Currently, I am a postdoctoral researcher at INSTAAR and part of " },
-    { html: '<a href="https://www.geoclash.org/">CLaSH</a>' },
+    { html: '<a href="https://www.geoclash.org/" target="_blank">CLaSH</a>' },
     { text: ", focusing on post-fire sediment transport and hazard cascades. My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers and sediment transport in the context of lithological heterogeneity and across mountain ranges." }
   ];
 
