@@ -128,7 +128,7 @@ redirect_from:
     padding-left: 0 !important;
     color: #ffffff !important;
     font-weight: 500 !important;
-    max-width: 1275px !important;
+    max-width: 1075px !important;
   }
 
   .text-wrapper-nasa a {
