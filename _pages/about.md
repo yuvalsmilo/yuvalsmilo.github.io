@@ -83,7 +83,7 @@ redirect_from:
     align-items: flex-start !important; /* Changed from center to flex-start to allow left alignment control */
     scroll-snap-align: start !important;
     box-sizing: border-box !important;
-    padding: 40px 60px 40px 330px !important; /* Reduced left padding to shift everything left */
+    padding: 40px 60px 40px 200px !important; /* Reduced left padding to shift everything left */
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
