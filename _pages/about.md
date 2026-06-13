@@ -143,16 +143,67 @@ redirect_from:
       padding-right: 10px !important;
     }
   }
+
+  /* 11. Typing effect cursor */
+  #typing-cursor {
+    animation: blink 0.8s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
 </style>
 
 <div class="content-card" markdown="1">
 My research fields lie at the intersection of computational geomorphology, ecohydrology, hydrometeorology and natural hazards. I integrate numerical modeling of sediment dynamics and landscape evolution, field observations/measurements and quantitative analysis of topography. I'm especially interested in implementing high resolution hydroclimate realisms and detailed description of surface properties into landscape evolution modeling to solve scientific questions across time scales.
 </div>
 
-<div class="content-card" markdown="1">
-Currently, I am a postdoctoral researcher at INSTAAR and part of [CLaSH](https://www.geoclash.org/), focusing on post-fire sediment transport and hazard cascades. My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers and sediment transport in the context of lithological heterogeneity and across mountain ranges.
+<div class="content-card" id="typing-card">
+  <p id="typing-text"></p><span id="typing-cursor">|</span>
 </div>
 
 <div class="bottom-nav" markdown="1">
 [Overview](/) &nbsp;·&nbsp; [Active projects](/portfolio/) &nbsp;·&nbsp; [Publications](/publications/) &nbsp;·&nbsp; [CV](/cv/)
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var segments = [
+      { text: "Currently, I am a postdoctoral researcher at INSTAAR and part of " },
+      { html: '<a href="https://www.geoclash.org/">CLaSH</a>' },
+      { text: ", focusing on post-fire sediment transport and hazard cascades. My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers and sediment transport in the context of lithological heterogeneity and across mountain ranges." }
+    ];
+
+    var el = document.getElementById("typing-text");
+    var segIndex = 0;
+    var charIndex = 0;
+    var speed = 18; // ms per character
+
+    function typeNext() {
+      if (segIndex >= segments.length) {
+        document.getElementById("typing-cursor").style.display = "none";
+        return;
+      }
+      var seg = segments[segIndex];
+
+      if (seg.html) {
+        el.innerHTML += seg.html;
+        segIndex++;
+        setTimeout(typeNext, speed);
+        return;
+      }
+
+      el.innerHTML += seg.text.charAt(charIndex);
+      charIndex++;
+
+      if (charIndex >= seg.text.length) {
+        segIndex++;
+        charIndex = 0;
+      }
+
+      setTimeout(typeNext, speed);
+    }
+
+    typeNext();
+  });
+</script>
