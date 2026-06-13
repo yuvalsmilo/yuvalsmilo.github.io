@@ -7,17 +7,17 @@ redirect_from:
   - /about.html
 ---
 <style>
-  /* 1. Global Reset - Keep the page canvas transparent and scroll-snap enabled */
+  /* 1. Global Reset - Canvas transparent & scroll-snap enabled */
   html, body {
     margin: 0 !important;
     padding: 0 !important;
     height: 100% !important;
-    background-color: #111 !important; /* Elegant fallback color between section transitions */
+    background-color: #111 !important; 
     overflow-x: hidden !important;
     scroll-snap-type: y mandatory !important;
   }
 
-  /* 2. Strip standard theme backgrounds and parent layout constraints */
+  /* 2. Strip standard theme backgrounds and layout constraints */
   #wrapper, 
   #main, 
   .main, 
@@ -31,9 +31,9 @@ redirect_from:
     max-width: 100% !important;
   }
 
-  /* 3. Profile sidebar pinned to the top-left with soft transparency */
+  /* 3. Profile sidebar fixed to the top-left */
   .sidebar {
-    background: rgba(255, 255, 255, 0.85) !important; /* Slightly more opaque for better link readability */
+    background: rgba(255, 255, 255, 0.85) !important; 
     padding: 25px 20px !important;
     border-radius: 0 0 12px 0 !important;
     box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08) !important;
@@ -46,7 +46,7 @@ redirect_from:
     z-index: 20 !important;
   }
 
-  /* 4. Hide theme elements we don't need */
+  /* 4. Hide unnecessary theme elements */
   .masthead,
   .page__title,
   #theme-toggle,
@@ -57,7 +57,7 @@ redirect_from:
     display: none !important;
   }
 
-  /* 5. Main content: Pushed right to clear the fixed sidebar cleanly */
+  /* 5. Main content wrapper layout */
   .page__inner-wrap {
     width: 100% !important;
     max-width: 100% !important;
@@ -73,7 +73,7 @@ redirect_from:
     box-shadow: none !important;
   }
 
-  /* 6. Base Styling for Fullscreen Scroll-Snap Cards */
+  /* 6. Base Fullscreen Scroll-Snap Cards */
   .content-card {
     min-height: 100vh !important;
     width: 100vw !important;
@@ -83,26 +83,24 @@ redirect_from:
     align-items: center !important;
     scroll-snap-align: start !important;
     box-sizing: border-box !important;
-    padding: 40px 60px 40px 360px !important; /* 360px left padding keeps text perfectly framed next to your sidebar */
+    padding: 40px 60px 40px 360px !important; /* Frames content to the right of the sidebar */
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
-    background-attachment: fixed !important; /* Keeps background static while text scrolls over it */
+    background-attachment: fixed !important; 
   }
 
-  /* --- CARD 1: Colorado Background Setup --- */
   .card-colorado {
     background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), url('/images/ColoradoRainfall.jpg') !important;
   }
 
-  /* --- CARD 2: NASA Wildfire Background Setup --- */
   .card-nasa {
     background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), url('/images/NASA_3.jpeg') !important;
   }
 
-  /* 7. Inner Text Box Content Styling (Semi-transparent floating text cards) */
+  /* 7. Inner Text floating panel wrapper */
   .text-wrapper {
-    background: rgba(255, 255, 255, 0.88) !important; /* Adjusted white opacity so image blends beautifully beneath it */
+    background: rgba(255, 255, 255, 0.88) !important; 
     border-radius: 12px !important;
     padding: 40px !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
@@ -114,27 +112,35 @@ redirect_from:
     box-sizing: border-box !important;
   }
 
-  /* 8. Simple, clean bottom navigation links pinned inside the wrapper */
+  /* 8. FIXED Bottom Navigation (Brings links to absolute top layer) */
   .bottom-nav {
-    margin-top: 30px !important;
-    padding-top: 20px !important;
-    border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 300px !important; /* Aligns with the edge of your sidebar */
+    right: 0 !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+    padding: 15px 0 !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.06) !important;
     text-align: center !important;
-    font-size: 0.95em !important;
-    width: 100%;
+    font-size: 1.05em !important;
+    z-index: 30 !important; /* Layers explicitly above everything else */
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.03) !important;
   }
 
   .bottom-nav a {
     color: #000 !important;
     text-decoration: none !important;
     font-weight: 600 !important;
+    margin: 0 12px !important;
+    display: inline-block !important;
   }
 
   .bottom-nav a:hover {
+    color: #0056b3 !important;
     text-decoration: underline !important;
   }
 
-  /* 9. Typing effect cursor blink */
+  /* 9. Typing Effect Cursor */
   #typing-cursor {
     animation: blink 0.8s step-end infinite;
     font-weight: bold;
@@ -145,19 +151,22 @@ redirect_from:
     50% { opacity: 0; }
   }
 
-  /* 10. Mobile Responsive Overrides */
+  /* 10. Responsive Design for Mobile Devices */
   @media (max-width: 992px) {
     .sidebar {
       position: relative !important;
       width: 100% !important;
       max-height: none !important;
       border-radius: 0 0 12px 12px !important;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
     }
 
     .content-card {
-      padding: 40px 20px !important;
-      background-attachment: scroll !important; /* Better performance on mobile devices */
+      padding: 40px 20px 80px 20px !important; /* Extra bottom padding so text doesn't hide behind nav bar */
+      background-attachment: scroll !important;
+    }
+
+    .bottom-nav {
+      left: 0 !important;
     }
   }
 </style>
@@ -171,11 +180,14 @@ redirect_from:
 <div class="content-card card-nasa" id="typing-card">
   <div class="text-wrapper">
     <span id="typing-text"></span><span id="typing-cursor">|</span>
-    
-    <div class="bottom-nav">
-      [Overview](/) &nbsp;·&nbsp; [Active projects](/portfolio/) &nbsp;·&nbsp; [Publications](/publications/) &nbsp;·&nbsp; [CV](/cv/)
-    </div>
   </div>
+</div>
+
+<div class="bottom-nav">
+  <a href="/">Overview</a> · 
+  <a href="/portfolio/">Active projects</a> · 
+  <a href="/publications/">Publications</a> · 
+  <a href="/cv/">CV</a>
 </div>
 
 <script>
