@@ -20,63 +20,133 @@
 <p class="p1"><span class="s1">author_profile: true</span></p>
 <p class="p1"><span class="s1">---</span></p>
 <p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;style type="text/css"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* Aggressive global CSS nuke */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.page__footer,<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.site-footer,<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>footer,<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>[class*="footer"],<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>[id*="footer"] {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>display: none !important;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>visibility: hidden !important;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>opacity: 0 !important;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>height: 0 !important;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>max-height: 0 !important;</span></p>
+<p class="p1"><span class="s1">&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* 1. Global Reset - Clear hardcoded theme canvas restrictions */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>html, body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin: 0 !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding: 0 !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background-color: #111 !important;<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>overflow-x: hidden !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* 2. Strip standard theme backgrounds and layout constraints */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>#wrapper,<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>#main,<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.main,<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.page,<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>article,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.page__inner,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.inner {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background: transparent !important;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding: 0 !important;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin: 0 !important;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>overflow: hidden !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>max-width: 100% !important;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* 3. Keep your Profile Sidebar perfectly fixed to the top-left */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.sidebar {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background: rgba(255, 255, 255, 0.85) !important;<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding: 25px 20px !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border-radius: 0 0 12px 0 !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08) !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>position: fixed !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>left: 0 !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>top: 0 !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>width: 300px !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>max-height: 100vh !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>overflow-y: auto !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>z-index: 20 !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* 4. Aggressively target and destroy the sticky footer layout blocks */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.masthead,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.page__title,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>#theme-toggle,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.dark-mode-toggle,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>button[aria-label="Toggle dark mode"],</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.page__footer,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>footer,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.site-footer {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>display: none !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>visibility: hidden !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>height: 0 !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding: 0 !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin: 0 !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>position: relative !important; /* Breaks the theme's absolute positioning */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* 5. Main portfolio content wrapper layout spacing */</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.page__inner-wrap {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>width: 100% !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>max-width: 100% !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin: 0 !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background: transparent !important;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>box-shadow: none !important;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding-bottom: 50px !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>box-sizing: border-box !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding: 40px 60px 40px 340px !important; /* Left padding pushes content clear of your 300px sidebar */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* 6. Active Project styling environment */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.portfolio-container {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: #fff;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* 7. FIXED Bottom Navigation (Matches your overview page) */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.bottom-nav {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>position: fixed !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>bottom: 0 !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>left: 300px !important;<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>right: 0 !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background: rgba(255, 255, 255, 0.92) !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding: 15px 0 !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border-top: 1px solid rgba(0, 0, 0, 0.06) !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>text-align: center !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 1.05em !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>z-index: 30 !important;<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.03) !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.bottom-nav a {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: #000 !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>text-decoration: none !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-weight: 600 !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin: 0 12px !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>display: inline-block !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.bottom-nav a:hover {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color: #0056b3 !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>text-decoration: underline !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* Mobile layout handling */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>@media (max-width: 992px) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.sidebar {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>position: relative !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 100% !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.page__inner-wrap {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 40px 20px 80px 20px !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.bottom-nav {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>left: 0 !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
 <p class="p1"><span class="s1">&lt;/style&gt;</span></p>
 <p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;div class="archive"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;h1 class="page__title"&gt;Active Projects&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;hr&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div class="page__content portfolio-container"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;h1&gt;Active Projects&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;hr style="border-color: #444;"&gt;</span></p>
 <p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;p&gt;Project descriptions and research updates coming soon...&lt;/p&gt;</span></p>
 <p class="p1"><span class="s1">&lt;/div&gt;</span></p>
 <p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;script type="text/javascript"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>(function() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function purgeFooters() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>// Broad query searching for anything resembling a theme footer</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>var tags = document.querySelectorAll('.page__footer, .site-footer, footer, [class*="footer"], [id*="footer"]');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>tags.forEach(function(el) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (el &amp;&amp; el.parentNode) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>el.parentNode.removeChild(el);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Run immediately</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>purgeFooters();</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Set up background observer to catch delayed injections</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>var observer = new MutationObserver(function(mutations) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>purgeFooters();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>observer.observe(document.documentElement, {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>childList: true,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>subtree: true</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Final safety fallback for late loading script loops</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>window.addEventListener('load', purgeFooters);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>})();</span></p>
-<p class="p1"><span class="s1">&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div class="bottom-nav"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;a href="/"&gt;Overview&lt;/a&gt; ·<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;a href="/portfolio/"&gt;Active projects&lt;/a&gt; ·<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;a href="/publications/"&gt;Publications&lt;/a&gt; ·<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;a href="/cv/"&gt;CV&lt;/a&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
 </body>
 </html>
