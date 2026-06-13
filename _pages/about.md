@@ -80,10 +80,10 @@ redirect_from:
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
-    align-items: center !important;
+    align-items: flex-start !important; /* Changed from center to flex-start to allow left alignment control */
     scroll-snap-align: start !important;
     box-sizing: border-box !important;
-    padding: 40px 60px 40px 360px !important; /* Frames content to the right of the sidebar */
+    padding: 40px 60px 40px 330px !important; /* Reduced left padding to shift everything left */
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
@@ -104,26 +104,27 @@ redirect_from:
     border-radius: 12px !important;
     padding: 40px !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
-    max-width: 800px !important;
+    max-width: 850px !important; /* Slightly wider block helps utilize the left screen space better */
     width: 100% !important;
     color: #111 !important;
     font-size: 1.15em !important;
     line-height: 1.65 !important;
     box-sizing: border-box !important;
+    margin-left: 20px !important; /* Controlled left push away from the sidebar boundary */
   }
 
-  /* 8. FIXED Bottom Navigation (Brings links to absolute top layer) */
+  /* 8. FIXED Bottom Navigation (Hovering on the top layer) */
   .bottom-nav {
     position: fixed !important;
     bottom: 0 !important;
-    left: 300px !important; /* Aligns with the edge of your sidebar */
+    left: 300px !important; 
     right: 0 !important;
     background: rgba(255, 255, 255, 0.92) !important;
     padding: 15px 0 !important;
     border-top: 1px solid rgba(0, 0, 0, 0.06) !important;
     text-align: center !important;
     font-size: 1.05em !important;
-    z-index: 30 !important; /* Layers explicitly above everything else */
+    z-index: 30 !important; 
     box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.03) !important;
   }
 
@@ -161,8 +162,14 @@ redirect_from:
     }
 
     .content-card {
-      padding: 40px 20px 80px 20px !important; /* Extra bottom padding so text doesn't hide behind nav bar */
+      padding: 40px 20px 80px 20px !important; 
+      align-items: center !important;
       background-attachment: scroll !important;
+    }
+
+    .text-wrapper {
+      margin-left: 0 !important;
+      max-width: 100% !important;
     }
 
     .bottom-nav {
