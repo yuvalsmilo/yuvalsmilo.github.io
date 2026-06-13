@@ -90,9 +90,6 @@ redirect_from:
     margin-bottom: 20px !important;
   }
 
-  .content-card:nth-of-type(2) {
-    margin-top: 100px !important;}
-
   /* 7. Remove the dark/light mode toggle */
   #theme-toggle,
   .dark-mode-toggle,
@@ -151,6 +148,20 @@ redirect_from:
 
   @keyframes blink {
     50% { opacity: 0; }
+  }
+
+  /* 12. Scroll-snap sections: each card is its own "page" */
+  html {
+    scroll-snap-type: y mandatory !important;
+  }
+
+  .content-card {
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    scroll-snap-align: start !important;
+    box-sizing: border-box !important;
   }
 </style>
 
