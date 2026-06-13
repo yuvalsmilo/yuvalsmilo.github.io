@@ -84,7 +84,7 @@ redirect_from:
     scroll-snap-align: start !important;
     box-sizing: border-box !important;
     /* 340px left padding perfectly clears the 300px sidebar + adds a clean 40px gutter */
-    padding: 60px 60px 40px 340px !important; 
+    padding: 60px 60px 40px 100px !important; 
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
