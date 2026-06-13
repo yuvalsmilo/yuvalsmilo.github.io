@@ -98,7 +98,7 @@ redirect_from:
   }
 
   .card-colorado {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), url('/images/ColoradoRainfall.jpg') !important;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), url('/images/LimonGullies_slope.png') !important;
   }
 
   .card-nasa {
