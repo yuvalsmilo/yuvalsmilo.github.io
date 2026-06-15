@@ -1,13 +1,12 @@
 ---
 permalink: /
 title: "Overview"
-author_profile: true
+author_profile: false
 redirect_from: 
   - /about/
   - /about.html
 ---
 <style>
-  /* 1. Global Reset */
   html, body {
     margin: 0 !important;
     padding: 0 !important;
@@ -21,94 +20,13 @@ redirect_from:
     background-repeat: no-repeat !important;
   }
 
-  /* 2. Strip structural constraints */
-  #wrapper, #main, .main, .page, article, .page__inner, .inner {
+  #wrapper, #main, .main, .page, article, .page__inner, .inner,
+  .page__inner-wrap, #main .page__inner-wrap, body .page__inner-wrap {
     background: transparent !important;
     padding: 0 !important;
     margin: 0 !important;
     max-width: 100% !important;
-  }
-
-  /* 3. Sidebar — horizontal bar at top 1/3 of screen */
-  .sidebar {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    height: 33vh !important;
-    max-height: 33vh !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    padding: 16px 48px !important;
-    background: #ffffff !important;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
-    z-index: 20 !important;
-    overflow: hidden !important;
-    box-sizing: border-box !important;
-    border-radius: 0 !important;
-  }
-
-  .sidebar .author__avatar {
-    flex-shrink: 0 !important;
-    width: auto !important;
-    margin-right: 28px !important;
-    margin-bottom: 0 !important;
-    text-align: left !important;
-  }
-  .sidebar .author__avatar img {
-    width: 110px !important;
-    height: 110px !important;
-    max-width: none !important;
-    border-radius: 50% !important;
-  }
-
-  .sidebar .author__content {
-    flex: 1 !important;
-    padding-right: 32px !important;
-    margin-bottom: 0 !important;
-  }
-  .sidebar .author__name {
-    font-size: 1.4em !important;
-    margin-bottom: 6px !important;
-  }
-
-  .sidebar .author__urls-wrapper {
-    flex-shrink: 0 !important;
-    max-width: 240px !important;
-  }
-  .sidebar .author__urls-wrapper button {
-    display: none !important;
-  }
-  .sidebar .author__urls {
-    display: block !important;
-    visibility: visible !important;
-    position: static !important;
-  }
-
-  /* 4. Hide native header, footer and toggles */
-  .masthead,
-  .page__title,
-  #theme-toggle,
-  .dark-mode-toggle,
-  button[aria-label="Toggle dark mode"],
-  .page__footer,
-  footer {
-    display: none !important;
-  }
-
-  /* 5. Main Content structural box */
-  .page__inner-wrap,
-  #main .page__inner-wrap,
-  body .page__inner-wrap {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    background: transparent !important;
     box-shadow: none !important;
-    box-sizing: border-box !important;
   }
 
   article, .page__content {
@@ -116,42 +34,103 @@ redirect_from:
     box-shadow: none !important;
   }
 
-  /* 6. Scroll-Snap Cards */
+  .masthead, .page__title, #theme-toggle, .dark-mode-toggle,
+  button[aria-label="Toggle dark mode"], .page__footer, footer {
+    display: none !important;
+  }
+
+  /* ── Custom horizontal header ── */
+  .custom-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 33vh !important;
+    background: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 20 !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07) !important;
+    box-sizing: border-box !important;
+    padding: 20px 48px !important;
+  }
+
+  .custom-header-inner {
+    text-align: center !important;
+  }
+
+  .header-name {
+    font-size: 2em !important;
+    font-weight: 700 !important;
+    margin: 0 0 6px 0 !important;
+    color: #111 !important;
+    letter-spacing: -0.5px !important;
+  }
+
+  .header-tagline {
+    font-size: 1em !important;
+    color: #555 !important;
+    margin: 0 0 14px 0 !important;
+  }
+
+  .header-nav {
+    margin-bottom: 12px !important;
+  }
+
+  .header-nav a {
+    color: #2e7d32 !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    font-size: 1em !important;
+    margin: 0 10px !important;
+  }
+
+  .header-nav a:hover {
+    text-decoration: underline !important;
+  }
+
+  .header-nav .sep {
+    color: #aaa !important;
+  }
+
+  .header-social a {
+    color: #333 !important;
+    font-size: 1.3em !important;
+    margin: 0 8px !important;
+    text-decoration: none !important;
+  }
+
+  .header-social a:hover {
+    color: #2e7d32 !important;
+  }
+
+  /* ── Scroll-snap cards ── */
   .content-card {
     min-height: 100vh !important;
     width: 100vw !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-start !important;
+    justify-content: flex-end !important;
     align-items: flex-start !important;
     scroll-snap-align: start !important;
     box-sizing: border-box !important;
-    padding: calc(33vh + 24px) 60px 60px 60px !important;
     position: relative !important;
+    padding: 0 !important;
   }
 
-  #typing-card {
-    padding: calc(33vh + 24px) 60px 60px 40px !important;
-  }
-
-  /* 7. First card */
+  /* ── Page 1: Colorado image (cover) + white text in lower area ── */
   .card-colorado {
     background: #000 !important;
-    padding-top: 33vh !important;
-    padding-left: 60px !important;
-    padding-right: 60px !important;
-    padding-bottom: 60px !important;
-    justify-content: center !important;
   }
 
-  /* Colorado image: full width, contained in lower 2/3 */
   .colorado-bg-img {
     position: absolute !important;
     top: 33vh !important;
     left: 0 !important;
     width: 100% !important;
     height: 67vh !important;
-    object-fit: contain !important;
+    object-fit: cover !important;
     object-position: center center !important;
     filter: brightness(0.55) !important;
     z-index: 0 !important;
@@ -163,37 +142,29 @@ redirect_from:
     background: transparent !important;
     box-shadow: none !important;
     color: #ffffff !important;
-    margin-top: 0 !important;
-  }
-
-  .card-nasa {
-    background: transparent !important;
-  }
-
-  /* 8. Text wrappers */
-  .text-wrapper {
-    background: rgba(255, 255, 255, 0.88) !important;
-    border-radius: 12px !important;
-    padding: 40px !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
-    max-width: 850px !important;
-    width: 100% !important;
-    color: #111 !important;
+    padding: 40px 60px !important;
+    max-width: 900px !important;
     font-size: 1.15em !important;
     line-height: 1.65 !important;
-    box-sizing: border-box !important;
-    margin-top: 20px !important;
+    margin-bottom: 60px !important;
+  }
+
+  /* ── Page 2: NASA image ── */
+  .card-nasa {
+    background: transparent !important;
+    padding: calc(33vh + 24px) 60px 60px 40px !important;
+    justify-content: flex-start !important;
   }
 
   .text-wrapper-nasa {
     background: transparent !important;
     box-shadow: none !important;
     border: none !important;
-    padding-left: 0 !important;
     color: #ffffff !important;
     font-weight: 500 !important;
+    font-size: 1.15em !important;
+    line-height: 1.65 !important;
     max-width: 750px !important;
-    width: auto !important;
   }
 
   .text-wrapper-nasa a {
@@ -208,7 +179,9 @@ redirect_from:
     right: 80px !important;
     text-align: left !important;
     max-width: 550px !important;
-    width: auto !important;
+    color: #ffffff !important;
+    font-size: 1.1em !important;
+    line-height: 1.6 !important;
   }
 
   .lead-word {
@@ -223,73 +196,76 @@ redirect_from:
     color: #ffffff !important;
   }
 
-  @keyframes blink {
-    50% { opacity: 0; }
-  }
+  @keyframes blink { 50% { opacity: 0; } }
 
-  /* Tablet (<=900px) */
-  @media (max-width: 900px) {
+  /* ── Mobile ── */
+  @media (max-width: 768px) {
     html, body {
       scroll-snap-type: none !important;
       background-attachment: scroll !important;
       height: auto !important;
     }
 
-    .sidebar {
+    .custom-header {
       position: relative !important;
-      flex-direction: column !important;
       height: auto !important;
-      max-height: none !important;
-      padding: 20px !important;
-      align-items: flex-start !important;
+      padding: 24px 20px !important;
     }
-    .sidebar .author__avatar { margin-right: 0 !important; margin-bottom: 12px !important; }
-    .sidebar .author__content { padding-right: 0 !important; }
-    .sidebar .author__urls-wrapper { max-width: 100% !important; }
+
+    .header-name { font-size: 1.5em !important; }
 
     .colorado-bg-img {
       top: 0 !important;
-      height: 100% !important;
+      height: 60vw !important;
     }
 
     .content-card {
-      width: 100% !important;
-      min-height: 100svh !important;
-      padding: 40px 24px 90px 24px !important;
-      background-attachment: scroll !important;
+      min-height: auto !important;
       scroll-snap-align: none !important;
     }
 
-    .card-colorado {
-      padding-top: 40px !important;
-      justify-content: flex-start !important;
+    .card-colorado .text-wrapper {
+      padding: 24px 20px !important;
+      font-size: 1em !important;
+      margin-bottom: 40px !important;
     }
 
-    #typing-card { padding: 40px 24px 90px 24px !important; }
-
-    .text-wrapper { max-width: 100% !important; margin-top: 0 !important; }
+    .card-nasa {
+      padding: 32px 20px 80px 20px !important;
+    }
 
     .text-wrapper-nasa-bottom {
       position: relative !important;
       bottom: auto !important;
       right: auto !important;
+      display: block !important;
       max-width: 100% !important;
-      width: 100% !important;
       margin-top: 24px !important;
     }
   }
-
-  /* Phone (<=480px) */
-  @media (max-width: 480px) {
-    .content-card { padding: 28px 16px 80px 16px !important; }
-    #typing-card { padding: 28px 16px 80px 16px !important; }
-    .card-colorado { padding-top: 28px !important; }
-    .text-wrapper { padding: 22px 16px !important; font-size: 1em !important; line-height: 1.55 !important; }
-    .text-wrapper-nasa { font-size: 1em !important; max-width: 100% !important; width: 100% !important; }
-    .lead-word { font-size: 1.3em !important; }
-  }
 </style>
 
+<!-- Custom horizontal header -->
+<div class="custom-header">
+  <div class="custom-header-inner">
+    <h1 class="header-name">Yuval Shmilovitz</h1>
+    <p class="header-tagline">Earth Scientist &bull; Postdoctoral Researcher &bull; University of Colorado Boulder</p>
+    <nav class="header-nav">
+      <a href="/">Overview</a>
+      <span class="sep">&middot;</span>
+      <a href="/portfolio/">Active projects</a>
+      <span class="sep">&middot;</span>
+      <a href="/cv/">CV</a>
+    </nav>
+    <div class="header-social">
+      <a href="mailto:yuvalsmilo@gmail.com" title="Email"><i class="fas fa-fw fa-envelope"></i></a>
+      <a href="https://github.com/yuvalsmilo" target="_blank" title="GitHub"><i class="fab fa-fw fa-github"></i></a>
+      <a href="https://scholar.google.com/citations?hl=en&user=SgWAjSMAAAAJ" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- Page 1: Colorado image -->
 <div class="content-card card-colorado">
   <img class="colorado-bg-img" src="/images/LimonGullies_slope.png" alt="">
   <div class="text-wrapper">
@@ -297,11 +273,12 @@ redirect_from:
   </div>
 </div>
 
+<!-- Page 2: NASA image + typing -->
 <div class="content-card card-nasa" id="typing-card">
-  <div class="text-wrapper text-wrapper-nasa">
+  <div class="text-wrapper-nasa">
     <span id="typing-text-1"></span><span class="typing-cursor" id="typing-cursor-1">|</span>
   </div>
-  <div class="text-wrapper text-wrapper-nasa text-wrapper-nasa-bottom" id="bottom-text-box">
+  <div class="text-wrapper-nasa text-wrapper-nasa-bottom" id="bottom-text-box">
     <span id="typing-text-2"></span><span class="typing-cursor" id="typing-cursor-2" style="display:none">|</span>
   </div>
 </div>
@@ -319,77 +296,76 @@ redirect_from:
 
   var bgCard = document.getElementById('typing-card');
   if (bgCard && 'IntersectionObserver' in window) {
-    var bgObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
+    var bgObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
         entry.isIntersecting ? setPage2() : setPage1();
       });
     }, { threshold: 0.5 });
     bgObserver.observe(bgCard);
   }
 
-window.onload = function () {
-  var segments1 = [
-    { html: '<span class="lead-word">Currently</span>' },
-    { text: ", I am a postdoctoral researcher at INSTAAR and part of " },
-    { html: '<a href="https://www.geoclash.org/" target="_blank">CLaSH</a>' },
-    { text: ", focusing on post-fire sediment transport and hazard cascades." }
-  ];
-  var segments2 = [
-    { text: "My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers and sediment transport in the context of lithological heterogeneity and across mountain ranges." }
-  ];
+  window.onload = function () {
+    var segments1 = [
+      { html: '<span class="lead-word">Currently</span>' },
+      { text: ", I am a postdoctoral researcher at INSTAAR and part of " },
+      { html: '<a href="https://www.geoclash.org/" target="_blank">CLaSH</a>' },
+      { text: ", focusing on post-fire sediment transport and hazard cascades." }
+    ];
+    var segments2 = [
+      { text: "My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers and sediment transport in the context of lithological heterogeneity and across mountain ranges." }
+    ];
 
-  var typingStarted = false;
-  var typing2Done = false;
-  var bottomBox = document.getElementById('bottom-text-box');
-  var secondCard = document.getElementById('typing-card');
+    var typingStarted = false, typing2Done = false;
+    var bottomBox = document.getElementById('bottom-text-box');
+    var secondCard = document.getElementById('typing-card');
 
-  function typeSegments(segments, elId, cursorId, onDone) {
-    var el = document.getElementById(elId);
-    var cursor = document.getElementById(cursorId);
-    if (!el) { if (onDone) onDone(); return; }
-    cursor.style.display = "inline";
-    var segIndex = 0, charIndex = 0, speed = 72;
-    function typeNext() {
-      if (segIndex >= segments.length) {
-        if (cursor) cursor.style.display = "none";
-        if (onDone) onDone();
+    function typeSegments(segments, elId, cursorId, onDone) {
+      var el = document.getElementById(elId);
+      var cursor = document.getElementById(cursorId);
+      if (!el) { if (onDone) onDone(); return; }
+      cursor.style.display = "inline";
+      var segIndex = 0, charIndex = 0, speed = 72;
+      function typeNext() {
+        if (segIndex >= segments.length) {
+          if (cursor) cursor.style.display = "none";
+          if (onDone) onDone();
+          return;
+        }
+        var seg = segments[segIndex];
+        if (seg.html) { el.innerHTML += seg.html; segIndex++; setTimeout(typeNext, speed); return; }
+        el.innerHTML += seg.text.charAt(charIndex);
+        charIndex++;
+        if (charIndex >= seg.text.length) { segIndex++; charIndex = 0; }
+        setTimeout(typeNext, speed);
+      }
+      typeNext();
+    }
+
+    function startTyping() {
+      if (typingStarted) {
+        if (typing2Done && bottomBox) bottomBox.style.display = "block";
         return;
       }
-      var seg = segments[segIndex];
-      if (seg.html) { el.innerHTML += seg.html; segIndex++; setTimeout(typeNext, speed); return; }
-      el.innerHTML += seg.text.charAt(charIndex);
-      charIndex++;
-      if (charIndex >= seg.text.length) { segIndex++; charIndex = 0; }
-      setTimeout(typeNext, speed);
+      typingStarted = true;
+      typeSegments(segments1, "typing-text-1", "typing-cursor-1", function() {
+        if (bottomBox) bottomBox.style.display = "block";
+        typeSegments(segments2, "typing-text-2", "typing-cursor-2", function() {
+          typing2Done = true;
+        });
+      });
     }
-    typeNext();
-  }
 
-  function startTyping() {
-    if (typingStarted) {
-      if (typing2Done && bottomBox) bottomBox.style.display = "block";
-      return;
-    }
-    typingStarted = true;
-    typeSegments(segments1, "typing-text-1", "typing-cursor-1", function () {
+    if (secondCard && 'IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) { startTyping(); }
+          else { if (bottomBox) bottomBox.style.display = "none"; }
+        });
+      }, { threshold: 0.4 });
+      observer.observe(secondCard);
+    } else {
+      startTyping();
       if (bottomBox) bottomBox.style.display = "block";
-      typeSegments(segments2, "typing-text-2", "typing-cursor-2", function () {
-        typing2Done = true;
-      });
-    });
-  }
-
-  if (secondCard && 'IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) { startTyping(); }
-        else { if (bottomBox) bottomBox.style.display = "none"; }
-      });
-    }, { threshold: 0.4 });
-    observer.observe(secondCard);
-  } else {
-    startTyping();
-    if (bottomBox) bottomBox.style.display = "block";
-  }
-};
+    }
+  };
 </script>
