@@ -168,37 +168,79 @@ redirect_from:
     50% { opacity: 0; }
   }
 
-  @media (max-width: 992px) {
+  /* ── Tablet (≤900px) ── */
+  @media (max-width: 900px) {
+    html, body {
+      scroll-snap-type: none !important;
+      background-attachment: scroll !important;
+      height: auto !important;
+    }
+
     .sidebar {
       position: relative !important;
       width: 100% !important;
       max-height: none !important;
-      border-radius: 0 0 12px 12px !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
     }
 
     .content-card {
-      padding: 40px 20px 80px 20px !important; 
-      align-items: center !important;
-      justify-content: center !important;
+      width: 100% !important;
+      min-height: 100svh !important;
+      padding: 40px 24px 90px 24px !important;
       background-attachment: scroll !important;
+      scroll-snap-align: none !important;
+      align-items: flex-start !important;
+      justify-content: flex-start !important;
     }
 
     #typing-card {
-      padding-left: 20px !important;
-      gap: 40px !important;
+      padding: 40px 24px 90px 24px !important;
     }
 
+    .text-wrapper {
+      max-width: 100% !important;
+      margin-top: 0 !important;
+    }
+
+    /* Bottom box becomes in-flow — JS still controls display */
     .text-wrapper-nasa-bottom {
       position: relative !important;
       bottom: auto !important;
       right: auto !important;
-      display: block !important;
       max-width: 100% !important;
+      width: 100% !important;
+      margin-top: 24px !important;
+    }
+  }
+
+  /* ── Phone (≤480px) ── */
+  @media (max-width: 480px) {
+    .sidebar {
+      padding: 16px 14px !important;
+    }
+
+    .content-card {
+      padding: 28px 16px 80px 16px !important;
+    }
+
+    #typing-card {
+      padding: 28px 16px 80px 16px !important;
     }
 
     .text-wrapper {
-      margin-top: 0 !important;
+      padding: 22px 16px !important;
+      font-size: 1em !important;
+      line-height: 1.55 !important;
+    }
+
+    .text-wrapper-nasa {
+      font-size: 1em !important;
       max-width: 100% !important;
+      width: 100% !important;
+    }
+
+    .lead-word {
+      font-size: 1.3em !important;
     }
   }
 </style>
