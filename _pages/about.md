@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 <style>
-  /* 1. Global Reset - Force layout to adapt to fullscreen scroll-snapping */
+  /* 1. Global Reset */
   html, body {
     margin: 0 !important;
     padding: 0 !important;
@@ -17,7 +17,7 @@ redirect_from:
     scroll-snap-type: y mandatory !important;
   }
 
-  /* 2. Strip standard Minimal Mistakes structural constraints entirely */
+  /* 2. Strip standard Minimal Mistakes structural constraints */
   #wrapper, 
   #main, 
   .main, 
@@ -31,22 +31,22 @@ redirect_from:
     max-width: 100% !important;
   }
 
-  /* 3. Re-adjust Fixed Profile Sidebar layout safely */
+  /* 3. Sidebar - width 330px to cover gap where content starts at 320px */
   .sidebar {
     background: rgba(255, 255, 255, 0.95) !important; 
     padding: 25px 20px !important;
-    border-radius: 0 0 12px 0 !important;
-    box-shadow: 30px 0 0 0 rgba(255, 255, 255, 0.95), 4px 0 20px rgba(0, 0, 0, 0.08) !important;
+    border-radius: 0 !important;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08) !important;
     position: fixed !important;
     left: 0 !important;
     top: 0 !important;
-    width: 300px !important;
+    width: 330px !important;
     max-height: 100vh !important;
     overflow-y: auto !important;
     z-index: 20 !important;
   }
 
-  /* 4. Completely eliminate native header, footer and toggle wrappers */
+  /* 4. Hide native header, footer and toggles */
   .masthead,
   .page__title,
   #theme-toggle,
@@ -57,7 +57,7 @@ redirect_from:
     display: none !important;
   }
 
-  /* 5. Main Content structural box adjustments */
+  /* 5. Main Content structural box */
   .page__inner-wrap,
   #main .page__inner-wrap,
   body .page__inner-wrap {
@@ -77,7 +77,7 @@ redirect_from:
     box-shadow: none !important;
   }
 
-  /* 6. Base Fullscreen Scroll-Snap Cards Layout */
+  /* 6. Fullscreen Scroll-Snap Cards */
   .content-card {
     min-height: 100vh !important;
     width: 100vw !important;
@@ -94,11 +94,11 @@ redirect_from:
     background-attachment: fixed !important; 
   }
 
-  /* Second card: space-between pushes first box to top-left, second to bottom-right */
   #typing-card {
-    justify-content: space-between !important;
+    justify-content: flex-start !important;
     padding-left: 40px !important;
     padding-bottom: 60px !important;
+    position: relative !important;
   }
 
   .card-colorado {
@@ -109,7 +109,7 @@ redirect_from:
     background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('/images/NASA_3.jpeg') !important;
   }
 
-  /* 7. Text Floating Panel Layout (Card 1 Content Box) */
+  /* 7. Text wrappers */
   .text-wrapper {
     background: rgba(255, 255, 255, 0.88) !important; 
     border-radius: 12px !important;
@@ -124,7 +124,6 @@ redirect_from:
     margin-top: 20px !important;
   }
 
-  /* Card 2 text boxes: transparent, white text */
   .text-wrapper-nasa {
     background: transparent !important;
     box-shadow: none !important;
@@ -141,25 +140,23 @@ redirect_from:
     text-decoration: underline !important;
   }
 
-  /* Bottom text box: fixed to viewport bottom-right so it's never cut off */
+  /* Bottom text box: fixed to viewport, hidden until second card is visible */
   .text-wrapper-nasa-bottom {
+    display: none !important;
     position: fixed !important;
     bottom: 60px !important;
     right: 80px !important;
     text-align: left !important;
     max-width: 550px !important;
     width: auto !important;
-    align-self: unset !important;
   }
 
-  /* Emphasized "Currently" lead-in word */
   .lead-word {
     font-size: 1.6em !important;
     font-weight: 800 !important;
     display: inline-block !important;
   }
 
-  /* 8. Typing cursor */
   .typing-cursor {
     animation: blink 0.8s step-end infinite;
     font-weight: bold;
@@ -170,7 +167,6 @@ redirect_from:
     50% { opacity: 0; }
   }
 
-  /* 9. Responsive Breakpoints for Mobile */
   @media (max-width: 992px) {
     .sidebar {
       position: relative !important;
@@ -187,14 +183,16 @@ redirect_from:
     }
 
     #typing-card {
-      justify-content: flex-start !important;
       padding-left: 20px !important;
       gap: 40px !important;
     }
 
     .text-wrapper-nasa-bottom {
-      align-self: flex-start !important;
-      text-align: left !important;
+      position: relative !important;
+      bottom: auto !important;
+      right: auto !important;
+      display: block !important;
+      max-width: 100% !important;
     }
 
     .text-wrapper {
@@ -214,7 +212,7 @@ redirect_from:
   <div class="text-wrapper text-wrapper-nasa">
     <span id="typing-text-1"></span><span class="typing-cursor" id="typing-cursor-1">|</span>
   </div>
-  <div class="text-wrapper text-wrapper-nasa text-wrapper-nasa-bottom">
+  <div class="text-wrapper text-wrapper-nasa text-wrapper-nasa-bottom" id="bottom-text-box">
     <span id="typing-text-2"></span><span class="typing-cursor" id="typing-cursor-2" style="display:none">|</span>
   </div>
 </div>
@@ -231,6 +229,10 @@ window.onload = function () {
   var segments2 = [
     { text: "My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers and sediment transport in the context of lithological heterogeneity and across mountain ranges." }
   ];
+
+  var typingStarted = false;
+  var bottomBox = document.getElementById('bottom-text-box');
+  var secondCard = document.getElementById('typing-card');
 
   function typeSegments(segments, elId, cursorId, onDone) {
     var el = document.getElementById(elId);
@@ -272,8 +274,32 @@ window.onload = function () {
     typeNext();
   }
 
-  typeSegments(segments1, "typing-text-1", "typing-cursor-1", function () {
-    typeSegments(segments2, "typing-text-2", "typing-cursor-2", null);
-  });
+  function startTyping() {
+    if (typingStarted) return;
+    typingStarted = true;
+    typeSegments(segments1, "typing-text-1", "typing-cursor-1", function () {
+      if (bottomBox) bottomBox.style.display = "block";
+      typeSegments(segments2, "typing-text-2", "typing-cursor-2", null);
+    });
+  }
+
+  /* Show/hide bottom box and trigger typing based on which card is visible */
+  if (secondCard && 'IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          startTyping();
+        } else {
+          if (bottomBox && typingStarted) bottomBox.style.display = "none";
+        }
+      });
+    }, { threshold: 0.4 });
+
+    observer.observe(secondCard);
+  } else {
+    /* Fallback: just start typing on load */
+    startTyping();
+    if (bottomBox) bottomBox.style.display = "block";
+  }
 };
 </script>
