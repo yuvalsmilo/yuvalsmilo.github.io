@@ -108,22 +108,7 @@ article,
 }
 
 /* 5. Navigation bar - embedded natively at the base of the left profile panel */
-.bottom-nav {
-  position: relative !important; /* Removes it from the screen floor */
-  bottom: auto !important;
-  left: auto !important;
-  right: auto !important;
-  width: 100% !important;
-  background: transparent !important;
-  padding: 15px 0 0 0 !important;
-  border-top: 1px solid rgba(0, 0, 0, 0.08) !important; /* Clean divider line */
-  text-align: center !important;
-  font-size: 0.95em !important; /* Slightly optimized size for sidebar width */
-  z-index: 30 !important;
-  box-shadow: none !important;
-  margin-top: auto !important; /* Anchors it firmly to the bottom edge of the sidebar container */
-}
-
+/* 5. Navigation bar */
 .bottom-nav {
   position: fixed !important;
   bottom: 0 !important;
@@ -137,7 +122,6 @@ article,
   z-index: 30 !important;
   box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.03) !important;
 }
-
 /* 6. Mobile layout */
 @media (max-width: 992px) {
   .sidebar {
