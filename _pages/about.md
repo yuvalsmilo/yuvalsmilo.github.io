@@ -225,13 +225,17 @@ redirect_from:
 
   document.body.style.backgroundImage = BG1;
 
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > window.innerHeight * 0.5) {
-      document.body.style.backgroundImage = BG2;
-    } else {
-      document.body.style.backgroundImage = BG1;
-    }
-  }, { passive: true });
+  /* Use IntersectionObserver instead of scroll events —
+     scroll-snap on body makes window.scrollY stay 0 */
+  var bgCard = document.getElementById('typing-card');
+  if (bgCard && 'IntersectionObserver' in window) {
+    var bgObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        document.body.style.backgroundImage = entry.isIntersecting ? BG2 : BG1;
+      });
+    }, { threshold: 0.5 });
+    bgObserver.observe(bgCard);
+  }
 
 window.onload = function () {
   var segments1 = [
