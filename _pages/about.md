@@ -12,7 +12,7 @@ redirect_from:
     margin: 0 !important;
     padding: 0 !important;
     height: 100% !important;
-    background-color: #111 !important; 
+    background: linear-gradient(to right, rgba(255,255,255,0.95) 330px, #111 330px) !important;
     overflow-x: hidden !important;
     scroll-snap-type: y mandatory !important;
   }
