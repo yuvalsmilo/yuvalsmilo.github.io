@@ -8,7 +8,7 @@ author_profile: true
     margin: 0 !important;
     padding: 0 !important;
     min-height: 100% !important;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url('/images/LimonGullies_slope.png') !important;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url('/images/ColoradoRainfall.jpg') !important;
     background-size: cover !important;
     background-position: center top !important;
     background-repeat: no-repeat !important;
