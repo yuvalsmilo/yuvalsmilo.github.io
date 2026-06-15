@@ -1,0 +1,94 @@
+---
+---
+
+/*
+ * This file controls what is imported from /_sass
+ *
+ * Note that the files are processed in the order they are imported, so they are partly
+   sorted by the dependencies. Also, the first two lines of the file are required by Jekyll.
+ */
+
+@import
+    "vendor/breakpoint/breakpoint",
+
+    "themes",
+    "theme/default",
+    "theme/dark",
+
+    "include/mixins",
+    "vendor/susy/susy",
+
+    "layout/reset",
+    "layout/base",
+
+    "include/utilities",
+    "layout/tables",
+    "layout/buttons",
+    "layout/notices",
+    "layout/masthead",
+    "layout/navigation",
+    "layout/footer",
+    "syntax",
+
+    "layout/forms",
+
+    "layout/page",
+    "layout/archive",
+    "layout/sidebar",
+
+    "vendor/font-awesome/fontawesome",
+    "vendor/font-awesome/solid",
+    "vendor/font-awesome/brands",
+    "vendor/magnific-popup/magnific-popup"
+;
+
+/* Keep everything that was already in your file above this line */
+
+/* ==========================================================================
+   Custom Fullscreen Background Overrides (Direct Layering)
+   ========================================================================== */
+
+/* 1. Fixes the image layer to the browser viewport background */
+.overview-wallpaper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Keeps it behind all text, sidebars, and headers */
+  background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('/images/ColoradoRainfall.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* 2. Strip standard backgrounds on structural containers globally */
+/* Making these transparent lets your fixed background image show through */
+#wrapper, 
+#main, 
+.main, 
+.page, 
+article,
+.page__inner {
+  background: transparent !important;
+}
+
+/* 3. Styles your specific bio text to float beautifully in a clean card */
+.overview-content-card {
+  display: block;
+  background: rgba(255, 255, 255, 0.96) !important; 
+  padding: 30px !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+
+/* 4. Fix the profile sidebar so it doesn't get washed out by the background */
+.sidebar {
+  background: rgba(255, 255, 255, 0.96) !important;
+  padding: 20px !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
