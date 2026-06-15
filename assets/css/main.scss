@@ -89,39 +89,3 @@ article,
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
-
-/* ==========================================================================
-   Global Sidebar Layout Unification (Matches about.md)
-   ========================================================================== */
-
-@media (min-width: 64em) {
-  /* Forces the primary grid layout structure to use identical proportions */
-  #main {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: flex-start !important;
-    max-width: 1200px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    padding-left: 2em !important;
-    padding-right: 2em !important;
-  }
-
-  /* Unifies the desktop width and spacing of the profile panel */
-  #main .sidebar {
-    width: calc(25% - 1em) !important;
-    float: left !important;
-    margin-right: 1em !important;
-    position: sticky !important;
-    top: 2em !important;
-  }
-
-  /* Unifies the desktop width and alignment of the text content container */
-  #main .page {
-    width: calc(75% - 1em) !important;
-    float: right !important;
-    margin-left: 1em !important;
-    padding-left: 0 !important;
-  }
-}
