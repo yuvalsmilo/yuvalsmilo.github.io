@@ -107,20 +107,39 @@ article,
   box-shadow: none !important;
 }
 
-/* 5. Navigation bar - embedded natively at the base of the left profile panel */
+/* 5. Navigation bar */
 .bottom-nav {
   position: fixed !important;
   bottom: 0 !important;
   left: 50% !important;
+  right: auto !important;
   transform: translateX(-50%) !important;
   background: transparent !important;
   padding: 15px 20px !important;
   border-top: none !important;
   text-align: center !important;
-  font-size: 1.5em !important;
+  font-size: 1.4em !important;
   z-index: 30 !important;
   box-shadow: none !important;
   width: fit-content !important;
+}
+
+@media (max-width: 768px) {
+  .bottom-nav {
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+    width: 100% !important;
+    font-size: 1em !important;
+    background: rgba(0, 0, 0, 0.45) !important;
+    padding: 12px 10px !important;
+    text-align: center !important;
+  }
+
+  .bottom-nav a {
+    color: #ffffff !important;
+    margin: 0 8px !important;
+  }
 }
 /* 6. Mobile layout */
 @media (max-width: 992px) {
