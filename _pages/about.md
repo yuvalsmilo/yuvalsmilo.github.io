@@ -58,10 +58,14 @@ redirect_from:
   }
 
   /* 5. Main Content structural box adjustments */
-  .page__inner-wrap {
+  .page__inner-wrap,
+  #main .page__inner-wrap,
+  body .page__inner-wrap {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
     background: transparent !important;
     box-shadow: none !important;
     box-sizing: border-box !important;
@@ -141,6 +145,7 @@ redirect_from:
   .text-wrapper-nasa-bottom {
     align-self: flex-end !important;
     text-align: right !important;
+    margin-right: 80px !important;
   }
 
   /* Emphasized "Currently" lead-in word */
