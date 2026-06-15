@@ -142,7 +142,7 @@ redirect_from:
 
   /* Bottom text box: fixed to viewport, hidden until second card is visible */
   .text-wrapper-nasa-bottom {
-    display: none !important;
+    display: none;
     position: fixed !important;
     bottom: 60px !important;
     right: 80px !important;
