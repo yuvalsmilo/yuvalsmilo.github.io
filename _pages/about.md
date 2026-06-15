@@ -226,6 +226,12 @@ redirect_from:
   </div>
 </div>
 
+<div class="bottom-nav">
+  <a href="/">Overview</a> · 
+  <a href="/portfolio/">Active projects</a> · 
+  <a href="/publications/">Publications</a> · 
+  <a href="/cv/">CV</a>
+</div>
 
 <script>
 window.onload = function () {
