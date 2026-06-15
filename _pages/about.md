@@ -36,7 +36,7 @@ redirect_from:
     background: rgba(255, 255, 255, 0.95) !important; 
     padding: 25px 20px !important;
     border-radius: 0 0 12px 0 !important;
-    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 30px 0 0 0 rgba(255, 255, 255, 0.95), 4px 0 20px rgba(0, 0, 0, 0.08) !important;
     position: fixed !important;
     left: 0 !important;
     top: 0 !important;
