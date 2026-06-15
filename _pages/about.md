@@ -143,33 +143,6 @@ redirect_from:
     display: inline-block !important;
   }
 
-  /* 8. Fixed Footer Menu Bar System */
-  .bottom-nav {
-    position: fixed !important;
-    bottom: 0 !important;
-    left: 300px !important; 
-    right: 0 !important;
-    background: rgba(255, 255, 255, 0.95) !important;
-    padding: 15px 0 !important;
-    border-top: 1px solid rgba(0, 0, 0, 0.06) !important;
-    text-align: center !important;
-    font-size: 1.05em !important;
-    z-index: 30 !important; 
-    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.03) !important;
-  }
-
-  .bottom-nav a {
-    color: #000 !important;
-    text-decoration: none !important;
-    font-weight: 600 !important;
-    margin: 0 12px !important;
-    display: inline-block !important;
-  }
-
-  .bottom-nav a:hover {
-    color: #0056b3 !important;
-    text-decoration: underline !important;
-  }
 
   /* 9. Text Cursor Typography Elements */
   #typing-cursor {
@@ -224,13 +197,6 @@ redirect_from:
   <div class="text-wrapper text-wrapper-nasa">
     <span id="typing-text"></span><span id="typing-cursor">|</span>
   </div>
-</div>
-
-<div class="bottom-nav">
-  <a href="/">Overview</a> · 
-  <a href="/portfolio/">Active projects</a> · 
-  <a href="/publications/">Publications</a> · 
-  <a href="/cv/">CV</a>
 </div>
 
 <script>
