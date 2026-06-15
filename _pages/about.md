@@ -21,33 +21,70 @@ redirect_from:
     background-repeat: no-repeat !important;
   }
 
-  /* 2. Strip standard Minimal Mistakes structural constraints */
-  #wrapper, 
-  #main, 
-  .main, 
-  .page, 
-  article,
-  .page__inner,
-  .inner {
+  /* 2. Strip structural constraints */
+  #wrapper, #main, .main, .page, article, .page__inner, .inner {
     background: transparent !important;
     padding: 0 !important;
     margin: 0 !important;
     max-width: 100% !important;
   }
 
-  /* 3. Sidebar - fully opaque white */
+  /* 3. Sidebar — horizontal bar at top 1/3 of screen */
   .sidebar {
-    background: #ffffff !important; 
-    padding: 25px 20px !important;
-    border-radius: 0 !important;
-    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08) !important;
     position: fixed !important;
-    left: 0 !important;
     top: 0 !important;
-    width: 330px !important;
-    max-height: 100vh !important;
-    overflow-y: auto !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 33vh !important;
+    max-height: 33vh !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    padding: 16px 48px !important;
+    background: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
     z-index: 20 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    border-radius: 0 !important;
+  }
+
+  .sidebar .author__avatar {
+    flex-shrink: 0 !important;
+    width: auto !important;
+    margin-right: 28px !important;
+    margin-bottom: 0 !important;
+    text-align: left !important;
+  }
+  .sidebar .author__avatar img {
+    width: 110px !important;
+    height: 110px !important;
+    max-width: none !important;
+    border-radius: 50% !important;
+  }
+
+  .sidebar .author__content {
+    flex: 1 !important;
+    padding-right: 32px !important;
+    margin-bottom: 0 !important;
+  }
+  .sidebar .author__name {
+    font-size: 1.4em !important;
+    margin-bottom: 6px !important;
+  }
+
+  .sidebar .author__urls-wrapper {
+    flex-shrink: 0 !important;
+    max-width: 240px !important;
+  }
+  .sidebar .author__urls-wrapper button {
+    display: none !important;
+  }
+  .sidebar .author__urls {
+    display: block !important;
+    visibility: visible !important;
+    position: static !important;
   }
 
   /* 4. Hide native header, footer and toggles */
@@ -68,20 +105,18 @@ redirect_from:
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
-    margin-left: 0 !important;
-    padding-left: 0 !important;
+    padding: 0 !important;
     background: transparent !important;
     box-shadow: none !important;
     box-sizing: border-box !important;
   }
 
-  article,
-  .page__content {
+  article, .page__content {
     background: transparent !important;
     box-shadow: none !important;
   }
 
-  /* 6. Fullscreen Scroll-Snap Cards */
+  /* 6. Scroll-Snap Cards */
   .content-card {
     min-height: 100vh !important;
     width: 100vw !important;
@@ -91,61 +126,57 @@ redirect_from:
     align-items: flex-start !important;
     scroll-snap-align: start !important;
     box-sizing: border-box !important;
-    padding: 60px 60px 40px 100px !important;
-    background-size: cover !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-    background-attachment: fixed !important;
+    padding: calc(33vh + 24px) 60px 60px 60px !important;
+    position: relative !important;
   }
 
   #typing-card {
-    justify-content: flex-start !important;
-    padding-left: 40px !important;
-    padding-bottom: 60px !important;
-    position: relative !important;
+    padding: calc(33vh + 24px) 60px 60px 40px !important;
   }
 
-  .card-colorado,
-  .card-nasa {
-    background-image: none !important;
-    background: transparent !important;
-  }
-
-  /* First card: black bg, relative so the img can be absolute inside */
+  /* 7. First card */
   .card-colorado {
     background: #000 !important;
-    position: relative !important;
+    padding-top: 33vh !important;
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+    padding-bottom: 60px !important;
+    justify-content: center !important;
   }
 
-  /* The Colorado image — contained rectangle in the space right of sidebar */
+  /* Colorado image: full width, contained in lower 2/3 */
   .colorado-bg-img {
     position: absolute !important;
-    top: 0 !important;
-    left: 330px !important;
-    width: calc(100vw - 330px) !important;
-    height: 100% !important;
+    top: 33vh !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 67vh !important;
     object-fit: contain !important;
     object-position: center center !important;
     filter: brightness(0.55) !important;
     z-index: 0 !important;
   }
 
-  /* Text sits on top of the image */
   .card-colorado .text-wrapper {
     position: relative !important;
     z-index: 1 !important;
     background: transparent !important;
     box-shadow: none !important;
     color: #ffffff !important;
+    margin-top: 0 !important;
   }
 
-  /* 7. Text wrappers */
+  .card-nasa {
+    background: transparent !important;
+  }
+
+  /* 8. Text wrappers */
   .text-wrapper {
-    background: rgba(255, 255, 255, 0.88) !important; 
+    background: rgba(255, 255, 255, 0.88) !important;
     border-radius: 12px !important;
     padding: 40px !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
-    max-width: 850px !important; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
+    max-width: 850px !important;
     width: 100% !important;
     color: #111 !important;
     font-size: 1.15em !important;
@@ -170,7 +201,6 @@ redirect_from:
     text-decoration: underline !important;
   }
 
-  /* Bottom text box: fixed to viewport, hidden until second card is visible */
   .text-wrapper-nasa-bottom {
     display: none;
     position: fixed !important;
@@ -207,14 +237,19 @@ redirect_from:
 
     .sidebar {
       position: relative !important;
-      width: 100% !important;
+      flex-direction: column !important;
+      height: auto !important;
       max-height: none !important;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+      padding: 20px !important;
+      align-items: flex-start !important;
     }
+    .sidebar .author__avatar { margin-right: 0 !important; margin-bottom: 12px !important; }
+    .sidebar .author__content { padding-right: 0 !important; }
+    .sidebar .author__urls-wrapper { max-width: 100% !important; }
 
     .colorado-bg-img {
-      left: 0 !important;
-      width: 100% !important;
+      top: 0 !important;
+      height: 100% !important;
     }
 
     .content-card {
@@ -223,18 +258,16 @@ redirect_from:
       padding: 40px 24px 90px 24px !important;
       background-attachment: scroll !important;
       scroll-snap-align: none !important;
-      align-items: flex-start !important;
+    }
+
+    .card-colorado {
+      padding-top: 40px !important;
       justify-content: flex-start !important;
     }
 
-    #typing-card {
-      padding: 40px 24px 90px 24px !important;
-    }
+    #typing-card { padding: 40px 24px 90px 24px !important; }
 
-    .text-wrapper {
-      max-width: 100% !important;
-      margin-top: 0 !important;
-    }
+    .text-wrapper { max-width: 100% !important; margin-top: 0 !important; }
 
     .text-wrapper-nasa-bottom {
       position: relative !important;
@@ -248,33 +281,12 @@ redirect_from:
 
   /* Phone (<=480px) */
   @media (max-width: 480px) {
-    .sidebar {
-      padding: 16px 14px !important;
-    }
-
-    .content-card {
-      padding: 28px 16px 80px 16px !important;
-    }
-
-    #typing-card {
-      padding: 28px 16px 80px 16px !important;
-    }
-
-    .text-wrapper {
-      padding: 22px 16px !important;
-      font-size: 1em !important;
-      line-height: 1.55 !important;
-    }
-
-    .text-wrapper-nasa {
-      font-size: 1em !important;
-      max-width: 100% !important;
-      width: 100% !important;
-    }
-
-    .lead-word {
-      font-size: 1.3em !important;
-    }
+    .content-card { padding: 28px 16px 80px 16px !important; }
+    #typing-card { padding: 28px 16px 80px 16px !important; }
+    .card-colorado { padding-top: 28px !important; }
+    .text-wrapper { padding: 22px 16px !important; font-size: 1em !important; line-height: 1.55 !important; }
+    .text-wrapper-nasa { font-size: 1em !important; max-width: 100% !important; width: 100% !important; }
+    .lead-word { font-size: 1.3em !important; }
   }
 </style>
 
@@ -297,9 +309,7 @@ redirect_from:
 <script>
   var BG2 = "linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('/images/NASA_3.jpeg')";
 
-  function setPage1() {
-    document.body.style.backgroundImage = 'none';
-  }
+  function setPage1() { document.body.style.backgroundImage = 'none'; }
   function setPage2() {
     document.body.style.backgroundImage = BG2;
     document.body.style.backgroundSize = 'cover';
@@ -324,7 +334,6 @@ window.onload = function () {
     { html: '<a href="https://www.geoclash.org/" target="_blank">CLaSH</a>' },
     { text: ", focusing on post-fire sediment transport and hazard cascades." }
   ];
-
   var segments2 = [
     { text: "My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers and sediment transport in the context of lithological heterogeneity and across mountain ranges." }
   ];
@@ -338,13 +347,8 @@ window.onload = function () {
     var el = document.getElementById(elId);
     var cursor = document.getElementById(cursorId);
     if (!el) { if (onDone) onDone(); return; }
-
     cursor.style.display = "inline";
-
-    var segIndex = 0;
-    var charIndex = 0;
-    var speed = 72;
-
+    var segIndex = 0, charIndex = 0, speed = 72;
     function typeNext() {
       if (segIndex >= segments.length) {
         if (cursor) cursor.style.display = "none";
@@ -352,25 +356,12 @@ window.onload = function () {
         return;
       }
       var seg = segments[segIndex];
-
-      if (seg.html) {
-        el.innerHTML += seg.html;
-        segIndex++;
-        setTimeout(typeNext, speed);
-        return;
-      }
-
+      if (seg.html) { el.innerHTML += seg.html; segIndex++; setTimeout(typeNext, speed); return; }
       el.innerHTML += seg.text.charAt(charIndex);
       charIndex++;
-
-      if (charIndex >= seg.text.length) {
-        segIndex++;
-        charIndex = 0;
-      }
-
+      if (charIndex >= seg.text.length) { segIndex++; charIndex = 0; }
       setTimeout(typeNext, speed);
     }
-
     typeNext();
   }
 
@@ -391,14 +382,10 @@ window.onload = function () {
   if (secondCard && 'IntersectionObserver' in window) {
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          startTyping();
-        } else {
-          if (bottomBox) bottomBox.style.display = "none";
-        }
+        if (entry.isIntersecting) { startTyping(); }
+        else { if (bottomBox) bottomBox.style.display = "none"; }
       });
     }, { threshold: 0.4 });
-
     observer.observe(secondCard);
   } else {
     startTyping();
