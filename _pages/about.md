@@ -141,11 +141,13 @@ redirect_from:
     text-decoration: underline !important;
   }
 
-  /* Bottom text box aligned to the right */
+  /* Bottom text box aligned to the right but readable left-to-right */
   .text-wrapper-nasa-bottom {
     align-self: flex-end !important;
-    text-align: right !important;
+    text-align: left !important;
+    max-width: 600px !important;
     margin-right: 80px !important;
+    width: auto !important;
   }
 
   /* Emphasized "Currently" lead-in word */
