@@ -136,8 +136,16 @@ article,
     position: relative !important;
     width: 100% !important;
     max-height: none !important;
-    border-radius: 0 0 12px 12px !important;
+    border-radius: 0 !important;
     box-shadow: none !important;
+    padding: 15px !important;
+  }
+
+  /* Hide the Follow button on mobile */
+  .follow-button,
+  .btn--follow,
+  a[href*="twitter.com/intent/follow"] {
+    display: none !important;
   }
 
   .page__inner-wrap {
@@ -148,7 +156,14 @@ article,
     padding-right: 10px !important;
   }
 
+  /* Bottom nav - smaller font so all links fit on one line */
   .bottom-nav {
     left: 0 !important;
+    font-size: 0.85em !important;
+    padding: 10px 0 !important;
+  }
+
+  .bottom-nav a {
+    margin: 0 6px !important;
   }
 }
