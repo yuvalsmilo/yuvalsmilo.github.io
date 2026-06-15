@@ -114,14 +114,26 @@ article,
   left: 50% !important;
   right: auto !important;
   transform: translateX(-50%) !important;
-  background: transparent !important;
+  background: rgba(0, 0, 0, 0.45) !important;
   padding: 15px 20px !important;
   border-top: none !important;
+  border-radius: 12px 12px 0 0 !important;
   text-align: center !important;
   font-size: 1.4em !important;
   z-index: 30 !important;
   box-shadow: none !important;
   width: fit-content !important;
+}
+
+.bottom-nav a {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+}
+
+.bottom-nav a:hover {
+  color: #dddddd !important;
+  text-decoration: underline !important;
 }
 
 @media (max-width: 768px) {
@@ -131,14 +143,8 @@ article,
     transform: none !important;
     width: 100% !important;
     font-size: 1em !important;
-    background: rgba(0, 0, 0, 0.45) !important;
     padding: 12px 10px !important;
-    text-align: center !important;
-  }
-
-  .bottom-nav a {
-    color: #ffffff !important;
-    margin: 0 8px !important;
+    border-radius: 0 !important;
   }
 }
 /* 6. Mobile layout */
