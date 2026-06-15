@@ -29,10 +29,7 @@ redirect_from:
     box-shadow: none !important;
   }
 
-  article, .page__content {
-    background: transparent !important;
-    box-shadow: none !important;
-  }
+  article, .page__content { background: transparent !important; box-shadow: none !important; }
 
   .masthead, .page__title, #theme-toggle, .dark-mode-toggle,
   button[aria-label="Toggle dark mode"], .page__footer, footer {
@@ -42,18 +39,27 @@ redirect_from:
   /* ── Custom horizontal header ── */
   .custom-header {
     position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
+    top: 0 !important; left: 0 !important; right: 0 !important;
     height: 33vh !important;
     background: #ffffff !important;
     display: flex !important;
+    flex-direction: row !important;
     align-items: center !important;
     justify-content: center !important;
+    gap: 32px !important;
     z-index: 20 !important;
     box-shadow: 0 4px 20px rgba(0,0,0,0.07) !important;
     box-sizing: border-box !important;
     padding: 20px 48px !important;
+  }
+
+  .header-avatar {
+    width: 110px !important;
+    height: 110px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15) !important;
   }
 
   .custom-header-inner {
@@ -74,25 +80,17 @@ redirect_from:
     margin: 0 0 14px 0 !important;
   }
 
-  .header-nav {
-    margin-bottom: 12px !important;
-  }
+  .header-nav { margin-bottom: 12px !important; }
 
   .header-nav a {
-    color: #2e7d32 !important;
+    color: #1565c0 !important;
     font-weight: 600 !important;
     text-decoration: none !important;
     font-size: 1em !important;
     margin: 0 10px !important;
   }
-
-  .header-nav a:hover {
-    text-decoration: underline !important;
-  }
-
-  .header-nav .sep {
-    color: #aaa !important;
-  }
+  .header-nav a:hover { text-decoration: underline !important; }
+  .header-nav .sep { color: #aaa !important; }
 
   .header-social a {
     color: #333 !important;
@@ -100,10 +98,7 @@ redirect_from:
     margin: 0 8px !important;
     text-decoration: none !important;
   }
-
-  .header-social a:hover {
-    color: #2e7d32 !important;
-  }
+  .header-social a:hover { color: #1565c0 !important; }
 
   /* ── Scroll-snap cards ── */
   .content-card {
@@ -119,10 +114,8 @@ redirect_from:
     padding: 0 !important;
   }
 
-  /* ── Page 1: Colorado image (cover) + white text in lower area ── */
-  .card-colorado {
-    background: #000 !important;
-  }
+  /* ── Page 1 ── */
+  .card-colorado { background: #000 !important; }
 
   .colorado-bg-img {
     position: absolute !important;
@@ -149,7 +142,7 @@ redirect_from:
     margin-bottom: 60px !important;
   }
 
-  /* ── Page 2: NASA image ── */
+  /* ── Page 2 ── */
   .card-nasa {
     background: transparent !important;
     padding: calc(33vh + 24px) 60px 60px 40px !important;
@@ -166,11 +159,7 @@ redirect_from:
     line-height: 1.65 !important;
     max-width: 750px !important;
   }
-
-  .text-wrapper-nasa a {
-    color: #ffffff !important;
-    text-decoration: underline !important;
-  }
+  .text-wrapper-nasa a { color: #ffffff !important; text-decoration: underline !important; }
 
   .text-wrapper-nasa-bottom {
     display: none;
@@ -184,69 +173,36 @@ redirect_from:
     line-height: 1.6 !important;
   }
 
-  .lead-word {
-    font-size: 1.6em !important;
-    font-weight: 800 !important;
-    display: inline-block !important;
-  }
+  .lead-word { font-size: 1.6em !important; font-weight: 800 !important; display: inline-block !important; }
 
-  .typing-cursor {
-    animation: blink 0.8s step-end infinite;
-    font-weight: bold;
-    color: #ffffff !important;
-  }
-
+  .typing-cursor { animation: blink 0.8s step-end infinite; font-weight: bold; color: #ffffff !important; }
   @keyframes blink { 50% { opacity: 0; } }
 
   /* ── Mobile ── */
   @media (max-width: 768px) {
-    html, body {
-      scroll-snap-type: none !important;
-      background-attachment: scroll !important;
-      height: auto !important;
-    }
+    html, body { scroll-snap-type: none !important; background-attachment: scroll !important; height: auto !important; }
 
     .custom-header {
       position: relative !important;
       height: auto !important;
+      flex-direction: column !important;
       padding: 24px 20px !important;
+      gap: 16px !important;
     }
 
     .header-name { font-size: 1.5em !important; }
 
-    .colorado-bg-img {
-      top: 0 !important;
-      height: 60vw !important;
-    }
+    .colorado-bg-img { top: 0 !important; height: 60vw !important; }
 
-    .content-card {
-      min-height: auto !important;
-      scroll-snap-align: none !important;
-    }
-
-    .card-colorado .text-wrapper {
-      padding: 24px 20px !important;
-      font-size: 1em !important;
-      margin-bottom: 40px !important;
-    }
-
-    .card-nasa {
-      padding: 32px 20px 80px 20px !important;
-    }
-
-    .text-wrapper-nasa-bottom {
-      position: relative !important;
-      bottom: auto !important;
-      right: auto !important;
-      display: block !important;
-      max-width: 100% !important;
-      margin-top: 24px !important;
-    }
+    .content-card { min-height: auto !important; scroll-snap-align: none !important; }
+    .card-colorado .text-wrapper { padding: 24px 20px !important; font-size: 1em !important; margin-bottom: 40px !important; }
+    .card-nasa { padding: 32px 20px 80px 20px !important; }
+    .text-wrapper-nasa-bottom { position: relative !important; bottom: auto !important; right: auto !important; display: block !important; max-width: 100% !important; margin-top: 24px !important; }
   }
 </style>
 
-<!-- Custom horizontal header -->
 <div class="custom-header">
+  <img class="header-avatar" src="/images/profile.png" alt="Yuval Shmilovitz">
   <div class="custom-header-inner">
     <h1 class="header-name">Yuval Shmilovitz</h1>
     <p class="header-tagline">Earth Scientist &bull; Postdoctoral Researcher &bull; University of Colorado Boulder</p>
@@ -261,11 +217,11 @@ redirect_from:
       <a href="mailto:yuvalsmilo@gmail.com" title="Email"><i class="fas fa-fw fa-envelope"></i></a>
       <a href="https://github.com/yuvalsmilo" target="_blank" title="GitHub"><i class="fab fa-fw fa-github"></i></a>
       <a href="https://scholar.google.com/citations?hl=en&user=SgWAjSMAAAAJ" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+      <a href="https://orcid.org/0000-0003-1608-6104" target="_blank" title="ORCID"><i class="ai ai-orcid"></i></a>
     </div>
   </div>
 </div>
 
-<!-- Page 1: Colorado image -->
 <div class="content-card card-colorado">
   <img class="colorado-bg-img" src="/images/LimonGullies_slope.png" alt="">
   <div class="text-wrapper">
@@ -273,7 +229,6 @@ redirect_from:
   </div>
 </div>
 
-<!-- Page 2: NASA image + typing -->
 <div class="content-card card-nasa" id="typing-card">
   <div class="text-wrapper-nasa">
     <span id="typing-text-1"></span><span class="typing-cursor" id="typing-cursor-1">|</span>
@@ -285,87 +240,61 @@ redirect_from:
 
 <script>
   var BG2 = "linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('/images/NASA_3.jpeg')";
-
   function setPage1() { document.body.style.backgroundImage = 'none'; }
-  function setPage2() {
-    document.body.style.backgroundImage = BG2;
-    document.body.style.backgroundSize = 'cover';
-  }
-
+  function setPage2() { document.body.style.backgroundImage = BG2; document.body.style.backgroundSize = 'cover'; }
   setPage1();
-
   var bgCard = document.getElementById('typing-card');
   if (bgCard && 'IntersectionObserver' in window) {
-    var bgObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        entry.isIntersecting ? setPage2() : setPage1();
-      });
-    }, { threshold: 0.5 });
-    bgObserver.observe(bgCard);
+    new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { e.isIntersecting ? setPage2() : setPage1(); });
+    }, { threshold: 0.5 }).observe(bgCard);
   }
 
-  window.onload = function () {
+  window.onload = function() {
     var segments1 = [
       { html: '<span class="lead-word">Currently</span>' },
       { text: ", I am a postdoctoral researcher at INSTAAR and part of " },
       { html: '<a href="https://www.geoclash.org/" target="_blank">CLaSH</a>' },
       { text: ", focusing on post-fire sediment transport and hazard cascades." }
     ];
-    var segments2 = [
-      { text: "My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers and sediment transport in the context of lithological heterogeneity and across mountain ranges." }
-    ];
+    var segments2 = [{ text: "My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers and sediment transport in the context of lithological heterogeneity and across mountain ranges." }];
 
     var typingStarted = false, typing2Done = false;
     var bottomBox = document.getElementById('bottom-text-box');
     var secondCard = document.getElementById('typing-card');
 
-    function typeSegments(segments, elId, cursorId, onDone) {
-      var el = document.getElementById(elId);
-      var cursor = document.getElementById(cursorId);
+    function typeSegments(segs, elId, curId, onDone) {
+      var el = document.getElementById(elId), cur = document.getElementById(curId);
       if (!el) { if (onDone) onDone(); return; }
-      cursor.style.display = "inline";
-      var segIndex = 0, charIndex = 0, speed = 72;
-      function typeNext() {
-        if (segIndex >= segments.length) {
-          if (cursor) cursor.style.display = "none";
-          if (onDone) onDone();
-          return;
-        }
-        var seg = segments[segIndex];
-        if (seg.html) { el.innerHTML += seg.html; segIndex++; setTimeout(typeNext, speed); return; }
-        el.innerHTML += seg.text.charAt(charIndex);
-        charIndex++;
-        if (charIndex >= seg.text.length) { segIndex++; charIndex = 0; }
-        setTimeout(typeNext, speed);
+      cur.style.display = "inline";
+      var si = 0, ci = 0;
+      function next() {
+        if (si >= segs.length) { cur.style.display = "none"; if (onDone) onDone(); return; }
+        var seg = segs[si];
+        if (seg.html) { el.innerHTML += seg.html; si++; setTimeout(next, 72); return; }
+        el.innerHTML += seg.text.charAt(ci++);
+        if (ci >= seg.text.length) { si++; ci = 0; }
+        setTimeout(next, 72);
       }
-      typeNext();
+      next();
     }
 
     function startTyping() {
-      if (typingStarted) {
-        if (typing2Done && bottomBox) bottomBox.style.display = "block";
-        return;
-      }
+      if (typingStarted) { if (typing2Done && bottomBox) bottomBox.style.display = "block"; return; }
       typingStarted = true;
       typeSegments(segments1, "typing-text-1", "typing-cursor-1", function() {
         if (bottomBox) bottomBox.style.display = "block";
-        typeSegments(segments2, "typing-text-2", "typing-cursor-2", function() {
-          typing2Done = true;
-        });
+        typeSegments(segments2, "typing-text-2", "typing-cursor-2", function() { typing2Done = true; });
       });
     }
 
     if (secondCard && 'IntersectionObserver' in window) {
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) { startTyping(); }
-          else { if (bottomBox) bottomBox.style.display = "none"; }
+      new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) startTyping();
+          else if (bottomBox) bottomBox.style.display = "none";
         });
-      }, { threshold: 0.4 });
-      observer.observe(secondCard);
-    } else {
-      startTyping();
-      if (bottomBox) bottomBox.style.display = "block";
-    }
+      }, { threshold: 0.4 }).observe(secondCard);
+    } else { startTyping(); if (bottomBox) bottomBox.style.display = "block"; }
   };
 </script>
