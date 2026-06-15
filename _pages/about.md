@@ -14,6 +14,7 @@ redirect_from:
     height: 100% !important;
     overflow-x: hidden !important;
     scroll-snap-type: y mandatory !important;
+    background-color: #000 !important;
     background-size: cover !important;
     background-position: center center !important;
     background-attachment: fixed !important;
@@ -90,11 +91,11 @@ redirect_from:
     align-items: flex-start !important;
     scroll-snap-align: start !important;
     box-sizing: border-box !important;
-    padding: 60px 60px 40px 100px !important; 
+    padding: 60px 60px 40px 100px !important;
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
-    background-attachment: fixed !important; 
+    background-attachment: fixed !important;
   }
 
   #typing-card {
@@ -108,6 +109,34 @@ redirect_from:
   .card-nasa {
     background-image: none !important;
     background: transparent !important;
+  }
+
+  /* First card: black bg, relative so the img can be absolute inside */
+  .card-colorado {
+    background: #000 !important;
+    position: relative !important;
+  }
+
+  /* The Colorado image — contained rectangle in the space right of sidebar */
+  .colorado-bg-img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 330px !important;
+    width: calc(100vw - 330px) !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    filter: brightness(0.55) !important;
+    z-index: 0 !important;
+  }
+
+  /* Text sits on top of the image */
+  .card-colorado .text-wrapper {
+    position: relative !important;
+    z-index: 1 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #ffffff !important;
   }
 
   /* 7. Text wrappers */
@@ -168,7 +197,7 @@ redirect_from:
     50% { opacity: 0; }
   }
 
-  /* ── Tablet (≤900px) ── */
+  /* Tablet (<=900px) */
   @media (max-width: 900px) {
     html, body {
       scroll-snap-type: none !important;
@@ -181,6 +210,11 @@ redirect_from:
       width: 100% !important;
       max-height: none !important;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+    }
+
+    .colorado-bg-img {
+      left: 0 !important;
+      width: 100% !important;
     }
 
     .content-card {
@@ -202,7 +236,6 @@ redirect_from:
       margin-top: 0 !important;
     }
 
-    /* Bottom box becomes in-flow — JS still controls display */
     .text-wrapper-nasa-bottom {
       position: relative !important;
       bottom: auto !important;
@@ -213,7 +246,7 @@ redirect_from:
     }
   }
 
-  /* ── Phone (≤480px) ── */
+  /* Phone (<=480px) */
   @media (max-width: 480px) {
     .sidebar {
       padding: 16px 14px !important;
@@ -246,6 +279,7 @@ redirect_from:
 </style>
 
 <div class="content-card card-colorado">
+  <img class="colorado-bg-img" src="/images/LimonGullies_slope.png" alt="">
   <div class="text-wrapper">
     My research fields lie at the intersection of computational geomorphology, ecohydrology, hydrometeorology and natural hazards. I integrate numerical modeling of sediment dynamics and landscape evolution, field observations/measurements and quantitative analysis of topography. I'm especially interested in implementing high resolution hydroclimate realisms and detailed description of surface properties into landscape evolution modeling to solve scientific questions across time scales.
   </div>
@@ -261,19 +295,23 @@ redirect_from:
 </div>
 
 <script>
-  /* Set initial background on body so it covers full viewport including sidebar area */
-  var BG1 = "linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35)), url('/images/LimonGullies_slope.png')";
-  var BG2 = "linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url('/images/NASA_3.jpeg')";
+  var BG2 = "linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('/images/NASA_3.jpeg')";
 
-  document.body.style.backgroundImage = BG1;
+  function setPage1() {
+    document.body.style.backgroundImage = 'none';
+  }
+  function setPage2() {
+    document.body.style.backgroundImage = BG2;
+    document.body.style.backgroundSize = 'cover';
+  }
 
-  /* Use IntersectionObserver instead of scroll events —
-     scroll-snap on body makes window.scrollY stay 0 */
+  setPage1();
+
   var bgCard = document.getElementById('typing-card');
   if (bgCard && 'IntersectionObserver' in window) {
     var bgObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        document.body.style.backgroundImage = entry.isIntersecting ? BG2 : BG1;
+        entry.isIntersecting ? setPage2() : setPage1();
       });
     }, { threshold: 0.5 });
     bgObserver.observe(bgCard);
@@ -338,7 +376,6 @@ window.onload = function () {
 
   function startTyping() {
     if (typingStarted) {
-      /* Already typed — just re-show bottom box if text 2 is done */
       if (typing2Done && bottomBox) bottomBox.style.display = "block";
       return;
     }
@@ -351,7 +388,6 @@ window.onload = function () {
     });
   }
 
-  /* Show/hide bottom box based on which card is visible */
   if (secondCard && 'IntersectionObserver' in window) {
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
