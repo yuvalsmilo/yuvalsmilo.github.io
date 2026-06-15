@@ -79,11 +79,10 @@ redirect_from:
     width: 100vw !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-start !important; /* Locks text blocks toward the UPPER part */
-    align-items: flex-start !important;     /* Locks text blocks cleanly to the LEFT side */
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
     scroll-snap-align: start !important;
     box-sizing: border-box !important;
-    /* 340px left padding perfectly clears the 300px sidebar + adds a clean 40px gutter */
     padding: 60px 60px 40px 100px !important; 
     background-size: cover !important;
     background-position: center center !important;
@@ -91,10 +90,11 @@ redirect_from:
     background-attachment: fixed !important; 
   }
 
-  /* Pin the second card's text box to the bottom, shift further left */
+  /* Second card: space-between pushes first box to top-left, second to bottom-right */
   #typing-card {
-    justify-content: flex-end !important;
+    justify-content: space-between !important;
     padding-left: 40px !important;
+    padding-bottom: 60px !important;
   }
 
   .card-colorado {
@@ -120,7 +120,7 @@ redirect_from:
     margin-top: 20px !important;
   }
 
-  /* Card 2 text box: transparent, white text, wider, moved left via #typing-card padding */
+  /* Card 2 text boxes: transparent, white text */
   .text-wrapper-nasa {
     background: transparent !important;
     box-shadow: none !important;
@@ -128,12 +128,19 @@ redirect_from:
     padding-left: 0 !important;
     color: #ffffff !important;
     font-weight: 500 !important;
-    max-width: 1075px !important;
+    max-width: 750px !important;
+    width: auto !important;
   }
 
   .text-wrapper-nasa a {
     color: #ffffff !important;
     text-decoration: underline !important;
+  }
+
+  /* Bottom text box aligned to the right */
+  .text-wrapper-nasa-bottom {
+    align-self: flex-end !important;
+    text-align: right !important;
   }
 
   /* Emphasized "Currently" lead-in word */
@@ -143,9 +150,8 @@ redirect_from:
     display: inline-block !important;
   }
 
-
-  /* 9. Text Cursor Typography Elements */
-  #typing-cursor {
+  /* 8. Typing cursor */
+  .typing-cursor {
     animation: blink 0.8s step-end infinite;
     font-weight: bold;
     color: #ffffff !important;
@@ -155,7 +161,7 @@ redirect_from:
     50% { opacity: 0; }
   }
 
-  /* 10. Responsive Breakpoints for Mobile Navigation */
+  /* 9. Responsive Breakpoints for Mobile */
   @media (max-width: 992px) {
     .sidebar {
       position: relative !important;
@@ -172,17 +178,19 @@ redirect_from:
     }
 
     #typing-card {
-      justify-content: center !important;
+      justify-content: flex-start !important;
       padding-left: 20px !important;
+      gap: 40px !important;
+    }
+
+    .text-wrapper-nasa-bottom {
+      align-self: flex-start !important;
+      text-align: left !important;
     }
 
     .text-wrapper {
       margin-top: 0 !important;
       max-width: 100% !important;
-    }
-
-    .bottom-nav {
-      left: 0 !important;
     }
   }
 </style>
@@ -195,52 +203,68 @@ redirect_from:
 
 <div class="content-card card-nasa" id="typing-card">
   <div class="text-wrapper text-wrapper-nasa">
-    <span id="typing-text"></span><span id="typing-cursor">|</span>
+    <span id="typing-text-1"></span><span class="typing-cursor" id="typing-cursor-1">|</span>
+  </div>
+  <div class="text-wrapper text-wrapper-nasa text-wrapper-nasa-bottom">
+    <span id="typing-text-2"></span><span class="typing-cursor" id="typing-cursor-2" style="display:none">|</span>
   </div>
 </div>
 
 <script>
 window.onload = function () {
-  var segments = [
+  var segments1 = [
     { html: '<span class="lead-word">Currently</span>' },
     { text: ", I am a postdoctoral researcher at INSTAAR and part of " },
     { html: '<a href="https://www.geoclash.org/" target="_blank">CLaSH</a>' },
-    { text: ", focusing on post-fire sediment transport and hazard cascades. My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers and sediment transport in the context of lithological heterogeneity and across mountain ranges." }
+    { text: ", focusing on post-fire sediment transport and hazard cascades." }
   ];
 
-  var el = document.getElementById("typing-text");
-  if (!el) { return; }
+  var segments2 = [
+    { text: "My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers and sediment transport in the context of lithological heterogeneity and across mountain ranges." }
+  ];
 
-  var segIndex = 0;
-  var charIndex = 0;
-  var speed = 72;
+  function typeSegments(segments, elId, cursorId, onDone) {
+    var el = document.getElementById(elId);
+    var cursor = document.getElementById(cursorId);
+    if (!el) { if (onDone) onDone(); return; }
 
-  function typeNext() {
-    if (segIndex >= segments.length) {
-      var cursor = document.getElementById("typing-cursor");
-      if (cursor) { cursor.style.display = "none"; }
-      return;
-    }
-    var seg = segments[segIndex];
+    cursor.style.display = "inline";
 
-    if (seg.html) {
-      el.innerHTML += seg.html;
-      segIndex++;
+    var segIndex = 0;
+    var charIndex = 0;
+    var speed = 72;
+
+    function typeNext() {
+      if (segIndex >= segments.length) {
+        if (cursor) cursor.style.display = "none";
+        if (onDone) onDone();
+        return;
+      }
+      var seg = segments[segIndex];
+
+      if (seg.html) {
+        el.innerHTML += seg.html;
+        segIndex++;
+        setTimeout(typeNext, speed);
+        return;
+      }
+
+      el.innerHTML += seg.text.charAt(charIndex);
+      charIndex++;
+
+      if (charIndex >= seg.text.length) {
+        segIndex++;
+        charIndex = 0;
+      }
+
       setTimeout(typeNext, speed);
-      return;
     }
 
-    el.innerHTML += seg.text.charAt(charIndex);
-    charIndex++;
-
-    if (charIndex >= seg.text.length) {
-      segIndex++;
-      charIndex = 0;
-    }
-
-    setTimeout(typeNext, speed);
+    typeNext();
   }
 
-  typeNext();
+  typeSegments(segments1, "typing-text-1", "typing-cursor-1", function () {
+    typeSegments(segments2, "typing-text-2", "typing-cursor-2", null);
+  });
 };
 </script>
