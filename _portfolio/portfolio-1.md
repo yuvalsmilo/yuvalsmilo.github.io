@@ -1,6 +1,7 @@
 ---
 title: "Landscape evolution of ephemeral catchments"
 collection: portfolio
+author_profile: true
 ---
 <style>
   /* 1. Background */
