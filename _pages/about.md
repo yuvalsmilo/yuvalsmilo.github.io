@@ -12,9 +12,12 @@ redirect_from:
     margin: 0 !important;
     padding: 0 !important;
     height: 100% !important;
-    background: linear-gradient(to right, rgba(255,255,255,0.95) 330px, #111 330px) !important;
     overflow-x: hidden !important;
     scroll-snap-type: y mandatory !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
   }
 
   /* 2. Strip standard Minimal Mistakes structural constraints */
@@ -31,9 +34,9 @@ redirect_from:
     max-width: 100% !important;
   }
 
-  /* 3. Sidebar - width 330px to cover gap where content starts at 320px */
+  /* 3. Sidebar - fully opaque white */
   .sidebar {
-    background: rgba(255, 255, 255, 0.95) !important; 
+    background: #ffffff !important; 
     padding: 25px 20px !important;
     border-radius: 0 !important;
     box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08) !important;
@@ -101,12 +104,10 @@ redirect_from:
     position: relative !important;
   }
 
-  .card-colorado {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), url('/images/LimonGullies_slope.png') !important;
-  }
-
+  .card-colorado,
   .card-nasa {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('/images/NASA_3.jpeg') !important;
+    background-image: none !important;
+    background: transparent !important;
   }
 
   /* 7. Text wrappers */
@@ -218,6 +219,20 @@ redirect_from:
 </div>
 
 <script>
+  /* Set initial background on body so it covers full viewport including sidebar area */
+  var BG1 = "linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35)), url('/images/LimonGullies_slope.png')";
+  var BG2 = "linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url('/images/NASA_3.jpeg')";
+
+  document.body.style.backgroundImage = BG1;
+
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > window.innerHeight * 0.5) {
+      document.body.style.backgroundImage = BG2;
+    } else {
+      document.body.style.backgroundImage = BG1;
+    }
+  }, { passive: true });
+
 window.onload = function () {
   var segments1 = [
     { html: '<span class="lead-word">Currently</span>' },
@@ -231,6 +246,7 @@ window.onload = function () {
   ];
 
   var typingStarted = false;
+  var typing2Done = false;
   var bottomBox = document.getElementById('bottom-text-box');
   var secondCard = document.getElementById('typing-card');
 
@@ -275,29 +291,34 @@ window.onload = function () {
   }
 
   function startTyping() {
-    if (typingStarted) return;
+    if (typingStarted) {
+      /* Already typed — just re-show bottom box if text 2 is done */
+      if (typing2Done && bottomBox) bottomBox.style.display = "block";
+      return;
+    }
     typingStarted = true;
     typeSegments(segments1, "typing-text-1", "typing-cursor-1", function () {
       if (bottomBox) bottomBox.style.display = "block";
-      typeSegments(segments2, "typing-text-2", "typing-cursor-2", null);
+      typeSegments(segments2, "typing-text-2", "typing-cursor-2", function () {
+        typing2Done = true;
+      });
     });
   }
 
-  /* Show/hide bottom box and trigger typing based on which card is visible */
+  /* Show/hide bottom box based on which card is visible */
   if (secondCard && 'IntersectionObserver' in window) {
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           startTyping();
         } else {
-          if (bottomBox && typingStarted) bottomBox.style.display = "none";
+          if (bottomBox) bottomBox.style.display = "none";
         }
       });
     }, { threshold: 0.4 });
 
     observer.observe(secondCard);
   } else {
-    /* Fallback: just start typing on load */
     startTyping();
     if (bottomBox) bottomBox.style.display = "block";
   }
