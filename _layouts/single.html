@@ -27,15 +27,15 @@
 <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>{% include sidebar.html %}</span></p>
 <p class="p2"><span class="s1"></span><br></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;article class="page" itemscope itemtype="https://schema.org/CreativeWork"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{% if page.title %;&lt;meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape }}"&gt;{% endif %}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{% if page.excerpt %;&lt;meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape }}"&gt;{% endif %}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{% if page.date %;&lt;meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}"&gt;{% endif %}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{% if page.last_modified_at %;&lt;meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}"&gt;{% endif %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{% if page.title %}&lt;meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape }}"&gt;{% endif %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{% if page.excerpt %}&lt;meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape }}"&gt;{% endif %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{% if page.date %}&lt;meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}"&gt;{% endif %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{% if page.last_modified_at %}&lt;meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}"&gt;{% endif %}</span></p>
 <p class="p2"><span class="s1"></span><br></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="page__inner-wrap"&gt;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{% unless page.header.overlay_color or page.header.overlay_image %}</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;header&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>{% if page.title %;&lt;h1 id="page-title" class="page__title" itemprop="headline"&gt;{{ page.title | markdownify | remove: "&lt;p&gt;" | remove: "&lt;/p&gt;" }}&lt;/h1&gt;{% endif %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>{% if page.title %}&lt;h1 id="page-title" class="page__title" itemprop="headline"&gt;{{ page.title | markdownify | remove: "&lt;p&gt;" | remove: "&lt;/p&gt;" }}&lt;/h1&gt;{% endif %}</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>{% include page__meta.html %}</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/header&gt;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{% endunless %}</span></p>
