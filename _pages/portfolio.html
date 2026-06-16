@@ -30,9 +30,8 @@ author_profile: false
     background: #fff;
   }
 
-  .port-section-first {
-    margin-top: 33vh !important;
-  }
+  .port-section-first { margin-top: 33vh !important; }
+  .port-section-flip  { flex-direction: row-reverse; }
 
   .port-s-image {
     width: 52%;
@@ -49,7 +48,6 @@ author_profile: false
     display: block;
   }
 
-  /* Option B text panel */
   .port-s-text {
     flex: 1;
     padding: 36px 48px;
@@ -84,7 +82,7 @@ author_profile: false
     font-size: 0.82em;
     font-weight: 600;
     color: #D4763B;
-    background: rgba(212, 118, 59, 0.12);
+    background: rgba(212,118,59,0.12);
     border-radius: 20px;
     padding: 4px 12px;
     white-space: nowrap;
@@ -96,13 +94,9 @@ author_profile: false
     line-height: 1.65;
     margin: 0;
   }
-
-  .port-list {
-    padding: 40px 60px 80px 60px;
-  }
 </style>
 
-<!-- Section 1 -->
+<!-- 01 — image left, text right -->
 <div class="port-section port-section-first">
   <div class="port-s-image">
     <img src="/images/hs_gullise.jpg" alt="">
@@ -119,8 +113,8 @@ author_profile: false
   </div>
 </div>
 
-<!-- Section 2 -->
-<div class="port-section">
+<!-- 02 — text left, image right -->
+<div class="port-section port-section-flip">
   <div class="port-s-image">
     <img src="/images/c_ups_s1.gif" alt="">
   </div>
@@ -136,11 +130,53 @@ author_profile: false
   </div>
 </div>
 
-<div class="port-list">
-  {% include base_path %}
-  {% for post in site.portfolio %}
-    {% unless post.url contains 'portfolio-1' or post.url contains 'portfolio-2' %}
-      {% include archive-single.html %}
-    {% endunless %}
-  {% endfor %}
+<!-- 03 — image left, text right -->
+<div class="port-section">
+  <div class="port-s-image">
+    <img src="/images/StormDaniel_sims.png" alt="">
+  </div>
+  <div class="port-s-text">
+    <p class="port-s-num">03</p>
+    <p class="port-s-title">Flash flood risks and hydrometeorological extremes</p>
+    <div class="port-s-tags">
+      <span class="port-s-tag">Flash floods</span>
+      <span class="port-s-tag">Extreme events</span>
+      <span class="port-s-tag">Hazard cascades</span>
+    </div>
+    <p class="port-s-desc">Understanding the anatomy of catastrophic flood events and their links to hydrometeorological drivers.</p>
+  </div>
+</div>
+
+<!-- 04 — text left, image right -->
+<div class="port-section port-section-flip">
+  <div class="port-s-image">
+    <img src="/images/EastRamon.png" alt="">
+  </div>
+  <div class="port-s-text">
+    <p class="port-s-num">04</p>
+    <p class="port-s-title">Cliff and hillslope surface processes under climatic variability</p>
+    <div class="port-s-tags">
+      <span class="port-s-tag">Cliff retreat</span>
+      <span class="port-s-tag">Dryland geomorphology</span>
+      <span class="port-s-tag">Rainstorm impacts</span>
+    </div>
+    <p class="port-s-desc">Sediment production and transport under climatic variability and landscape evolution of cliff-related systems.</p>
+  </div>
+</div>
+
+<!-- 05 — image left, text right -->
+<div class="port-section">
+  <div class="port-s-image">
+    <img src="/images/TamrurAspect.jpg" alt="">
+  </div>
+  <div class="port-s-text">
+    <p class="port-s-num">05</p>
+    <p class="port-s-title">Micro-climate impacts on arid hillslope surface processes</p>
+    <div class="port-s-tags">
+      <span class="port-s-tag">Micro-climate</span>
+      <span class="port-s-tag">Aspect-dependent weathering</span>
+      <span class="port-s-tag">Cliff retreat</span>
+    </div>
+    <p class="port-s-desc">Aspect-dependent bedrock weathering, cliff retreat, and hillslope morphology in hyperarid environments.</p>
+  </div>
 </div>
