@@ -10,9 +10,10 @@ author_profile: false
 <style>
   .page__title { display: none !important; }
 
-  /* Hero — full-width below fixed header */
+  /* Hero — true screen-width, compensates for any theme container offset */
   .port-hero-wrap {
     margin-top: 33vh;
+    margin-left: calc(-50vw + 50%);
     width: 100vw;
     height: 67vh;
     position: relative;
@@ -28,39 +29,32 @@ author_profile: false
     filter: brightness(0.7);
   }
 
-  /* Title overlaid on right side of hero */
+  /* Title — larger, left-aligned, in a transparent oval pill */
   .port-hero-title {
     position: absolute;
-    top: 50%;
-    right: 60px;
-    transform: translateY(-50%);
+    bottom: 48px;
+    left: 60px;
     color: #ffffff;
-    font-size: 1em;
+    font-size: 1.5em;
     font-weight: 400;
-    max-width: 320px;
-    text-align: right;
     line-height: 1.5;
-    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+    text-align: left;
     margin: 0;
+    padding: 18px 36px;
+    background: rgba(0, 0, 0, 0.28);
+    border-radius: 60px;
+    backdrop-filter: blur(2px);
+    max-width: 520px;
   }
 
   /* Rest of projects list */
   .port-list {
     padding: 48px 60px 80px 60px;
   }
-
-  .port-list h2 {
-    font-size: 1em;
-    font-weight: 600;
-    margin-bottom: 32px;
-    color: #333;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-  }
 </style>
 
 <div class="port-hero-wrap">
-  <img class="port-hero" src="/images/hs_gullise.jpg" alt="Landscape evolution of ephemeral catchments">
+  <img class="port-hero" src="/images/hs_gullise.jpg" alt="">
   <p class="port-hero-title">Landscape evolution of ephemeral catchments</p>
 </div>
 
