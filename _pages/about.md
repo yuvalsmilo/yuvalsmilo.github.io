@@ -7,6 +7,7 @@ redirect_from:
   - /about.html
 ---
 <style>
+  /* Page 1/2 scroll behaviour */
   html, body {
     margin: 0 !important;
     padding: 0 !important;
@@ -19,88 +20,6 @@ redirect_from:
     background-attachment: fixed !important;
     background-repeat: no-repeat !important;
   }
-
-  #wrapper, #main, .main, .page, article, .page__inner, .inner,
-  .page__inner-wrap, #main .page__inner-wrap, body .page__inner-wrap,
-  .page__content, section.page__content, .layout--single .page,
-  .layout--home .page {
-    background: transparent !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    max-width: 100% !important;
-    width: 100% !important;
-    float: none !important;
-    box-shadow: none !important;
-  }
-
-  article, .page__content { background: transparent !important; box-shadow: none !important; }
-
-  .masthead, .page__title, #theme-toggle, .dark-mode-toggle,
-  button[aria-label="Toggle dark mode"], .page__footer, footer {
-    display: none !important;
-  }
-
-  /* Custom horizontal header */
-  .custom-header {
-    position: fixed !important;
-    top: 0 !important; left: 0 !important; right: 0 !important;
-    height: 33vh !important;
-    background: #ffffff !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 32px !important;
-    z-index: 20 !important;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.07) !important;
-    box-sizing: border-box !important;
-    padding: 20px 48px !important;
-  }
-
-  .header-avatar {
-    width: 110px !important;
-    height: 110px !important;
-    border-radius: 50% !important;
-    object-fit: cover !important;
-    flex-shrink: 0 !important;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15) !important;
-  }
-
-  .custom-header-inner { text-align: center !important; }
-
-  .header-name {
-    font-size: 2em !important;
-    font-weight: 700 !important;
-    margin: 0 0 6px 0 !important;
-    color: #111 !important;
-    letter-spacing: -0.5px !important;
-  }
-
-  .header-tagline {
-    font-size: 1em !important;
-    color: #555 !important;
-    margin: 0 0 14px 0 !important;
-  }
-
-  .header-nav { margin-bottom: 12px !important; }
-
-  .header-nav a {
-    color: #1565c0 !important;
-    font-weight: 600 !important;
-    text-decoration: none !important;
-    font-size: 1em !important;
-    margin: 0 10px !important;
-  }
-  .header-nav a:hover { text-decoration: underline !important; }
-  .header-nav .sep { color: #aaa !important; }
-
-  .header-social a {
-    color: #333 !important;
-    font-size: 1.3em !important;
-    margin: 0 8px !important;
-    text-decoration: none !important;
-  }
-  .header-social a:hover { color: #1565c0 !important; }
 
   /* Scroll-snap cards */
   .content-card {
@@ -116,7 +35,7 @@ redirect_from:
     padding: 0 !important;
   }
 
-  /* Page 1 — Colorado image (position:fixed escapes any container offset) */
+  /* Page 1 — Colorado image */
   .card-colorado { background: #000 !important; }
 
   .colorado-bg-img {
@@ -167,7 +86,6 @@ redirect_from:
   }
   .text-wrapper-nasa a { color: #ffffff !important; text-decoration: underline !important; }
 
-  /* Bottom text box — fixed bottom-right, only shown on page 2 via JS */
   .text-wrapper-nasa-bottom {
     display: none;
     position: fixed !important;
@@ -189,60 +107,15 @@ redirect_from:
   /* Mobile */
   @media (max-width: 768px) {
     html, body { scroll-snap-type: none !important; background-attachment: scroll !important; height: auto !important; }
-
-    .custom-header {
-      position: relative !important;
-      height: auto !important;
-      flex-direction: column !important;
-      padding: 24px 20px !important;
-      gap: 16px !important;
-    }
-
-    .header-name { font-size: 1.5em !important; }
-
-    .colorado-bg-img {
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100% !important;
-      height: 60vw !important;
-      transform: none !important;
-    }
-
+    .colorado-bg-img { position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 60vw !important; transform: none !important; }
     .content-card { min-height: auto !important; scroll-snap-align: none !important; }
     .card-colorado .text-wrapper { padding: 24px 20px !important; font-size: 1em !important; margin-bottom: 40px !important; }
     .card-nasa { padding: 32px 20px 80px 20px !important; }
-    .text-wrapper-nasa-bottom {
-      position: relative !important;
-      bottom: auto !important;
-      left: auto !important;
-      display: block !important;
-      max-width: 100% !important;
-      margin-top: 24px !important;
-    }
+    .text-wrapper-nasa-bottom { position: relative !important; bottom: auto !important; right: auto !important; display: block !important; max-width: 100% !important; margin-top: 24px !important; }
   }
 </style>
 
-<div class="custom-header">
-  <img class="header-avatar" src="/images/profile.png" alt="Yuval Shmilovitz">
-  <div class="custom-header-inner">
-    <h1 class="header-name">Yuval Shmilovitz</h1>
-    <p class="header-tagline">Earth Scientist &bull; Postdoctoral Researcher &bull; University of Colorado Boulder</p>
-    <nav class="header-nav">
-      <a href="/">Overview</a>
-      <span class="sep">&middot;</span>
-      <a href="/portfolio/">Active projects</a>
-      <span class="sep">&middot;</span>
-      <a href="/cv/">CV</a>
-    </nav>
-    <div class="header-social">
-      <a href="mailto:yuvalsmilo@gmail.com" title="Email"><i class="fas fa-fw fa-envelope"></i></a>
-      <a href="https://github.com/yuvalsmilo" target="_blank" title="GitHub"><i class="fab fa-fw fa-github"></i></a>
-      <a href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
-      <a href="https://orcid.org/YOUR_ORCID_ID" target="_blank" title="ORCID"><i class="ai ai-orcid"></i></a>
-    </div>
-  </div>
-</div>
+{% include custom-header.html %}
 
 <div class="content-card card-colorado">
   <img class="colorado-bg-img" src="/images/LimonGullies_slope.png" alt="">
@@ -332,9 +205,7 @@ redirect_from:
     if ('IntersectionObserver' in window) {
       if (secondCard) {
         new IntersectionObserver(function(entries) {
-          entries.forEach(function(e) {
-            if (e.isIntersecting) startTyping();
-          });
+          entries.forEach(function(e) { if (e.isIntersecting) startTyping(); });
         }, { threshold: 0.4 }).observe(secondCard);
       }
       if (firstCard) {
