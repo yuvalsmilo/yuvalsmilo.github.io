@@ -7,7 +7,6 @@ redirect_from:
   - /about.html
 ---
 <style>
-  /* 1. Global Reset */
   html, body {
     margin: 0 !important;
     padding: 0 !important;
@@ -21,7 +20,6 @@ redirect_from:
     background-repeat: no-repeat !important;
   }
 
-  /* 2. Strip structural constraints */
   #wrapper, #main, .main, .page, article, .page__inner, .inner,
   .page__inner-wrap, #main .page__inner-wrap, body .page__inner-wrap {
     background: transparent !important;
@@ -33,13 +31,12 @@ redirect_from:
 
   article, .page__content { background: transparent !important; box-shadow: none !important; }
 
-  /* 3. Hide native chrome */
   .masthead, .page__title, #theme-toggle, .dark-mode-toggle,
   button[aria-label="Toggle dark mode"], .page__footer, footer {
     display: none !important;
   }
 
-  /* 4. Custom horizontal header */
+  /* Custom horizontal header */
   .custom-header {
     position: fixed !important;
     top: 0 !important; left: 0 !important; right: 0 !important;
@@ -65,9 +62,7 @@ redirect_from:
     box-shadow: 0 2px 10px rgba(0,0,0,0.15) !important;
   }
 
-  .custom-header-inner {
-    text-align: center !important;
-  }
+  .custom-header-inner { text-align: center !important; }
 
   .header-name {
     font-size: 2em !important;
@@ -103,7 +98,7 @@ redirect_from:
   }
   .header-social a:hover { color: #1565c0 !important; }
 
-  /* 5. Scroll-snap cards */
+  /* Scroll-snap cards */
   .content-card {
     min-height: 100vh !important;
     width: 100vw !important;
@@ -117,7 +112,7 @@ redirect_from:
     padding: 0 !important;
   }
 
-  /* 6. Page 1 — Colorado image */
+  /* Page 1 — Colorado image (position:fixed escapes any container offset) */
   .card-colorado { background: #000 !important; }
 
   .colorado-bg-img {
@@ -132,7 +127,6 @@ redirect_from:
     z-index: 0 !important;
   }
 
-  /* Hide colorado image when page 2 is in view */
   body.page2-active .colorado-bg-img {
     display: none !important;
   }
@@ -150,7 +144,7 @@ redirect_from:
     margin-bottom: 60px !important;
   }
 
-  /* 7. Page 2 — NASA */
+  /* Page 2 — NASA background set via JS on body */
   .card-nasa {
     background: transparent !important;
     padding: calc(33vh + 24px) 60px 60px 20px !important;
@@ -169,6 +163,7 @@ redirect_from:
   }
   .text-wrapper-nasa a { color: #ffffff !important; text-decoration: underline !important; }
 
+  /* Bottom text box — fixed bottom-left, only shown on page 2 via JS */
   .text-wrapper-nasa-bottom {
     display: none;
     position: fixed !important;
@@ -187,7 +182,7 @@ redirect_from:
   .typing-cursor { animation: blink 0.8s step-end infinite; font-weight: bold; color: #ffffff !important; }
   @keyframes blink { 50% { opacity: 0; } }
 
-  /* 8. Mobile */
+  /* Mobile */
   @media (max-width: 768px) {
     html, body { scroll-snap-type: none !important; background-attachment: scroll !important; height: auto !important; }
 
@@ -201,14 +196,25 @@ redirect_from:
 
     .header-name { font-size: 1.5em !important; }
 
-    .colorado-bg-img { position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 60vw !important; transform: none !important; }
+    .colorado-bg-img {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 60vw !important;
+      transform: none !important;
+    }
 
     .content-card { min-height: auto !important; scroll-snap-align: none !important; }
     .card-colorado .text-wrapper { padding: 24px 20px !important; font-size: 1em !important; margin-bottom: 40px !important; }
     .card-nasa { padding: 32px 20px 80px 20px !important; }
     .text-wrapper-nasa-bottom {
-      position: relative !important; bottom: auto !important; right: auto !important;
-      display: block !important; max-width: 100% !important; margin-top: 24px !important;
+      position: relative !important;
+      bottom: auto !important;
+      left: auto !important;
+      display: block !important;
+      max-width: 100% !important;
+      margin-top: 24px !important;
     }
   }
 </style>
@@ -253,7 +259,11 @@ redirect_from:
 <script>
   var BG2 = "linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('/images/NASA_3.jpeg')";
   function setPage1() { document.body.style.backgroundImage = 'none'; }
-  function setPage2() { document.body.style.backgroundImage = BG2; document.body.style.backgroundSize = 'cover'; }
+  function setPage2() {
+    document.body.style.backgroundImage = BG2;
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundPosition = 'center center';
+  }
   setPage1();
 
   var bgCard = document.getElementById('typing-card');
@@ -278,7 +288,7 @@ redirect_from:
       { html: '<a href="https://www.geoclash.org/" target="_blank">CLaSH</a>' },
       { text: ", focusing on post-fire sediment transport and hazard cascades." }
     ];
-    var segments2 = [{ text: "My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers in the context of lithological heterogeneity and across mountain ranges." }];
+    var segments2 = [{ text: "My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers and sediment transport in the context of lithological heterogeneity and across mountain ranges." }];
 
     var typingStarted = false, typing2Done = false;
     var bottomBox = document.getElementById('bottom-text-box');
@@ -311,7 +321,6 @@ redirect_from:
         if (bottomBox) bottomBox.style.display = "block";
         typeSegments(segments2, "typing-text-2", "typing-cursor-2", function() {
           typing2Done = true;
-          if (bottomBox) bottomBox.style.display = "block"; // ensure visible even if user navigated away mid-typing
         });
       });
     }
