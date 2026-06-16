@@ -10,7 +10,7 @@ author_profile: false
 <style>
   .page__title { display: none !important; }
 
-  /* Strip spacing AND allow overflow so nothing gets clipped */
+  /* Strip spacing and prevent clipping */
   #main, #main > *, .page__inner-wrap, .page__content,
   .archive, .layout--archive, .page, article {
     padding: 0 !important;
@@ -32,11 +32,11 @@ author_profile: false
     background: #fff;
   }
 
-  .port-section:first-of-type {
-    margin-top: 33vh;
+  /* Use explicit class — :first-of-type is unreliable in archive layout */
+  .port-section-first {
+    margin-top: 33vh !important;
   }
 
-  /* Image: clip only here, not on any parent */
   .port-s-image {
     width: 52%;
     flex-shrink: 0;
@@ -82,14 +82,13 @@ author_profile: false
 
   .port-s-list .hl { color: #D4763B; }
 
-  /* ── Remaining projects list ── */
   .port-list {
     padding: 40px 60px 80px 60px;
   }
 </style>
 
-<!-- Section 1 -->
-<div class="port-section">
+<!-- Section 1 — .port-section-first gives the 33vh top margin -->
+<div class="port-section port-section-first">
   <div class="port-s-image">
     <img src="/images/hs_gullise.jpg" alt="">
   </div>
