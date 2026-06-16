@@ -94,9 +94,31 @@ author_profile: false
     line-height: 1.65;
     margin: 0;
   }
+
+  /* Mobile — stack image on top, text below */
+  @media (max-width: 768px) {
+    .port-section, .port-section.port-section-flip {
+      flex-direction: column !important;
+      width: 100% !important;
+      margin-left: 0 !important;
+      min-height: 0 !important;
+    }
+    .port-section-first {
+      margin-top: 0 !important;
+    }
+    .port-s-image {
+      width: 100% !important;
+      height: 56vw !important;
+      min-height: 0 !important;
+    }
+    .port-s-text {
+      padding: 24px 20px !important;
+    }
+    .port-s-num  { font-size: 2em !important; }
+    .port-s-title { font-size: 1.05em !important; }
+  }
 </style>
 
-<!-- 01 — image left, text right -->
 <div class="port-section port-section-first">
   <div class="port-s-image">
     <img src="/images/hs_gullise.jpg" alt="">
@@ -113,7 +135,6 @@ author_profile: false
   </div>
 </div>
 
-<!-- 02 — text left, image right -->
 <div class="port-section port-section-flip">
   <div class="port-s-image">
     <img src="/images/c_ups_s1.gif" alt="">
@@ -130,7 +151,6 @@ author_profile: false
   </div>
 </div>
 
-<!-- 03 — image left, text right -->
 <div class="port-section">
   <div class="port-s-image">
     <img src="/images/StormDaniel_sims.png" alt="">
@@ -147,7 +167,6 @@ author_profile: false
   </div>
 </div>
 
-<!-- 04 — text left, image right -->
 <div class="port-section port-section-flip">
   <div class="port-s-image">
     <img src="/images/EastRamon.png" alt="">
@@ -164,7 +183,6 @@ author_profile: false
   </div>
 </div>
 
-<!-- 05 — image left, text right -->
 <div class="port-section">
   <div class="port-s-image">
     <img src="/images/TamrurAspect.jpg" alt="">
