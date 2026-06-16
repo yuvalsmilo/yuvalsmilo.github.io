@@ -10,7 +10,7 @@ author_profile: false
 <style>
   .page__title { display: none !important; }
 
-  /* Strip ALL spacing from theme containers */
+  /* Strip spacing AND allow overflow so nothing gets clipped */
   #main, #main > *, .page__inner-wrap, .page__content,
   .archive, .layout--archive, .page, article {
     padding: 0 !important;
@@ -18,15 +18,17 @@ author_profile: false
     max-width: 100% !important;
     width: 100% !important;
     float: none !important;
+    overflow: visible !important;
   }
 
   /* ── Shared split-section ── */
   .port-section {
     margin-left: calc(-50vw + 50%);
     width: 100vw;
-    min-height: 50vh;   /* grows with content — never clips */
+    min-height: 55vh;
     display: flex;
     flex-direction: row;
+    align-items: stretch;
     background: #fff;
   }
 
@@ -34,11 +36,12 @@ author_profile: false
     margin-top: 33vh;
   }
 
+  /* Image: clip only here, not on any parent */
   .port-s-image {
     width: 52%;
-    min-height: 50vh;
-    overflow: hidden;
     flex-shrink: 0;
+    overflow: hidden;
+    min-height: 55vh;
   }
 
   .port-s-image img {
@@ -51,10 +54,7 @@ author_profile: false
 
   .port-s-text {
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;   /* title always visible at top */
-    padding: 36px 48px 36px 48px;
+    padding: 36px 48px;
     box-sizing: border-box;
   }
 
