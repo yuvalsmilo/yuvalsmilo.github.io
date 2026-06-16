@@ -137,7 +137,7 @@ redirect_from:
     background: transparent !important;
     box-shadow: none !important;
     color: #ffffff !important;
-    padding: 40px 60px !important;
+    padding: 40px 60px 40px 10px !important;
     max-width: 900px !important;
     font-size: 1.15em !important;
     line-height: 1.65 !important;
@@ -147,7 +147,7 @@ redirect_from:
   /* Page 2 — NASA background set via JS on body */
   .card-nasa {
     background: transparent !important;
-    padding: calc(33vh + 24px) 60px 60px 20px !important;
+    padding: calc(33vh + 24px) 60px 60px 10px !important;
     justify-content: flex-start !important;
   }
 
@@ -163,13 +163,13 @@ redirect_from:
   }
   .text-wrapper-nasa a { color: #ffffff !important; text-decoration: underline !important; }
 
-  /* Bottom text box — fixed bottom-left, only shown on page 2 via JS */
+  /* Bottom text box — fixed bottom-right, only shown on page 2 via JS */
   .text-wrapper-nasa-bottom {
     display: none;
     position: fixed !important;
     bottom: 60px !important;
-    left: 20px !important;
-    right: auto !important;
+    right: 80px !important;
+    left: auto !important;
     text-align: left !important;
     max-width: 550px !important;
     color: #ffffff !important;
