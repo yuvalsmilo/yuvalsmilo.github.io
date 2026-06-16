@@ -29,7 +29,6 @@ author_profile: false
     display: flex;
     flex-direction: row;
     background: #fff;
-    overflow: hidden;
   }
 
   .port-section:first-of-type {
@@ -39,7 +38,7 @@ author_profile: false
   .port-s-image {
     width: 55%;
     height: 100%;
-    overflow: hidden;
+    overflow: hidden;   /* clip only the image */
     flex-shrink: 0;
   }
 
@@ -53,20 +52,19 @@ author_profile: false
 
   .port-s-text {
     flex: 1;
-    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 48px 60px 48px 56px;
+    justify-content: flex-start;   /* anchor to top so title never gets clipped */
+    padding: 52px 60px 48px 56px;
     box-sizing: border-box;
   }
 
   .port-s-title {
-    font-size: 2.6em;
+    font-size: 2.4em;
     font-weight: 300;
     color: #b0b0b0;
     line-height: 1.25;
-    margin: 0 0 36px 0;
+    margin: 0 0 32px 0;
   }
 
   .port-s-list {
