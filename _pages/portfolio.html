@@ -10,7 +10,6 @@ author_profile: false
 <style>
   .page__title { display: none !important; }
 
-  /* Strip spacing and prevent clipping */
   #main, #main > *, .page__inner-wrap, .page__content,
   .archive, .layout--archive, .page, article {
     padding: 0 !important;
@@ -21,7 +20,6 @@ author_profile: false
     overflow: visible !important;
   }
 
-  /* ── Shared split-section ── */
   .port-section {
     margin-left: calc(-50vw + 50%);
     width: 100vw;
@@ -32,7 +30,6 @@ author_profile: false
     background: #fff;
   }
 
-  /* Use explicit class — :first-of-type is unreliable in archive layout */
   .port-section-first {
     margin-top: 33vh !important;
   }
@@ -52,53 +49,73 @@ author_profile: false
     display: block;
   }
 
+  /* Option B text panel */
   .port-s-text {
     flex: 1;
     padding: 36px 48px;
     box-sizing: border-box;
   }
 
-  .port-s-title {
-    font-size: 1.7em;
-    font-weight: 300;
-    color: #b0b0b0;
-    line-height: 1.25;
-    margin: 0 0 20px 0;
+  .port-s-num {
+    font-size: 2.8em;
+    font-weight: 700;
+    color: #D4763B;
+    opacity: 0.22;
+    line-height: 1;
+    margin: 0 0 6px 0;
   }
 
-  .port-s-list {
-    list-style: disc;
-    padding-left: 20px;
+  .port-s-title {
+    font-size: 1.15em;
+    font-weight: 500;
+    color: #1a1a1a;
+    line-height: 1.35;
+    margin: 0 0 16px 0;
+  }
+
+  .port-s-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .port-s-tag {
+    font-size: 0.82em;
+    font-weight: 600;
+    color: #D4763B;
+    background: rgba(212, 118, 59, 0.12);
+    border-radius: 20px;
+    padding: 4px 12px;
+    white-space: nowrap;
+  }
+
+  .port-s-desc {
+    font-size: 0.9em;
+    color: #666;
+    line-height: 1.65;
     margin: 0;
   }
-
-  .port-s-list li {
-    font-size: 1em;
-    font-weight: 700;
-    color: #1a1a1a;
-    line-height: 1.65;
-    margin-bottom: 4px;
-  }
-
-  .port-s-list .hl { color: #D4763B; }
 
   .port-list {
     padding: 40px 60px 80px 60px;
   }
 </style>
 
-<!-- Section 1 — .port-section-first gives the 33vh top margin -->
+<!-- Section 1 -->
 <div class="port-section port-section-first">
   <div class="port-s-image">
     <img src="/images/hs_gullise.jpg" alt="">
   </div>
   <div class="port-s-text">
-    <h2 class="port-s-title">Landscape evolution of ephemeral catchments</h2>
-    <ul class="port-s-list">
-      <li><span class="hl">Ecohydrology-erosion</span> links</li>
-      <li><span class="hl">Postfire</span> dynamics</li>
-      <li><span class="hl">Rainbursts</span> and Holocene-scale landscape dynamics</li>
-    </ul>
+    <p class="port-s-num">01</p>
+    <p class="port-s-title">Landscape evolution of ephemeral catchments</p>
+    <div class="port-s-tags">
+      <span class="port-s-tag">Ecohydrology-erosion</span>
+      <span class="port-s-tag">Postfire</span>
+      <span class="port-s-tag">Rainbursts</span>
+    </div>
+    <p class="port-s-desc">Multi-century landscape response to sub-daily rainfall distribution changes and Holocene-scale dynamics.</p>
   </div>
 </div>
 
@@ -108,10 +125,14 @@ author_profile: false
     <img src="/images/c_ups_s1.gif" alt="">
   </div>
   <div class="port-s-text">
-    <h2 class="port-s-title">Sediment dynamics and topographic changes in lithologically heterogeneous landscapes</h2>
-    <ul class="port-s-list">
-      <li><span class="hl">Grain size and lithology</span> impacts on fluvial transport, hillslope-channel coupling and landscape evolution</li>
-    </ul>
+    <p class="port-s-num">02</p>
+    <p class="port-s-title">Sediment dynamics and topographic changes in lithologically heterogeneous landscapes</p>
+    <div class="port-s-tags">
+      <span class="port-s-tag">Grain size</span>
+      <span class="port-s-tag">Lithology</span>
+      <span class="port-s-tag">Fluvial transport</span>
+    </div>
+    <p class="port-s-desc">Impacts on hillslope-channel coupling and landscape evolution across lithologically variable terrain.</p>
   </div>
 </div>
 
