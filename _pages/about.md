@@ -158,7 +158,12 @@ redirect_from:
   </div>
 </div>
 
-<div class="content-card card-nasa" id="typing-card">
+<!-- Fixed NASA background div — always exactly one viewport, never resizes -->
+<div id="nasa-bg" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:0;
+  background: linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)), url('/images/NASA_3.jpeg') center/cover no-repeat;
+  pointer-events:none;"></div>
+
+<div class="content-card card-nasa" id="typing-card" style="position:relative; z-index:1;">
   <div class="text-wrapper-nasa">
     <span id="typing-text-1"></span><span class="typing-cursor" id="typing-cursor-1">|</span>
   </div>
@@ -168,13 +173,9 @@ redirect_from:
 </div>
 
 <script>
-  var BG2 = "linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('/images/NASA_3.jpeg')";
-  function setPage1() { document.body.style.backgroundImage = 'none'; }
-  function setPage2() {
-    document.body.style.backgroundImage = BG2;
-    document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundPosition = 'center center';
-  }
+  var nasaBg = document.getElementById('nasa-bg');
+  function setPage1() { if (nasaBg) nasaBg.style.display = 'none'; document.body.style.backgroundImage = 'none'; }
+  function setPage2() { if (nasaBg) nasaBg.style.display = 'block'; document.body.style.backgroundImage = 'none'; }
   setPage1();
 
   var bgCard = document.getElementById('typing-card');
