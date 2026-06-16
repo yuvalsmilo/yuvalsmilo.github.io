@@ -245,91 +245,106 @@ redirect_from:
 </div>
 
 <script>
+(function() {
   var BG2 = "linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('/images/NASA_3.jpeg')";
   function setPage1() { document.body.style.backgroundImage = 'none'; }
   function setPage2() { document.body.style.backgroundImage = BG2; document.body.style.backgroundSize = 'cover'; }
   setPage1();
 
-  var bgCard = document.getElementById('typing-card');
-  if (bgCard && 'IntersectionObserver' in window) {
-    new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) { e.isIntersecting ? setPage2() : setPage1(); });
-    }, { threshold: 0.5 }).observe(bgCard);
+  var segments1 = [
+    { html: '<span class="lead-word">Currently</span>' },
+    { text: ", I am a postdoctoral researcher at INSTAAR and part of " },
+    { html: '<a href="https://www.geoclash.org/" target="_blank">CLaSH</a>' },
+    { text: ", focusing on post-fire sediment transport and hazard cascades." }
+  ];
+  var segments2 = [{ text: "My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers and sediment transport in the context of lithological heterogeneity and across mountain ranges." }];
+
+  var typingStarted = false, typing2Done = false;
+
+  function typeSegments(segs, elId, curId, onDone) {
+    var el = document.getElementById(elId), cur = document.getElementById(curId);
+    if (!el) { if (onDone) onDone(); return; }
+    cur.style.display = "inline";
+    var si = 0, ci = 0;
+    function next() {
+      if (si >= segs.length) { cur.style.display = "none"; if (onDone) onDone(); return; }
+      var seg = segs[si];
+      if (seg.html) { el.innerHTML += seg.html; si++; setTimeout(next, 72); return; }
+      el.innerHTML += seg.text.charAt(ci++);
+      if (ci >= seg.text.length) { si++; ci = 0; }
+      setTimeout(next, 72);
+    }
+    next();
   }
 
-  // Show/hide Colorado image based on which card is visible (needed because image is position:fixed)
-  var coloradoCard = document.querySelector('.card-colorado');
-  var coloradoImg = document.querySelector('.colorado-bg-img');
-  if (coloradoCard && coloradoImg && 'IntersectionObserver' in window) {
-    new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        coloradoImg.style.display = e.isIntersecting ? 'block' : 'none';
-      });
-    }, { threshold: 0.1 }).observe(coloradoCard);
-  }
-
-  window.onload = function() {
-    var segments1 = [
-      { html: '<span class="lead-word">Currently</span>' },
-      { text: ", I am a postdoctoral researcher at INSTAAR and part of " },
-      { html: '<a href="https://www.geoclash.org/" target="_blank">CLaSH</a>' },
-      { text: ", focusing on post-fire sediment transport and hazard cascades." }
-    ];
-    var segments2 = [{ text: "My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers and sediment transport in the context of lithological heterogeneity and across mountain ranges." }];
-
-    var typingStarted = false, typing2Done = false;
+  function startTyping() {
     var bottomBox = document.getElementById('bottom-text-box');
+    if (typingStarted) {
+      if (typing2Done && bottomBox) bottomBox.style.display = "block";
+      return;
+    }
+    typingStarted = true;
+    typeSegments(segments1, "typing-text-1", "typing-cursor-1", function() {
+      var bb = document.getElementById('bottom-text-box');
+      if (bb) bb.style.display = "block";
+      typeSegments(segments2, "typing-text-2", "typing-cursor-2", function() { typing2Done = true; });
+    });
+  }
+
+  function init() {
     var secondCard = document.getElementById('typing-card');
     var firstCard = document.querySelector('.card-colorado');
+    var coloradoImg = document.querySelector('.colorado-bg-img');
 
-    function typeSegments(segs, elId, curId, onDone) {
-      var el = document.getElementById(elId), cur = document.getElementById(curId);
-      if (!el) { if (onDone) onDone(); return; }
-      cur.style.display = "inline";
-      var si = 0, ci = 0;
-      function next() {
-        if (si >= segs.length) { cur.style.display = "none"; if (onDone) onDone(); return; }
-        var seg = segs[si];
-        if (seg.html) { el.innerHTML += seg.html; si++; setTimeout(next, 72); return; }
-        el.innerHTML += seg.text.charAt(ci++);
-        if (ci >= seg.text.length) { si++; ci = 0; }
-        setTimeout(next, 72);
-      }
-      next();
-    }
-
-    function startTyping() {
-      if (typingStarted) {
-        if (typing2Done && bottomBox) bottomBox.style.display = "block";
-        return;
-      }
-      typingStarted = true;
-      typeSegments(segments1, "typing-text-1", "typing-cursor-1", function() {
-        if (bottomBox) bottomBox.style.display = "block";
-        typeSegments(segments2, "typing-text-2", "typing-cursor-2", function() { typing2Done = true; });
-      });
-    }
-
-    if ('IntersectionObserver' in window) {
-      // Page 2 entering → start/resume typing, show bottom box
-      if (secondCard) {
-        new IntersectionObserver(function(entries) {
-          entries.forEach(function(e) {
-            if (e.isIntersecting) startTyping();
-          });
-        }, { threshold: 0.4 }).observe(secondCard);
-      }
-      // Page 1 entering → hide bottom box
-      if (firstCard) {
-        new IntersectionObserver(function(entries) {
-          entries.forEach(function(e) {
-            if (e.isIntersecting && bottomBox) bottomBox.style.display = "none";
-          });
-        }, { threshold: 0.4 }).observe(firstCard);
-      }
-    } else {
+    if (!('IntersectionObserver' in window)) {
       startTyping();
-      if (bottomBox) bottomBox.style.display = "block";
+      var bb = document.getElementById('bottom-text-box');
+      if (bb) bb.style.display = "block";
+      return;
     }
-  };
+
+    // Background swap (page 2 on/off)
+    if (secondCard) {
+      new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) { e.isIntersecting ? setPage2() : setPage1(); });
+      }, { threshold: 0.5 }).observe(secondCard);
+    }
+
+    // Colorado image: hide when page 2 is visible (image is position:fixed so escapes normal flow)
+    if (secondCard && coloradoImg) {
+      new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          coloradoImg.style.display = e.isIntersecting ? 'none' : 'block';
+        });
+      }, { threshold: 0.1 }).observe(secondCard);
+    }
+
+    // Page 2 entering → start typing / re-show bottom box
+    if (secondCard) {
+      new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) startTyping();
+        });
+      }, { threshold: 0.4 }).observe(secondCard);
+    }
+
+    // Page 1 entering → hide bottom box
+    if (firstCard) {
+      new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            var bb = document.getElementById('bottom-text-box');
+            if (bb) bb.style.display = "none";
+          }
+        });
+      }, { threshold: 0.4 }).observe(firstCard);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
 </script>
