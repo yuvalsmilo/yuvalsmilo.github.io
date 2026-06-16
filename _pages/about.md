@@ -127,11 +127,7 @@ redirect_from:
       display: block !important;
     }
     .card-colorado .text-wrapper {
-      position: relative !important;
-      padding: 24px 20px 32px 20px !important;
-      font-size: 1em !important;
-      margin: 0 !important;
-      max-width: 100% !important;
+      display: none !important;
     }
     /* Card 2: normal flow */
     .card-nasa {
