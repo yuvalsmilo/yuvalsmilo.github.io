@@ -10,22 +10,21 @@ author_profile: false
 <style>
   .page__title { display: none !important; }
 
-  /* Strip every container that could add left offset */
+  /* Strip ALL spacing from theme containers */
   #main, #main > *, .page__inner-wrap, .page__content,
   .archive, .layout--archive, .page, article {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
     max-width: 100% !important;
     width: 100% !important;
     float: none !important;
   }
 
-  /* ── Shared split-section style ── */
+  /* ── Shared split-section ── */
   .port-section {
+    margin-left: calc(-50vw + 50%);
     width: 100vw;
-    height: 67vh;
+    min-height: 50vh;   /* grows with content — never clips */
     display: flex;
     flex-direction: row;
     background: #fff;
@@ -36,9 +35,9 @@ author_profile: false
   }
 
   .port-s-image {
-    width: 55%;
-    height: 100%;
-    overflow: hidden;   /* clip only the image */
+    width: 52%;
+    min-height: 50vh;
+    overflow: hidden;
     flex-shrink: 0;
   }
 
@@ -54,30 +53,30 @@ author_profile: false
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;   /* anchor to top so title never gets clipped */
-    padding: 52px 60px 48px 56px;
+    justify-content: flex-start;   /* title always visible at top */
+    padding: 36px 48px 36px 48px;
     box-sizing: border-box;
   }
 
   .port-s-title {
-    font-size: 2.4em;
+    font-size: 1.7em;
     font-weight: 300;
     color: #b0b0b0;
     line-height: 1.25;
-    margin: 0 0 32px 0;
+    margin: 0 0 20px 0;
   }
 
   .port-s-list {
     list-style: disc;
-    padding-left: 24px;
+    padding-left: 20px;
     margin: 0;
   }
 
   .port-s-list li {
-    font-size: 1.25em;
+    font-size: 1em;
     font-weight: 700;
     color: #1a1a1a;
-    line-height: 1.75;
+    line-height: 1.65;
     margin-bottom: 4px;
   }
 
@@ -85,11 +84,11 @@ author_profile: false
 
   /* ── Remaining projects list ── */
   .port-list {
-    padding: 48px 60px 80px 60px;
+    padding: 40px 60px 80px 60px;
   }
 </style>
 
-<!-- Section 1: Ephemeral catchments -->
+<!-- Section 1 -->
 <div class="port-section">
   <div class="port-s-image">
     <img src="/images/hs_gullise.jpg" alt="">
@@ -104,7 +103,7 @@ author_profile: false
   </div>
 </div>
 
-<!-- Section 2: Lithological heterogeneity -->
+<!-- Section 2 -->
 <div class="port-section">
   <div class="port-s-image">
     <img src="/images/c_ups_s1.gif" alt="">
