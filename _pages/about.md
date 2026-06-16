@@ -153,7 +153,7 @@ redirect_from:
   /* 7. Page 2 — NASA */
   .card-nasa {
     background: transparent !important;
-    padding: calc(33vh + 24px) 60px 60px 40px !important;
+    padding: calc(33vh + 24px) 60px 60px 20px !important;
     justify-content: flex-start !important;
   }
 
@@ -173,7 +173,8 @@ redirect_from:
     display: none;
     position: fixed !important;
     bottom: 60px !important;
-    right: 80px !important;
+    left: 20px !important;
+    right: auto !important;
     text-align: left !important;
     max-width: 550px !important;
     color: #ffffff !important;
@@ -277,7 +278,7 @@ redirect_from:
       { html: '<a href="https://www.geoclash.org/" target="_blank">CLaSH</a>' },
       { text: ", focusing on post-fire sediment transport and hazard cascades." }
     ];
-    var segments2 = [{ text: "My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers and sediment transport in the context of lithological heterogeneity and across mountain ranges." }];
+    var segments2 = [{ text: "My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers in the context of lithological heterogeneity and across mountain ranges." }];
 
     var typingStarted = false, typing2Done = false;
     var bottomBox = document.getElementById('bottom-text-box');
@@ -308,7 +309,10 @@ redirect_from:
       typingStarted = true;
       typeSegments(segments1, "typing-text-1", "typing-cursor-1", function() {
         if (bottomBox) bottomBox.style.display = "block";
-        typeSegments(segments2, "typing-text-2", "typing-cursor-2", function() { typing2Done = true; });
+        typeSegments(segments2, "typing-text-2", "typing-cursor-2", function() {
+          typing2Done = true;
+          if (bottomBox) bottomBox.style.display = "block"; // ensure visible even if user navigated away mid-typing
+        });
       });
     }
 
