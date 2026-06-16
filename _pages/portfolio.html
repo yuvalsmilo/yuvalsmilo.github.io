@@ -10,52 +10,83 @@ author_profile: false
 <style>
   .page__title { display: none !important; }
 
-  /* Hero — true screen-width, compensates for any theme container offset */
-  .port-hero-wrap {
+  /* ── First project: split layout ── */
+  .port-section-1 {
     margin-top: 33vh;
     margin-left: calc(-50vw + 50%);
     width: 100vw;
-    height: 67vh;
-    position: relative;
-    overflow: hidden;
+    min-height: 67vh;
+    display: flex;
+    flex-direction: row;
+    background: #fff;
   }
 
-  .port-hero {
-    display: block;
+  .port-s1-image {
+    width: 55%;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .port-s1-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center center;
-    filter: brightness(0.7);
+    display: block;
   }
 
-  /* Title — larger, left-aligned, in a transparent oval pill */
-  .port-hero-title {
-    position: absolute;
-    bottom: 48px;
-    left: 60px;
-    color: #ffffff;
-    font-size: 1.5em;
-    font-weight: 400;
-    line-height: 1.5;
-    text-align: left;
+  .port-s1-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px 60px 48px 56px;
+  }
+
+  .port-s1-title {
+    font-size: 2.6em;
+    font-weight: 300;
+    color: #b0b0b0;
+    line-height: 1.25;
+    margin: 0 0 36px 0;
+  }
+
+  .port-s1-list {
+    list-style: disc;
+    padding-left: 24px;
     margin: 0;
-    padding: 18px 36px;
-    background: rgba(0, 0, 0, 0.28);
-    border-radius: 60px;
-    backdrop-filter: blur(2px);
-    max-width: 520px;
   }
 
-  /* Rest of projects list */
+  .port-s1-list li {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.75;
+    margin-bottom: 4px;
+  }
+
+  .port-s1-list .hl {
+    color: #D4763B;
+  }
+
+  /* ── Rest of projects ── */
   .port-list {
     padding: 48px 60px 80px 60px;
   }
 </style>
 
-<div class="port-hero-wrap">
-  <img class="port-hero" src="/images/hs_gullise.jpg" alt="">
-  <p class="port-hero-title">Landscape evolution of ephemeral catchments</p>
+<div class="port-section-1">
+  <div class="port-s1-image">
+    <img src="/images/hs_gullise.jpg" alt="">
+  </div>
+  <div class="port-s1-text">
+    <h2 class="port-s1-title">Landscape evolution of ephemeral catchments</h2>
+    <ul class="port-s1-list">
+      <li><span class="hl">Ecohydrology-erosion</span> links</li>
+      <li><span class="hl">Postfire</span> dynamics</li>
+      <li><span class="hl">Rainbursts</span> and Holocene-scale landscape dynamics</li>
+    </ul>
+  </div>
 </div>
 
 <div class="port-list">
