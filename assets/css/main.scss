@@ -173,3 +173,120 @@ article,
     padding-bottom: 10px !important;
   }
 }
+
+/* ============================================================
+   PASTE THIS ENTIRE BLOCK AT THE VERY BOTTOM OF assets/css/main.scss
+   ============================================================ */
+
+/* Hide default chrome on all pages */
+.masthead,
+.page__title,
+.bottom-nav,
+.page__footer,
+footer,
+#theme-toggle,
+.dark-mode-toggle,
+button[aria-label="Toggle dark mode"] {
+  display: none !important;
+}
+
+/* Strip layout constraints */
+#wrapper, #main, .main, .page, article, .page__inner, .inner,
+.page__inner-wrap, .page__content, .layout--single .page,
+.layout--home .page {
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  float: none !important;
+  box-shadow: none !important;
+}
+
+/* ── Custom header (all pages) ── */
+.custom-header {
+  position: fixed !important;
+  top: 0 !important; left: 0 !important; right: 0 !important;
+  height: 33vh !important;
+  background: #ffffff !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 32px !important;
+  z-index: 20 !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07) !important;
+  box-sizing: border-box !important;
+  padding: 20px 48px !important;
+}
+
+.header-avatar {
+  width: 110px !important;
+  height: 110px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  flex-shrink: 0 !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15) !important;
+}
+
+.custom-header-inner { text-align: center !important; }
+
+.header-name {
+  font-size: 2em !important;
+  font-weight: 700 !important;
+  margin: 0 0 6px 0 !important;
+  color: #111 !important;
+  letter-spacing: -0.5px !important;
+}
+
+.header-tagline {
+  font-size: 1em !important;
+  color: #555 !important;
+  margin: 0 0 14px 0 !important;
+}
+
+.header-nav { margin-bottom: 12px !important; }
+
+.header-nav a {
+  color: #1565c0 !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  font-size: 1em !important;
+  margin: 0 10px !important;
+}
+.header-nav a:hover { text-decoration: underline !important; }
+.header-nav .sep { color: #aaa !important; }
+
+.header-social a {
+  color: #333 !important;
+  font-size: 1.3em !important;
+  margin: 0 8px !important;
+  text-decoration: none !important;
+}
+.header-social a:hover { color: #1565c0 !important; }
+
+/* Padding for non-about pages so content starts below fixed header */
+.page-content-below-header {
+  padding-top: calc(33vh + 32px) !important;
+  padding-left: 60px !important;
+  padding-right: 60px !important;
+  min-height: 100vh !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .custom-header {
+    position: relative !important;
+    height: auto !important;
+    flex-direction: column !important;
+    padding: 24px 20px !important;
+    gap: 16px !important;
+  }
+  .header-name { font-size: 1.5em !important; }
+  .page-content-below-header {
+    padding-top: 24px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
