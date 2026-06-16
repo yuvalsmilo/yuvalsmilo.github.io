@@ -21,11 +21,15 @@ redirect_from:
   }
 
   #wrapper, #main, .main, .page, article, .page__inner, .inner,
-  .page__inner-wrap, #main .page__inner-wrap, body .page__inner-wrap {
+  .page__inner-wrap, #main .page__inner-wrap, body .page__inner-wrap,
+  .page__content, section.page__content, .layout--single .page,
+  .layout--home .page {
     background: transparent !important;
     padding: 0 !important;
     margin: 0 !important;
     max-width: 100% !important;
+    width: 100% !important;
+    float: none !important;
     box-shadow: none !important;
   }
 
@@ -137,7 +141,7 @@ redirect_from:
     background: transparent !important;
     box-shadow: none !important;
     color: #ffffff !important;
-    padding: 40px 60px 40px 10px !important;
+    padding: 40px 60px 40px 60px !important;
     max-width: 900px !important;
     font-size: 1.15em !important;
     line-height: 1.65 !important;
@@ -147,7 +151,7 @@ redirect_from:
   /* Page 2 — NASA background set via JS on body */
   .card-nasa {
     background: transparent !important;
-    padding: calc(33vh + 24px) 60px 60px 10px !important;
+    padding: calc(33vh + 24px) 60px 60px 60px !important;
     justify-content: flex-start !important;
   }
 
