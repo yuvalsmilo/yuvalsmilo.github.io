@@ -106,12 +106,46 @@ redirect_from:
 
   /* Mobile */
   @media (max-width: 768px) {
-    html, body { scroll-snap-type: none !important; background-attachment: scroll !important; height: auto !important; }
-    .colorado-bg-img { position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 60vw !important; transform: none !important; }
-    .content-card { min-height: auto !important; scroll-snap-align: none !important; }
-    .card-colorado .text-wrapper { padding: 24px 20px !important; font-size: 1em !important; margin-bottom: 40px !important; }
-    .card-nasa { padding: 32px 20px 80px 20px !important; }
-    .text-wrapper-nasa-bottom { position: relative !important; bottom: auto !important; right: auto !important; display: block !important; max-width: 100% !important; margin-top: 24px !important; }
+    html, body {
+      scroll-snap-type: none !important;
+      background-attachment: scroll !important;
+      height: auto !important;
+      background-color: #000 !important;
+    }
+    /* Card 1: stack image then text, no fixed/absolute tricks */
+    .card-colorado {
+      display: block !important;
+      min-height: 0 !important;
+      scroll-snap-align: none !important;
+      padding: 0 !important;
+    }
+    .colorado-bg-img {
+      position: relative !important;
+      top: auto !important; left: auto !important;
+      width: 100% !important;
+      height: 55vw !important;
+      display: block !important;
+    }
+    .card-colorado .text-wrapper {
+      position: relative !important;
+      padding: 24px 20px 32px 20px !important;
+      font-size: 1em !important;
+      margin: 0 !important;
+      max-width: 100% !important;
+    }
+    /* Card 2: normal flow */
+    .card-nasa {
+      min-height: 0 !important;
+      scroll-snap-align: none !important;
+      padding: 24px 20px 60px 20px !important;
+    }
+    .text-wrapper-nasa-bottom {
+      position: relative !important;
+      bottom: auto !important; right: auto !important;
+      display: block !important;
+      max-width: 100% !important;
+      margin-top: 24px !important;
+    }
   }
 </style>
 
