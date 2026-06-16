@@ -121,10 +121,10 @@ redirect_from:
   .card-colorado { background: #000 !important; }
 
   .colorado-bg-img {
-    position: absolute !important;
+    position: fixed !important;
     top: 33vh !important;
     left: 0 !important;
-    width: 100% !important;
+    width: 100vw !important;
     height: 67vh !important;
     object-fit: cover !important;
     object-position: center center !important;
@@ -195,7 +195,7 @@ redirect_from:
 
     .header-name { font-size: 1.5em !important; }
 
-    .colorado-bg-img { top: 0 !important; height: 60vw !important; }
+    .colorado-bg-img { position: absolute !important; top: 0 !important; width: 100% !important; height: 60vw !important; }
 
     .content-card { min-height: auto !important; scroll-snap-align: none !important; }
     .card-colorado .text-wrapper { padding: 24px 20px !important; font-size: 1em !important; margin-bottom: 40px !important; }
@@ -257,6 +257,17 @@ redirect_from:
     }, { threshold: 0.5 }).observe(bgCard);
   }
 
+  // Show/hide Colorado image based on which card is visible (needed because image is position:fixed)
+  var coloradoCard = document.querySelector('.card-colorado');
+  var coloradoImg = document.querySelector('.colorado-bg-img');
+  if (coloradoCard && coloradoImg && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        coloradoImg.style.display = e.isIntersecting ? 'block' : 'none';
+      });
+    }, { threshold: 0.1 }).observe(coloradoCard);
+  }
+
   window.onload = function() {
     var segments1 = [
       { html: '<span class="lead-word">Currently</span>' },
@@ -269,6 +280,7 @@ redirect_from:
     var typingStarted = false, typing2Done = false;
     var bottomBox = document.getElementById('bottom-text-box');
     var secondCard = document.getElementById('typing-card');
+    var firstCard = document.querySelector('.card-colorado');
 
     function typeSegments(segs, elId, curId, onDone) {
       var el = document.getElementById(elId), cur = document.getElementById(curId);
@@ -287,7 +299,10 @@ redirect_from:
     }
 
     function startTyping() {
-      if (typingStarted) { if (typing2Done && bottomBox) bottomBox.style.display = "block"; return; }
+      if (typingStarted) {
+        if (typing2Done && bottomBox) bottomBox.style.display = "block";
+        return;
+      }
       typingStarted = true;
       typeSegments(segments1, "typing-text-1", "typing-cursor-1", function() {
         if (bottomBox) bottomBox.style.display = "block";
@@ -295,13 +310,26 @@ redirect_from:
       });
     }
 
-    if (secondCard && 'IntersectionObserver' in window) {
-      new IntersectionObserver(function(entries) {
-        entries.forEach(function(e) {
-          if (e.isIntersecting) startTyping();
-          else if (bottomBox) bottomBox.style.display = "none";
-        });
-      }, { threshold: 0.4 }).observe(secondCard);
-    } else { startTyping(); if (bottomBox) bottomBox.style.display = "block"; }
+    if ('IntersectionObserver' in window) {
+      // Page 2 entering → start/resume typing, show bottom box
+      if (secondCard) {
+        new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) startTyping();
+          });
+        }, { threshold: 0.4 }).observe(secondCard);
+      }
+      // Page 1 entering → hide bottom box
+      if (firstCard) {
+        new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting && bottomBox) bottomBox.style.display = "none";
+          });
+        }, { threshold: 0.4 }).observe(firstCard);
+      }
+    } else {
+      startTyping();
+      if (bottomBox) bottomBox.style.display = "block";
+    }
   };
 </script>
