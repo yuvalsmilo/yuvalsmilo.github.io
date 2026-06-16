@@ -121,16 +121,20 @@ redirect_from:
   .card-colorado { background: #000 !important; }
 
   .colorado-bg-img {
-    position: absolute !important;
+    position: fixed !important;
     top: 33vh !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    left: 0 !important;
     width: 100vw !important;
     height: 67vh !important;
     object-fit: cover !important;
     object-position: center center !important;
     filter: brightness(0.55) !important;
     z-index: 0 !important;
+  }
+
+  /* Hide colorado image when page 2 is in view */
+  body.page2-active .colorado-bg-img {
+    display: none !important;
   }
 
   .card-colorado .text-wrapper {
@@ -196,7 +200,7 @@ redirect_from:
 
     .header-name { font-size: 1.5em !important; }
 
-    .colorado-bg-img { top: 0 !important; height: 60vw !important; }
+    .colorado-bg-img { position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 60vw !important; transform: none !important; }
 
     .content-card { min-height: auto !important; scroll-snap-align: none !important; }
     .card-colorado .text-wrapper { padding: 24px 20px !important; font-size: 1em !important; margin-bottom: 40px !important; }
@@ -254,7 +258,15 @@ redirect_from:
   var bgCard = document.getElementById('typing-card');
   if (bgCard && 'IntersectionObserver' in window) {
     new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) { e.isIntersecting ? setPage2() : setPage1(); });
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          setPage2();
+          document.body.classList.add('page2-active');
+        } else {
+          setPage1();
+          document.body.classList.remove('page2-active');
+        }
+      });
     }, { threshold: 0.5 }).observe(bgCard);
   }
 
