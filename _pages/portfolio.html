@@ -1,10 +1,18 @@
 ---
 layout: archive
-title: Portfolio
+title: "Active Projects"
 permalink: /portfolio/
-author_profile: true
+author_profile: false
 ---
+
+{% include custom-header.html %}
+
 {% include base_path %}
+
+<div class="page-content-below-header">
+
 {% for post in site.portfolio %}
   {% include archive-single.html %}
 {% endfor %}
+
+</div>
