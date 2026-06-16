@@ -10,15 +10,29 @@ author_profile: false
 <style>
   .page__title { display: none !important; }
 
+  /* Strip every container that could add left offset */
+  #main, #main > *, .page__inner-wrap, .page__content,
+  .archive, .layout--archive, .page, article {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    float: none !important;
+  }
+
   /* ── First project: split layout ── */
   .port-section-1 {
     margin-top: 33vh;
-    margin-left: calc(-50vw + 50%);
     width: 100vw;
+    position: relative;
+    left: 0;
     min-height: 67vh;
     display: flex;
     flex-direction: row;
     background: #fff;
+    overflow: hidden;
   }
 
   .port-s1-image {
@@ -65,9 +79,7 @@ author_profile: false
     margin-bottom: 4px;
   }
 
-  .port-s1-list .hl {
-    color: #D4763B;
-  }
+  .port-s1-list .hl { color: #D4763B; }
 
   /* ── Rest of projects ── */
   .port-list {
