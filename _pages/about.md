@@ -13,7 +13,6 @@ redirect_from:
     padding: 0 !important;
     height: 100% !important;
     overflow-x: hidden !important;
-    scroll-snap-type: y mandatory !important;
     background-color: #000 !important;
     background-size: cover !important;
     background-position: center center !important;
@@ -29,7 +28,6 @@ redirect_from:
     flex-direction: column !important;
     justify-content: flex-end !important;
     align-items: flex-start !important;
-    scroll-snap-align: start !important;
     box-sizing: border-box !important;
     position: relative !important;
     padding: 0 !important;
@@ -125,7 +123,6 @@ redirect_from:
   /* Mobile */
   @media (max-width: 768px) {
     html, body {
-      scroll-snap-type: none !important;
       background-attachment: scroll !important;
       height: auto !important;
       background-color: #000 !important;
@@ -134,7 +131,6 @@ redirect_from:
     .card-colorado {
       display: block !important;
       min-height: 0 !important;
-      scroll-snap-align: none !important;
       padding: 0 !important;
     }
     .colorado-bg-img {
@@ -150,7 +146,6 @@ redirect_from:
     /* Card 2: normal flow */
     .card-nasa {
       min-height: 0 !important;
-      scroll-snap-align: none !important;
       padding: 24px 20px 60px 20px !important;
     }
     .text-wrapper-nasa-bottom {
