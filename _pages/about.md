@@ -99,6 +99,24 @@ redirect_from:
     line-height: 1.6 !important;
   }
 
+  .nasa-credit {
+    display: none;
+    position: fixed !important;
+    bottom: 16px !important;
+    left: 24px !important;
+    color: rgba(255,255,255,0.55) !important;
+    font-size: 0.7em !important;
+    font-style: italic !important;
+    letter-spacing: 0.02em !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+  }
+  body.page2-active .nasa-credit { display: block; }
+
+  @media (max-width: 768px) {
+    .nasa-credit { font-size: 0.65em !important; bottom: 10px !important; left: 14px !important; }
+  }
+
   .lead-word { font-size: 1.6em !important; font-weight: 800 !important; display: inline-block !important; }
 
   .typing-cursor { animation: blink 0.8s step-end infinite; font-weight: bold; color: #ffffff !important; }
@@ -158,6 +176,8 @@ redirect_from:
 <div id="nasa-bg" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:0;
   background: linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)), url('/images/NASA_3.jpeg') center/cover no-repeat;
   pointer-events:none;"></div>
+
+<div class="nasa-credit">photo source: NASA</div>
 
 <div class="content-card card-nasa" id="typing-card" style="position:relative; z-index:1;">
   <div class="text-wrapper-nasa">
