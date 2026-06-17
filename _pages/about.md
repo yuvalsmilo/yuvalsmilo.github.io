@@ -11,13 +11,8 @@ redirect_from:
   html, body {
     margin: 0 !important;
     padding: 0 !important;
-    height: 100% !important;
     overflow-x: hidden !important;
     background-color: #000 !important;
-    background-size: cover !important;
-    background-position: center center !important;
-    background-attachment: fixed !important;
-    background-repeat: no-repeat !important;
   }
 
   /* Scroll-snap cards */
@@ -123,8 +118,6 @@ redirect_from:
   /* Mobile */
   @media (max-width: 768px) {
     html, body {
-      background-attachment: scroll !important;
-      height: auto !important;
       background-color: #000 !important;
     }
     /* Card 1: stack image then text, no fixed/absolute tricks */
