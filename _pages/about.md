@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Overview"
+title: "Yuval Shmilovitz"
 author_profile: false
 redirect_from: 
   - /about/
