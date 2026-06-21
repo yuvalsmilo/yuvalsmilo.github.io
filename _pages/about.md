@@ -106,10 +106,6 @@ redirect_from:
   }
   body.page2-active .nasa-credit { display: block; }
 
-  @media (max-width: 768px) {
-    .nasa-credit { font-size: 0.65em !important; bottom: 10px !important; left: 14px !important; }
-  }
-
   .lead-word { font-size: 1.6em !important; font-weight: 800 !important; display: inline-block !important; }
 
   .typing-cursor { animation: blink 0.8s step-end infinite; font-weight: bold; color: #ffffff !important; }
@@ -117,14 +113,14 @@ redirect_from:
 
   /* Mobile */
   @media (max-width: 768px) {
-    html, body {
-      background-color: #000 !important;
-    }
-    /* Disable all fixed-bg trickery on mobile — just scroll naturally */
+    html, body { background-color: #000 !important; }
+
+    /* Disable all fixed-bg trickery on mobile — scroll naturally */
     #nasa-bg { display: none !important; }
+    .nasa-credit { display: none !important; }
     body.page2-active .colorado-bg-img { display: block !important; }
-    .card-nasa { background: #0a0a14 !important; }
-    /* Card 1: stack image then text, no fixed/absolute tricks */
+
+    /* Card 1: full-height image section */
     .card-colorado {
       display: block !important;
       min-height: 0 !important;
@@ -134,16 +130,19 @@ redirect_from:
       position: relative !important;
       top: auto !important; left: auto !important;
       width: 100% !important;
-      height: 55vw !important;
+      height: 70vw !important;
       display: block !important;
     }
-    .card-colorado .text-wrapper {
-      display: none !important;
-    }
-    /* Card 2: normal flow */
+    .card-colorado .text-wrapper { display: none !important; }
+
+    /* Card 2: dark background, normal flow */
     .card-nasa {
-      min-height: 0 !important;
-      padding: 24px 20px 60px 20px !important;
+      background: #0d0d1a !important;
+      min-height: 60vh !important;
+      padding: 36px 24px 60px 24px !important;
+    }
+    .text-wrapper-nasa {
+      font-size: 1em !important;
     }
     .text-wrapper-nasa-bottom {
       position: relative !important;
@@ -151,6 +150,7 @@ redirect_from:
       display: block !important;
       max-width: 100% !important;
       margin-top: 24px !important;
+      font-size: 1em !important;
     }
   }
 </style>
