@@ -133,11 +133,20 @@ redirect_from:
       height: 70vw !important;
       display: block !important;
     }
-    .card-colorado .text-wrapper { display: none !important; }
+    /* Show research-fields text on mobile */
+    .card-colorado .text-wrapper {
+      display: block !important;
+      padding: 24px 20px 32px 20px !important;
+      font-size: 0.95em !important;
+      margin: 0 !important;
+      max-width: 100% !important;
+      background: #111 !important;
+    }
 
-    /* Card 2: dark background, normal flow */
+    /* Card 2: NASA image as regular background (not fixed) */
     .card-nasa {
-      background: #0d0d1a !important;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                  url('/images/NASA_3.jpeg') center/cover no-repeat !important;
       min-height: 60vh !important;
       padding: 36px 24px 60px 24px !important;
     }
