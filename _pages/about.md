@@ -120,6 +120,10 @@ redirect_from:
     html, body {
       background-color: #000 !important;
     }
+    /* Disable all fixed-bg trickery on mobile — just scroll naturally */
+    #nasa-bg { display: none !important; }
+    body.page2-active .colorado-bg-img { display: block !important; }
+    .card-nasa { background: #0a0a14 !important; }
     /* Card 1: stack image then text, no fixed/absolute tricks */
     .card-colorado {
       display: block !important;
