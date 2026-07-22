@@ -217,7 +217,7 @@ redirect_from:
       { html: '<a href="https://www.geoclash.org/" target="_blank">CLaSH</a>' },
       { text: ", focusing on post-fire sediment transport and hazard cascades." }
     ];
-    var segments2 = [{ text: "My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers and sediment transport in the context of lithological heterogeneity and across mountain ranges." }];
+    var segments2 = [{ text: "My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers in the context of lithological heterogeneity across mountain ranges." }];
 
     var typingStarted = false, typing2Done = false;
     var bottomBox = document.getElementById('bottom-text-box');
