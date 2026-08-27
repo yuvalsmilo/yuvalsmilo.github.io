@@ -83,8 +83,8 @@ redirect_from:
     display: none;
     position: fixed !important;
     bottom: 60px !important;
-    right: 80px !important;
-    left: auto !important;
+    left: 60px !important;
+    right: auto !important;
     text-align: left !important;
     max-width: 550px !important;
     color: #ffffff !important;
