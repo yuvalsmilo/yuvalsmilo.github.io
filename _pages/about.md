@@ -81,10 +81,8 @@ redirect_from:
 
   .text-wrapper-nasa-bottom {
     display: none;
-    position: fixed !important;
-    bottom: 60px !important;
-    left: 60px !important;
-    right: auto !important;
+    position: relative !important;
+    margin-top: 40px !important;
     text-align: left !important;
     max-width: 550px !important;
     color: #ffffff !important;
