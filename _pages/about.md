@@ -108,9 +108,6 @@ redirect_from:
 
   .lead-word { font-size: 1.6em !important; font-weight: 800 !important; display: inline-block !important; }
 
-  .typing-cursor { animation: blink 0.8s step-end infinite; font-weight: bold; color: #ffffff !important; }
-  @keyframes blink { 50% { opacity: 0; } }
-
   /* Mobile */
   @media (max-width: 768px) {
     html, body { background-color: #000 !important; }
@@ -182,10 +179,10 @@ redirect_from:
 
 <div class="content-card card-nasa" id="typing-card" style="position:relative; z-index:1;">
   <div class="text-wrapper-nasa">
-    <span id="typing-text-1"></span><span class="typing-cursor" id="typing-cursor-1">|</span>
+    <span id="typing-text-1"></span>
   </div>
   <div class="text-wrapper-nasa text-wrapper-nasa-bottom" id="bottom-text-box">
-    <span id="typing-text-2"></span><span class="typing-cursor" id="typing-cursor-2" style="display:none">|</span>
+    <span id="typing-text-2"></span>
   </div>
 </div>
 
@@ -211,53 +208,23 @@ redirect_from:
   }
 
   window.addEventListener('load', function() {
-    var segments1 = [
-      { html: '<span class="lead-word">Currently</span>' },
-      { text: ", I am a postdoctoral researcher at INSTAAR and part of " },
-      { html: '<a href="https://www.geoclash.org/" target="_blank">CLaSH</a>' },
-      { text: ", focusing on post-fire sediment transport and hazard cascades." }
-    ];
-    var segments2 = [{ text: "My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers in the context of lithological heterogeneity across mountain ranges." }];
+    var text1El = document.getElementById('typing-text-1');
+    var text2El = document.getElementById('typing-text-2');
+    if (text1El) {
+      text1El.innerHTML = '<span class="lead-word">Currently</span>, I am a postdoctoral researcher at INSTAAR and part of <a href="https://www.geoclash.org/" target="_blank">CLaSH</a>, focusing on post-fire sediment transport and hazard cascades.';
+    }
+    if (text2El) {
+      text2El.textContent = "My other active projects delve deeper into geomorphological time, exploring the evolution of gravel-bed rivers in the context of lithological heterogeneity across mountain ranges.";
+    }
 
-    var typingStarted = false, typing2Done = false;
     var bottomBox = document.getElementById('bottom-text-box');
     var secondCard = document.getElementById('typing-card');
     var firstCard = document.querySelector('.card-colorado');
 
-    function typeSegments(segs, elId, curId, onDone) {
-      var el = document.getElementById(elId), cur = document.getElementById(curId);
-      if (!el) { if (onDone) onDone(); return; }
-      cur.style.display = "inline";
-      var si = 0, ci = 0;
-      function next() {
-        if (si >= segs.length) { cur.style.display = "none"; if (onDone) onDone(); return; }
-        var seg = segs[si];
-        if (seg.html) { el.innerHTML += seg.html; si++; setTimeout(next, 72); return; }
-        el.innerHTML += seg.text.charAt(ci++);
-        if (ci >= seg.text.length) { si++; ci = 0; }
-        setTimeout(next, 72);
-      }
-      next();
-    }
-
-    function startTyping() {
-      if (typingStarted) {
-        if (typing2Done && bottomBox) bottomBox.style.display = "block";
-        return;
-      }
-      typingStarted = true;
-      typeSegments(segments1, "typing-text-1", "typing-cursor-1", function() {
-        if (bottomBox) bottomBox.style.display = "block";
-        typeSegments(segments2, "typing-text-2", "typing-cursor-2", function() {
-          typing2Done = true;
-        });
-      });
-    }
-
     if ('IntersectionObserver' in window) {
       if (secondCard) {
         new IntersectionObserver(function(entries) {
-          entries.forEach(function(e) { if (e.isIntersecting) startTyping(); });
+          entries.forEach(function(e) { if (e.isIntersecting && bottomBox) bottomBox.style.display = "block"; });
         }, { threshold: 0.4 }).observe(secondCard);
       }
       if (firstCard) {
@@ -268,7 +235,6 @@ redirect_from:
         }, { threshold: 0.4 }).observe(firstCard);
       }
     } else {
-      startTyping();
       if (bottomBox) bottomBox.style.display = "block";
     }
   });
